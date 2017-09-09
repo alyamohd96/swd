@@ -9,9 +9,11 @@ public class MainClass {
         String message = input.nextLine();
         System.out.println("Enter the n value:");
         Scanner nValue = new Scanner(System.in);
-        int n = input.nextInt();
+        int n = nValue.nextInt();
 
-        Encrypt messageToEncrypt = new Encrypt(message,n);
+        Encrypt secretMessage = new Encrypt(message,n);
+
+
 
     }
 }
