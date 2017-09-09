@@ -5,6 +5,10 @@ public class Encrypt {
     private int n;
 
     public Encrypt(String message, int n)   {
+        //Validation so that no number or symbols is in the message
+        if (!isAlpha(message))
+            throw new               //throw exception here
+
         this.message = message.toCharArray();
         this.n = n;
     }
@@ -13,8 +17,11 @@ public class Encrypt {
         return message;
     }
 
-    public void setMessage(char[] message) {
-        this.message = message;
+    public void setMessage(String message) {
+        if (!isAlpha(message))
+            throw new               //throw new exception
+        else
+            this.message = message;
     }
 
     public int getN() {
@@ -25,12 +32,25 @@ public class Encrypt {
         this.n = n;
     }
 
+    public static boolean isAlpha(String name) {
+        char[] chars = name.toCharArray();
+
+        for (char c : chars) {
+            if(!Character.isLetter(c) && !(c == ' ')) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     private int[] findAlphabetNumber()  {
         int[] messageAsInt = {};
         int c = 0;
         for (int i:message)
             for (int j=0;j<alphabet.length;j++)
-                if (message[i] == alphabet[j])
+                if (message[i] == ' ')
+                    messageAsInt[c] = 100;
+                else if (message[i] == alphabet[j])
                     messageAsInt[c] = j;
                     c++;
 
