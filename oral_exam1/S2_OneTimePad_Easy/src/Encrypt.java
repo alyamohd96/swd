@@ -58,6 +58,20 @@ public class Encrypt {
     }
 
     private void convertIntToChar(int[] messageInInteger) {
+        for(int i:messageInInteger)
+            if(messageInInteger[i] >= 100)
+                message[i] = ' ';
+            else
+                message[i] = alphabet[messageInInteger[i]];
+    }
 
+    private int[] addNValue(int[] messageAsInt, int n)   {
+        for (int i =0;i<messageAsInt.length;i++) {
+            messageAsInt[i] += n;
+            if (messageAsInt[i] >= 26 && messageAsInt[i] < 100)
+                messageAsInt[i] -= 26;
+        }
+
+        return messageAsInt;
     }
 }
