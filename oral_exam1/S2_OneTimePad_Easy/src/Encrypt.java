@@ -32,14 +32,28 @@ public class Encrypt {
         this.n = n;
     }
 
-    public static boolean isAlpha(String name) {
-        char[] chars = name.toCharArray();
+    /******************************************************
+     * This method validate the message to contain only
+     * alphabets.
+     * @param checkMessage
+     * @return true if contain only alphabets and spaces.
+     *          false if contain besides alphabets
+     ******************************************************/
+    private static boolean isAlpha(String checkMessage) {
+        char[] chars = checkMessage.toCharArray();
 
         for (char c : chars) {
             if(!Character.isLetter(c) && !(c == ' ')) {
                 return false;
             }
         }
+        return true;
+    }
+
+    private static boolean isNValid(int n)  {
+        if (n > 25)
+            return false;
+
         return true;
     }
 
