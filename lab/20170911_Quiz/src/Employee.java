@@ -16,7 +16,6 @@ public class Employee {
         this.hireDate = hireDate;
     }
 
-    public void
 
     // convert Employee to String format
     public String toString() {

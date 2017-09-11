@@ -50,7 +50,6 @@ public class Date {
 
     public void setDay(int day) {
         checkDayInRange(day, month);
-
         this.day = day;
     }
 
