@@ -1,22 +1,29 @@
-// Fig. 8.9: EmployeeTest.java
-// Composition demonstration.
+// Fig. 8.8: Employee.java
+// Employee class with references to other objects.
 
-public class EmployeeTest {
-    public static void main(String[] args) {
-        Date birth = new Date(7, 24, 1949);
-        Date hire = new Date(3, 12, 1988);
-        Employee employee = new Employee("Bob", "Blue", birth, hire);
+public class Employee {
+    private String firstName;
+    private String lastName;
+    private Date birthDate;
+    private Date hireDate;
 
-        System.out.println(employee);
-
-        birth.setDate(11,30,1973);
-        hire.setDate(1,8,1999);
-
-        Employee am = new Employee("Alya","Mohd",birth, hire);
-
-        System.out.println(am);
+    // constructor to initialize name, birth date and hire date
+    public Employee(String firstName, String lastName, Date birthDate,
+                    Date hireDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.hireDate = hireDate;
     }
-} // end class EmployeeTest
+
+    public void
+
+    // convert Employee to String format
+    public String toString() {
+        return String.format("%s, %s  Hired: %s  Birthday: %s",
+                lastName, firstName, hireDate, birthDate);
+    }
+} // end class Employee
 
 
 /**************************************************************************
