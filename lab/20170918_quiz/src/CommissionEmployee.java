@@ -10,15 +10,6 @@ public class CommissionEmployee extends Employee {
         super(socialSecurityNumber, grossSales, commissionRate, firstName, lastName);
         // implicit call to Object's default constructor occurs here
 
-        // if grossSales is invalid throw exception
-        if (grossSales < 0.0)
-            throw new IllegalArgumentException(
-                    "Gross sales must be >= 0.0");
-
-        // if commissionRate is invalid throw exception
-        if (commissionRate <= 0.0 || commissionRate >= 1.0)
-            throw new IllegalArgumentException(
-                    "Commission rate must be > 0.0 and < 1.0");
 
     } // end constructor
 
