@@ -2,19 +2,22 @@ import java.lang.*;
 
 public class EasterDate {
 
-    public Date easterDate;
+    private Date easterDate;
 
-    public EasterDate(Date easterDate) {
-        this.easterDate = easterDate;
+    public EasterDate(int year) {
+        easterDate.setYear(year);
     }
 
-    public EasterDate(int y) {
-        int year = y;
-    }
+    /************************************************************************
+     * Calculate the Easter Date in the year using the
+     * Anonymous Gregorian algorithm based on wikipedia:
+     * https://en.wikipedia.org/wiki/Computus#Anonymous_Gregorian_algorithm
+     * @param y the year to calculate
+     * @return void
+     ************************************************************************/
+    private void calculateEasterDate(int y)  {
 
-
-    private EasterDate calculateEasterDate(int y)  {
-
+        //The algorithm for calculating the Easter Date
         double a = y % 19;
         double b = Math.floor(y/100);
         System.out.println("b is" + b);
@@ -32,5 +35,7 @@ public class EasterDate {
         System.out.println();
         int day = (int) ((h+l-(7*m)+114) % 31) + 1;
 
+        easterDate.setDay(day);
+        easterDate.setMonth(month);
     }
 }
