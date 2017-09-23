@@ -2,7 +2,7 @@ import java.lang.*;
 
 public class EasterDate {
 
-    private Date easterDate;
+    private ;
 
     public EasterDate(int year) {
         easterDate.setYear(year);
