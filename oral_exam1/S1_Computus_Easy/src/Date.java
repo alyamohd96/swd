@@ -1,29 +1,26 @@
-public enum Date {
+public class Date {
 
-    Jan(1),
-    Feb(2),
-    Mar(3),
-    Apr(4),
-    May(5),
-    June(6),
-    July(7),
-    Aug(8),
-    Sept(9),
-    Oct(10),
-    Nov(11),
-    Dec(12);
+    private int month;
+    private int day;
+    private int year;
 
-    private final int month;
-    private final int day;
-    private final int[] MONTH_31_DAYS = {1,3,5,7,8,10,12};
-
-    Date(int month) {
-        this.month = month;
+    public Date(int month, int day, int year) {
+        if(isMonthValid(month) && isDayValid(month, day, year))
+            this.month = month;
+            this.day = day;
+            this.year = year;
     }
 
-    Date(int month, int day)    {
-        this.month = month;
-        this.day = day;
+    public int getMonth() {
+        return month;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public int getYear() {
+        return year;
     }
 
     public static boolean isDayValid(int month, int day, int year)  {
@@ -32,14 +29,19 @@ public enum Date {
         else if(month == 4 || month == 6 || month == 9 || month == 11)
             if (day > 30)
                 return false;
+            else
+                return true;
         else if(month == 2)
-            if (day > 30 || )
-
-
+            if ((day == 29 && !isLeapYear(year)) || day > 29)
+                return false;
+            else
+                return true;
+        else
+            return true;
     }
 
-    public static boolean isMonthValid(int monthInput)  {
-        if (monthInput < 0 || monthInput > 12)
+    public static boolean isMonthValid(int month)  {
+        if (month < 0 || month > 12)
             return false;
         else
             return true;
@@ -54,6 +56,52 @@ public enum Date {
             return false;
         else
             return true;
+    }
+
+    @Override
+    public String toString()    {
+        return
+    }
+
+    public String monthFullName(int month)  {
+        switch (month)  {
+            case 1:
+                return "January";
+                break;
+            case 2:
+                return "February";
+                break;
+            case 3:
+                return "March";
+                break;
+            case 4:
+                return "April";
+                break;
+            case 5:
+                return "May";
+                break;
+            case 6:
+                return "June";
+                break;
+            case 7:
+                return "July";
+                break;
+            case 8:
+                return "August";
+                break;
+            case 9:
+                return "September";
+                break;
+            case 10:
+                return "October";
+                break;
+            case 11:
+                return "November";
+                break;
+            case 12:
+                return "December";
+                break;
+        }
     }
 
 }

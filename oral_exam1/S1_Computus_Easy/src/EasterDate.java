@@ -2,10 +2,9 @@ import java.lang.*;
 
 public class EasterDate {
 
-    private ;
+    private
 
-    public EasterDate(int year) {
-        easterDate.setYear(year);
+    public EasterDate() {
     }
 
     /************************************************************************
@@ -35,7 +34,6 @@ public class EasterDate {
         System.out.println();
         int day = (int) ((h+l-(7*m)+114) % 31) + 1;
 
-        easterDate.setDay(day);
-        easterDate.setMonth(month);
+
     }
 }
