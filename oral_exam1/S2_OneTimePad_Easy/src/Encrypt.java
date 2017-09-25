@@ -21,6 +21,7 @@ public class Encrypt {
         if (!isAlpha(message))
             throw new               //throw new exception
         else
+
             this.message = message;
     }
 
