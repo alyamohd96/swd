@@ -58,11 +58,6 @@ public class Date {
             return true;
     }
 
-    @Override
-    public String toString()    {
-        return
-    }
-
     public String monthFullName(int month)  {
         switch (month)  {
             case 1:
