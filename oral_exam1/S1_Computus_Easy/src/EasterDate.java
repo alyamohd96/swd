@@ -9,6 +9,7 @@ import java.lang.*;
 public class EasterDate {
 
     private Date easterDate;
+    private int[] dateArray;
 
     /**
      * Default no argument constructor
@@ -22,7 +23,7 @@ public class EasterDate {
      * https://en.wikipedia.org/wiki/Computus#Anonymous_Gregorian_algorithm
      * @param y the year we want to find out the easter date for
      */
-    private void calculateEasterDate(int y)  {
+    public void calculateEasterDate(int y)  {
 
         //The algorithm for calculating the Easter Date
         double a = y % 19;
@@ -39,9 +40,17 @@ public class EasterDate {
         double l = (32 + (2*e) + (2*i) - h - k) % 7;
         double m = Math.floor((a+(11*h)+22l)/31);
         int month = (int) Math.floor((h+l-(7*m)+114)/31);
-        System.out.println();
         int day = (int) ((h+l-(7*m)+114) % 31) + 1;
+        easterDate.setMonth(month);
+        easterDate.setDay(day);
+        System.out.println();
 
 
     }
+
+    public calculateEntireCycle()   {
+
+    }
+
+
 }

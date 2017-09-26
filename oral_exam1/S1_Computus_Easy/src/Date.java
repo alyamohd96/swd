@@ -5,10 +5,13 @@ public class Date {
     private int year;
 
     public Date(int month, int day, int year) {
-        if(isMonthValid(month) && isDayValid(month, day, year))
+        if(isMonthValid(month) && isDayValid(month, day, year)) {
             this.month = month;
             this.day = day;
             this.year = year;
+        }
+        else
+            System.out.println("Invalid month or day");     //try with exception
     }
 
     public int getMonth() {
@@ -70,7 +73,14 @@ public class Date {
             return true;
     }
 
-    public String monthFullName(int month)  {
+    /**
+     * private static method that returns the full name of the
+     * month based on the integer input. For example, input 3 in
+     * the method will return a String "March"
+     * @param month
+     * @return String of the month
+     */
+    private static String monthInString(int month)  {
         String monthInString;
         switch (month)  {
             case 1:
@@ -115,6 +125,19 @@ public class Date {
                 break;
         }
         return monthInString;
+    }
+
+    /**
+     * Public toString method that overrides the Object's toString method
+     * @return string in the format month, day, year
+     */
+    @Override
+    public String toString()    {
+        String month = monthInString(this.month);
+        String day = Integer.toString(this.day);
+        String year = Integer.toString(this.year);
+
+        return month + ", " + day + ", " + year;
     }
 
 }
