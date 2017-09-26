@@ -1,9 +1,18 @@
 import java.lang.*;
 
+/**
+ * This EasterDate class is a class that calculates the EasterDate.
+ *
+ *
+ */
+
 public class EasterDate {
 
-    private
+    private Date easterDate;
 
+    /**
+     * Default no argument constructor
+     */
     public EasterDate() {
     }
 
