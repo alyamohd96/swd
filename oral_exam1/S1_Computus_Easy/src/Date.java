@@ -23,6 +23,18 @@ public class Date {
         return year;
     }
 
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
     public static boolean isDayValid(int month, int day, int year)  {
         if (day < 0 || day > 31)
             return false;
@@ -59,44 +71,50 @@ public class Date {
     }
 
     public String monthFullName(int month)  {
+        String monthInString;
         switch (month)  {
             case 1:
-                return "January";
+                monthInString = "January";
                 break;
+
             case 2:
-                return "February";
+                monthInString =  "February";
                 break;
             case 3:
-                return "March";
+                monthInString =  "March";
                 break;
             case 4:
-                return "April";
+                monthInString =  "April";
                 break;
             case 5:
-                return "May";
+                monthInString =  "May";
                 break;
             case 6:
-                return "June";
+                monthInString =  "June";
                 break;
             case 7:
-                return "July";
+                monthInString =  "July";
                 break;
             case 8:
-                return "August";
+                monthInString =  "August";
                 break;
             case 9:
-                return "September";
+                monthInString =  "September";
                 break;
             case 10:
-                return "October";
+                monthInString =  "October";
                 break;
             case 11:
-                return "November";
+                monthInString =  "November";
                 break;
             case 12:
-                return "December";
+                monthInString =  "December";
+                break;
+            default:
+                monthInString =  "Invalid month";
                 break;
         }
+        return monthInString;
     }
 
 }
