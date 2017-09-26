@@ -12,9 +12,11 @@ public class EasterDate {
     private int[] dateArray;
 
     /**
-     * Default no argument constructor
+     * Default constructor with the year as an input
+     * @param year year of the easter date
      */
-    public EasterDate() {
+    public EasterDate(int year) {
+        easterDate.setYear(year);
     }
 
     /**
@@ -48,7 +50,7 @@ public class EasterDate {
 
     }
 
-    public calculateEntireCycle()   {
+    public void calculateEntireCycle()   {
 
     }
 
