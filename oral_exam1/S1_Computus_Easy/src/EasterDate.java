@@ -16,13 +16,12 @@ public class EasterDate {
     public EasterDate() {
     }
 
-    /************************************************************************
+    /**
      * Calculate the Easter Date in the year using the
      * Anonymous Gregorian algorithm based on wikipedia:
      * https://en.wikipedia.org/wiki/Computus#Anonymous_Gregorian_algorithm
-     * @param y the year to calculate
-     * @return void
-     ************************************************************************/
+     * @param y the year we want to find out the easter date for
+     */
     private void calculateEasterDate(int y)  {
 
         //The algorithm for calculating the Easter Date
