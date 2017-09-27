@@ -12,7 +12,6 @@ public class EasterDate {
 
     //class fields
     private Date easterDate;       //stores the easter date in Date type class
-    private int[] dateArray;
     private int[] aprilCount = new int[26];
     private int[] marchCount = new int[10];
     private final Integer aprilEasterDays[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26};
@@ -33,6 +32,7 @@ public class EasterDate {
      * Anonymous Gregorian algorithm based on wikipedia:
      * https://en.wikipedia.org/wiki/Computus#Anonymous_Gregorian_algorithm
      * @param y the year we want to find out the easter date for
+     * @return a integer array of size 2. int[0] stores month and int[1] stores the day
      */
     private static int[] calculateEasterDate(int y)  {
 
@@ -58,14 +58,15 @@ public class EasterDate {
     }
 
     /**
-     *
+     * This method calculates the Easter Date for one entire cycle
+     * which lasts for 5,700,000 years. Then it will print the number
+     * of times Easter lands on a specific date for one cycle.
      */
     public void calculateOneCycle()    {
         int[] resultTemporary = new int[2];
         int index;
         int count = 0;
         int year = 1876;
-        //for(int i=0; i<5700000;i++)
         for (int i = 0; i<5700000; i++)   {
             resultTemporary = calculateEasterDate(year);
             if(resultTemporary[0] == 3) {
@@ -82,7 +83,7 @@ public class EasterDate {
     }
 
     /**
-     *
+     *Prints the number of times Easter lands on a specific date
      */
     private void printDatesOccurrence()  {
         for(int i = 0;i<marchCount.length;i++)
@@ -91,6 +92,11 @@ public class EasterDate {
             System.out.println("April " + aprilEasterDays[i] + " = " + aprilCount[i]);
     }
 
+    /**
+     * toString method that overrides the default toString method from
+     * the Object class.
+     * @return String. The calculated Easter Date in the format month day, year
+     */
     @Override
     public String toString()    {
         return easterDate.toString();
