@@ -1,4 +1,5 @@
 import java.lang.*;
+import java.util.Arrays;
 
 /**
  * This EasterDate class is a class that calculates the EasterDate.
@@ -10,7 +11,11 @@ import java.lang.*;
 public class EasterDate {
 
     private Date easterDate;
-    //private int[] dateArray;
+    private int[] dateArray;
+    private int[] aprilCount = new int[26];
+    private int[] marchCount = new int[10];
+    private final Integer aprilEasterDays[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26};
+    private final Integer marchEasterDays[] = {22,23,24,25,26,27,28,29,30,31};
 
     /**
      * Default constructor with the year as an input.
@@ -48,22 +53,47 @@ public class EasterDate {
         monthDay[0] = (int) Math.floor((h+l-(7*m)+114)/31);
         monthDay[1] = (int) ((h+l-(7*m)+114) % 31) + 1;
 
-        System.out.println(monthDay[0]);
-        System.out.println(monthDay[1]);
-        //easterDate.setMonth(month);
-        //easterDate.setDay(day);
-        //System.out.println(easterDate.toString());
         return monthDay;
     }
 
-    /*
-    private static int[] calculateOneCycle()    {
-        for(i)
-    }*/
+    /**
+     *
+     */
+    public void calculateOneCycle()    {
+        int[] resultTemporary = new int[2];
+        int index;
+        int count = 0;
+        int year = 1876;
+        //for(int i=0; i<5700000;i++)
+        for (int i = 0; i<5700000; i++)   {
+            resultTemporary = calculateEasterDate(year);
+            if(resultTemporary[0] == 3) {
+                index = Arrays.asList(marchEasterDays).indexOf(resultTemporary[1]);
+                marchCount[index]++;
+            }
+            else    {
+                index = Arrays.asList(aprilEasterDays).indexOf(resultTemporary[1]);
+                aprilCount[index]++;
+            }
+            year++;
+        }
+        printDatesOccurrence();
+    }
+
+    /**
+     *
+     */
+    private void printDatesOccurrence()  {
+        for(int i = 0;i<marchCount.length;i++)
+            System.out.println("March " + marchEasterDays[i] + " = " + marchCount[i]);
+        for(int i = 0;i<aprilCount.length;i++)
+            System.out.println("April " + aprilEasterDays[i] + " = " + aprilCount[i]);
+    }
 
     @Override
     public String toString()    {
         return easterDate.toString();
     }
+
 
 }

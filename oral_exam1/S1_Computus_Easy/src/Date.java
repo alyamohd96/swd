@@ -5,7 +5,8 @@ public class Date {
     private int year;
 
     public Date(int year)   {
-        this.year = year;
+        //if(isNumber(String.valueOf(year)))
+            this.year = year;
     }
 
     public Date(int month, int day, int year) {
@@ -43,6 +44,18 @@ public class Date {
     public void setYear(int year) {
         this.year = year;
     }
+
+    /*
+    public static boolean isNumber(String input)    {
+        try {
+            Integer.parseInt(input);
+        }
+        catch(NumberFormatException ex)    {
+            System.out.println("Alphabet and Symbols not accepted");
+            return false;
+        }
+        return true;
+    }*/
 
     public static boolean isDayValid(int month, int day, int year)  {
         if (day < 0 || day > 31)
@@ -143,7 +156,7 @@ public class Date {
         String day = Integer.toString(this.day);
         String year = Integer.toString(this.year);
 
-        return month + day + ", " + year;
+        return month + " " + day + ", " + year;
     }
 
 }
