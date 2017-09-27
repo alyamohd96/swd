@@ -10,6 +10,7 @@ public class TextFieldFrame extends JFrame {
     private final JTextField textField1; // text field with set size
     private final JTextField textField2; // text field with text
     private final JTextField textField3; // text field with text and size
+    private final JTextField textField4;
     private final JPasswordField passwordField; // password field with text
 
     // TextFieldFrame constructor adds JTextFields to JFrame
@@ -29,6 +30,8 @@ public class TextFieldFrame extends JFrame {
         textField3 = new JTextField("Uneditable text field", 21);
         textField3.setEditable(false); // disable editing
         add(textField3); // add textField3 to JFrame
+
+        textField4 = new JTextField("Enter Name Here");
 
         // construct passwordfield with default text
         passwordField = new JPasswordField("Hidden text");
