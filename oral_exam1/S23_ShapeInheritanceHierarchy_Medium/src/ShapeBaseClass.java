@@ -4,6 +4,8 @@ public class ShapeBaseClass {
     private String color;
     private boolean fill;
     private int borderThickness;
+    private int startCoordinates;
+    private int endCoordinates;
 
     public ShapeBaseClass(String name) {
         this.name = name;
