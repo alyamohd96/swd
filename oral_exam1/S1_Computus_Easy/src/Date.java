@@ -4,6 +4,10 @@ public class Date {
     private int day;
     private int year;
 
+    public Date(int year)   {
+        this.year = year;
+    }
+
     public Date(int month, int day, int year) {
         if(isMonthValid(month) && isDayValid(month, day, year)) {
             this.month = month;
@@ -11,7 +15,7 @@ public class Date {
             this.year = year;
         }
         else
-            System.out.println("Invalid month or day");     //try with exception
+            throw new IllegalArgumentException("Date Invalid");
     }
 
     public int getMonth() {
@@ -27,6 +31,8 @@ public class Date {
     }
 
     public void setMonth(int month) {
+        if(!isMonthValid(month))
+            throw new IllegalArgumentException("Month Invalid");
         this.month = month;
     }
 
@@ -56,7 +62,7 @@ public class Date {
     }
 
     public static boolean isMonthValid(int month)  {
-        if (month < 0 || month > 12)
+        if (month < 1 || month > 12)
             return false;
         else
             return true;

@@ -8,8 +8,8 @@ public class MainClass {
         Scanner input = new Scanner(System.in);
         String year = input.next();
         int yearToCalculate = Integer.parseInt(year);
-        //EasterDate easterDate1 = new EasterDate(yearToCalculate);
-        //easterDate1.calculateEasterDate(yearToCalculate);
+        EasterDate easterDate1 = new EasterDate(yearToCalculate);
+        System.out.println(easterDate1.toString());
 
     }
 

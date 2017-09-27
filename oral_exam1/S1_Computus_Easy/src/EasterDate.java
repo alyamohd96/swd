@@ -2,7 +2,8 @@ import java.lang.*;
 
 /**
  * This EasterDate class is a class that calculates the EasterDate.
- *
+ * The fields for this class is easterDate of type Date. It stores the
+ * calculated easterDate
  *
  */
 
@@ -12,12 +13,13 @@ public class EasterDate {
     //private int[] dateArray;
 
     /**
-     * Default constructor with the year as an input
+     * Default constructor with the year as an input.
+     * It calls the
      * @param year year of the easter date
      */
     public EasterDate(int year) {
-        easterDate.setYear(year);
-        calculateEasterDate(year);
+        int[] monthDay = calculateEasterDate(year);
+        easterDate = new Date(monthDay[0],monthDay[1],year);
     }
 
     /**
@@ -31,7 +33,6 @@ public class EasterDate {
         //The algorithm for calculating the Easter Date
         double a = y % 19;
         double b = Math.floor(y/100);
-        System.out.println("b is" + b);
         double c = y % 100;
         double d = Math.floor(b/4);
         double e = b % 4;
@@ -42,15 +43,40 @@ public class EasterDate {
         double k = c % 4;
         double l = (32 + (2*e) + (2*i) - h - k) % 7;
         double m = Math.floor((a+(11*h)+22l)/31);
+
+
+        System.out.println("a is " + a);
+        System.out.println("b is " + b);
+        System.out.println("c is " + c);
+        System.out.println("d is " + d);
+        System.out.println("e is " + e);
+        System.out.println("f is " + f);
+        System.out.println("g is " + g);
+        System.out.println("h is " + h);
+
+        System.out.println(h);
         System.out.println(m);
 
-        int month = (int) Math.floor((h+l-(7*m)+114)/31);
-        int day = (int) ((h+l-(7*m)+114) % 31) + 1;
+        int[] monthDay = new int[2];
+        monthDay[0] = (int) Math.floor((h+l-(7*m)+114)/31);
+        monthDay[1] = (int) ((h+l-(7*m)+114) % 31) + 1;
+
+        System.out.println(monthDay[0]);
+        System.out.println(monthDay[1]);
         //easterDate.setMonth(month);
         //easterDate.setDay(day);
         //System.out.println(easterDate.toString());
-
+        return monthDay;
     }
 
+    /*
+    private static int[] calculateOneCycle()    {
+        for(i)
+    }*/
+
+    @Override
+    public String toString()    {
+        return easterDate.toString();
+    }
 
 }
