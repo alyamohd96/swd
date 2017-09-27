@@ -143,7 +143,7 @@ public class Date {
         String day = Integer.toString(this.day);
         String year = Integer.toString(this.year);
 
-        return month + ", " + day + ", " + year;
+        return month + day + ", " + year;
     }
 
 }

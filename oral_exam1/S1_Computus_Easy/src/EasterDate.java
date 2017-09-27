@@ -44,20 +44,6 @@ public class EasterDate {
         double l = (32 + (2*e) + (2*i) - h - k) % 7;
         double m = Math.floor((a+(11*h)+22l)/451);
 
-
-        System.out.println("a is " + a);
-        System.out.println("b is " + b);
-        System.out.println("c is " + c);
-        System.out.println("d is " + d);
-        System.out.println("e is " + e);
-        System.out.println("f is " + f);
-        System.out.println("g is " + g);
-        System.out.println("h is " + h);
-        System.out.println("i is " + i);
-        System.out.println("k is " + k);
-        System.out.println("l is " + l);
-        System.out.println("m is " + m);
-
         int[] monthDay = new int[2];
         monthDay[0] = (int) Math.floor((h+l-(7*m)+114)/31);
         monthDay[1] = (int) ((h+l-(7*m)+114) % 31) + 1;
