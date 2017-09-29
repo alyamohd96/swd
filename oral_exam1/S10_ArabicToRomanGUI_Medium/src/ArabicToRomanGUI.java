@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ArabicToRomanGUI extends JFrame {
 
@@ -21,6 +23,17 @@ public class ArabicToRomanGUI extends JFrame {
         add(label2);
         arabicNumber = new JTextField(30);
         add(arabicNumber);
+
+        ArabicToRomanHandler handler = new ArabicToRomanHandler();
+
+    }
+
+    private class ArabicRomanHandler implements ActionListener  {
+
+        @Override
+        public void actionPerformed(ActionEvent event)  {
+
+        }
 
     }
 
