@@ -45,6 +45,7 @@ public class TextFieldFrame extends JFrame {
         textField2.addActionListener(handler);
         textField3.addActionListener(handler);
         passwordField.addActionListener(handler);
+        textField4.addActionListener(handler);
     } // end TextFieldFrame constructor
 
     // private inner class for event handling
@@ -71,6 +72,10 @@ public class TextFieldFrame extends JFrame {
                 // user pressed Enter in JTextField passwordField
             else if (event.getSource() == passwordField)
                 string = String.format("passwordField: %s",
+                        event.getActionCommand());
+
+            else if (event.getSource() == textField4)
+                string = String.format("textField4: %s",
                         event.getActionCommand());
 
             // display JTextField content
