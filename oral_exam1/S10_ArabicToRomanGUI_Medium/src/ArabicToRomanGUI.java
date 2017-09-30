@@ -38,33 +38,42 @@ public class ArabicToRomanGUI extends JFrame {
     }
 
     /**
-     * http://bcbutler.com/Java_Tuts/java_roman_numeral_converter_GUI.php
-     * @param romanNumber
+     * http://math.hws.edu/eck/cs124/javanotes3/c9/ex-9-3-answer.html
+     * @param roman
      * @return
      */
-    private int romanToArabic(String romanNumber) {
-        int arabicNumber = 0;
-        int length = romanNumber.length();
-        int currentLetter = 0;
-        int nextLetter = 0;
+    private int romanToArabic(String roman) {
+        int i = 0;       // A position in the string, roman;
+        int arabic = 0;  // Arabic numeral equivalent of the part of the string that has
+        //    been converted so far.
 
-        while (currentLetter <= length) {
-            char letter = romanNumber.charAt(currentLetter);
-            int number = letterToNumber(letter);
-            currentLetter++;
-            if (currentLetter == length) {
-                arabicNumber += number;
-            } else {
-                nextLetter = letterToNumber(romanNumber.charAt(currentLetter));
-                if (nextLetter > currentLetter) {
-                    arabicNumber += (nextLetter - currentLetter);
-                    currentLetter++;
-                } else {
-                    arabicNumber += currentLetter;
+        while (i < roman.length()) {
+            char letter = roman.charAt(i);          // Letter at current position in string.
+            int number = letterToNumber(letter);    // Numerical equivalent of letter.
+            i++;                                    // Move on to next position in the string
+
+            if (i == roman.length()) {
+                // There is no letter in the string following the one we have just processed.
+                // So just add the number corresponding to the single letter to arabic.
+                arabic += number;
+            }
+            else {
+                // Look at the next letter in the string.  If it has a larger Roman numeral
+                // equivalent than number, then the two letters are counted together as
+                // a Roman numeral with value (nextNumber - number).
+                int nextNumber = letterToNumber(roman.charAt(i));
+                if (nextNumber > number) {
+                    // Combine the two letters to get one value, and move on to next position in string.
+                    arabic += (nextNumber - number);
+                    i++;
+                }
+                else {
+                    // Don't combine the letters.  Just add the value of the one letter onto the number.
+                    arabic += number;
                 }
             }
-        }
-        return arabicNumber;
+        }  // end while
+        return arabic;
     }
 
     /**
