@@ -1,16 +1,19 @@
 public class Encrypt {
 
-    final static char alphabet[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+    private final static char alphabet[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
     private char[] message;
+    private int[] messageInInt;
     private int n;
 
     public Encrypt(String message, int n)   {
         //Validation so that no number or symbols is in the message
         if (!isAlpha(message))
-            throw new               //throw exception here
-
-        this.message = message.toCharArray();
-        this.n = n;
+            throw new IllegalArgumentException("Only alphabets are allowed");          //throw exception here
+        else
+            this.n = n;
+            this.messageInInt = findAlphabetNumber(message.toCharArray());
+            this.messageInInt = addNValue(messageInInt, n);
+            this.message = convertIntToChar(messageInInt);
     }
 
     public char[] getMessage() {
@@ -19,10 +22,9 @@ public class Encrypt {
 
     public void setMessage(String message) {
         if (!isAlpha(message))
-            throw new               //throw new exception
+            throw new IllegalArgumentException("Only alphabets are allowed");               //throw new exception
         else
-
-            this.message = message;
+            this.message = message.toCharArray();
     }
 
     public int getN() {
@@ -51,14 +53,14 @@ public class Encrypt {
         return true;
     }
 
+    /*
     private static boolean isNValid(int n)  {
         if (n > 25)
             return false;
-
         return true;
-    }
+    }*/
 
-    private int[] findAlphabetNumber()  {
+    private static int[] findAlphabetNumber(char[] message)  {
         int[] messageAsInt = {};
         int c = 0;
         for (int i:message)
@@ -72,15 +74,19 @@ public class Encrypt {
         return messageAsInt;
     }
 
-    private void convertIntToChar(int[] messageInInteger) {
+    private static char[] convertIntToChar(int[] messageInInteger) {
+        char[] convertedMessage = {};
         for(int i:messageInInteger)
             if(messageInInteger[i] >= 100)
-                message[i] = ' ';
+                convertedMessage[i] = ' ';
             else
-                message[i] = alphabet[messageInInteger[i]];
+                convertedMessage[i] = alphabet[messageInInteger[i]];
+
+        return convertedMessage;
     }
 
-    private int[] addNValue(int[] messageAsInt, int n)   {
+
+    private static int[] addNValue(int[] messageAsInt, int n)   {
         for (int i =0;i<messageAsInt.length;i++) {
             messageAsInt[i] += n;
             if (messageAsInt[i] >= 26 && messageAsInt[i] < 100)
@@ -88,5 +94,10 @@ public class Encrypt {
         }
 
         return messageAsInt;
+    }
+
+    @Override
+    public String toString()    {
+        return new String(message);
     }
 }
