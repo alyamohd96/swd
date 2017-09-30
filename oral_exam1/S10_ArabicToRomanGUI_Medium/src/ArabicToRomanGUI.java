@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class ArabicToRomanGUI extends JFrame {
 
@@ -31,23 +33,75 @@ public class ArabicToRomanGUI extends JFrame {
         arabicNumber.setFont(defaultFont);
         add(arabicNumber);
 
-        //ArabicToRomanHandler handler = new ArabicToRomanHandler();
-        //romanNumber.addActionListener(handler);
+        ArabicToRomanHandler handler = new ArabicToRomanHandler();
+        romanNumber.addActionListener(handler);
 
     }
 
+    /**
+     * http://bcbutler.com/Java_Tuts/java_roman_numeral_converter_GUI.php
+     * @param romanNumber
+     * @return
+     */
+    private int romanToArabic(String romanNumber) {
+        int arabicNumber = 0;
+        int length = romanNumber.length();
+        int currentLetter = 0;
+        int nextLetter = 0;
 
-    private int RomanToArabic(int romanNumber)  {
-
+        while (currentLetter <= length) {
+            char letter = romanNumber.charAt(currentLetter);
+            int number = letterToNumber(letter);
+            currentLetter++;
+            if (currentLetter == length) {
+                arabicNumber += number;
+            } else {
+                nextLetter = letterToNumber(romanNumber.charAt(currentLetter));
+                if (nextLetter > currentLetter) {
+                    arabicNumber += (nextLetter - currentLetter);
+                    currentLetter++;
+                } else {
+                    arabicNumber += currentLetter;
+                }
+            }
+        }
+        return arabicNumber;
     }
 
-    private class ArabicToRomanHandler implements ActionListener  {
+    /**
+     * http://bcbutler.com/Java_Tuts/java_roman_numeral_converter_GUI.php
+     * @param letter
+     * @return
+     */
+    private int letterToNumber(char letter) {
+        switch(letter)  {
+            case 'I':
+                return 1;
+            case 'V':
+                return  5;
+            case 'X':
+                return 10;
+            case 'L':
+                return 50;
+            case 'C':
+                return 100;
+            case 'D':
+                return 500;
+            case 'M':
+                return 1000;
+            default:
+                return -1;
+        }
+    }
+
+    private class ArabicToRomanHandler implements ActionListener {
 
         @Override
-        public void actionPerformed(ActionEvent event)  {
+        public void actionPerformed(ActionEvent event) {
             if(event.getSource() == romanNumber)
 
         }
+
 
     }
 
