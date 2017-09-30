@@ -25,14 +25,20 @@ public class ArabicToRomanGUI extends JFrame {
         add(arabicNumber);
 
         ArabicToRomanHandler handler = new ArabicToRomanHandler();
+        romanNumber.addActionListener(handler);
 
     }
 
-    private class ArabicRomanHandler implements ActionListener  {
+    private int RomanToArabic(int romanNumber)  {
+
+    }
+
+    private class ArabicToRomanHandler implements ActionListener  {
 
         @Override
         public void actionPerformed(ActionEvent event)  {
-
+            if(event.getSource() == romanNumber)
+                
         }
 
     }
