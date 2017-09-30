@@ -2,8 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+
 
 public class ArabicToRomanGUI extends JFrame {
 
@@ -98,10 +97,13 @@ public class ArabicToRomanGUI extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent event) {
+            String romanToConvert = new String();
             if(event.getSource() == romanNumber)
-
+                romanToConvert = romanNumber.getText();
+                int arabic = romanToArabic(romanToConvert);
+                String arabicNumString = Integer.toString(arabic);
+                arabicNumber.setText(arabicNumString);
         }
-
 
     }
 
