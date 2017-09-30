@@ -15,7 +15,6 @@ public class ArabicToRomanGUI extends JFrame {
     public ArabicToRomanGUI()   {
         super("Arabic To Roman");
         setLayout(new GridLayout(2,2));
-
         defaultFont = new Font("Trebuchet MS", Font.PLAIN, 30);
 
         label1 = new JLabel("Roman Number:");
