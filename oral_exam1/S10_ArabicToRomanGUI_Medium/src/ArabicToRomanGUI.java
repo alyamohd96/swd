@@ -1,8 +1,13 @@
+/**
+ * This ArabicToRomanGUI class is the GUI component of the HangmanGUI program.
+ * The class inherits the JFrame class to construct the GUI. The class also
+ * has an private inner class for handling events.
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 
 public class ArabicToRomanGUI extends JFrame {
 
@@ -12,6 +17,10 @@ public class ArabicToRomanGUI extends JFrame {
     private final JTextField arabicNumber;
     private final Font defaultFont;
 
+    /**
+     * The constructor for the class. The constructor adds the JLabel
+     * and the JTextField to the JFrame.
+     */
     public ArabicToRomanGUI()   {
         super("Arabic To Roman");
         setLayout(new GridLayout(2,2));
@@ -37,9 +46,11 @@ public class ArabicToRomanGUI extends JFrame {
     }
 
     /**
+     * This function converts the roman numerals to the arabic numerals.
+     * The funtion is taken from the following website:
      * http://math.hws.edu/eck/cs124/javanotes3/c9/ex-9-3-answer.html
-     * @param roman
-     * @return
+     * @param roman the roman numberal to be converted
+     * @return the number in arabic
      */
     private int romanToArabic(String roman) {
         int i = 0;       // A position in the string, roman;
@@ -76,9 +87,11 @@ public class ArabicToRomanGUI extends JFrame {
     }
 
     /**
+     * This function finds the number that corresponds to the roman numeral.
+     * It is taken from this website:
      * http://bcbutler.com/Java_Tuts/java_roman_numeral_converter_GUI.php
-     * @param letter
-     * @return
+     * @param letter the roman letter
+     * @return the number in arabic
      */
     private int letterToNumber(char letter) {
         switch(letter)  {
@@ -101,6 +114,10 @@ public class ArabicToRomanGUI extends JFrame {
         }
     }
 
+    /**
+     * This inner class is the handler class for this GUI. The class
+     * is a private class that implements the interface ActionListener
+     */
     private class ArabicToRomanHandler implements ActionListener {
 
         @Override

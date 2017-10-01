@@ -1,3 +1,7 @@
+/**
+ * This HangmanGUI class is the class
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -5,6 +9,7 @@ import java.awt.event.ActionListener;
 
 public class HangmanGUI extends JFrame {
 
+    //instance variables for the GUI
     private final JLabel label1;
     private final JLabel label2;
     private final JPasswordField secretWord;
@@ -13,6 +18,9 @@ public class HangmanGUI extends JFrame {
     private final JLabel label4;
     private final JTextField textField2;
     private final Font defaultFont;
+
+    //instance variables for Hangman game
+    private final String wordToBeGuessed;
 
     public HangmanGUI() {
         super("Hangman");
@@ -63,6 +71,16 @@ public class HangmanGUI extends JFrame {
         secretWord.addActionListener(handler);
     }
 
+    private boolean checkLetters(char letter, String word)   {
+        char[] wordCharArray = word.toCharArray();
+        for (char c: wordCharArray) {
+            if (c == letter)
+                return true;
+        }
+        return false;
+    }
+
+    private int
 
     private class HangmanHandler implements ActionListener  {
 
