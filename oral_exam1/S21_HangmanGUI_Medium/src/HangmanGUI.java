@@ -9,7 +9,9 @@ public class HangmanGUI extends JFrame {
     private final JLabel label2;
     private final JPasswordField secretWord;
     private final JLabel label3;
+    private final JTextField textField1;
     private final JLabel label4;
+    private final JTextField textField2;
     private final Font defaultFont;
 
     public HangmanGUI() {
@@ -20,8 +22,10 @@ public class HangmanGUI extends JFrame {
         label1 = new JLabel("Welcome to Hangman!");
         label2 = new JLabel("Insert secret word:");
         secretWord = new JPasswordField(30);
-        label3 = new JLabel("Enter your guess by letter here:");
+        label3 = new JLabel("Enter your guess here:");
+        textField1 = new JTextField();
         label4 = new JLabel("Number of guesses left:");
+        textField2 = new JTextField("6");
 
         label1.setHorizontalTextPosition(SwingConstants.CENTER);
         label1.setVerticalAlignment(SwingConstants.TOP);
@@ -35,6 +39,25 @@ public class HangmanGUI extends JFrame {
 
         secretWord.setFont(defaultFont);
         add(secretWord);
+
+        label3.setHorizontalAlignment(SwingConstants.LEFT);
+        label3.setVerticalAlignment(SwingConstants.CENTER);
+        label3.setFont(defaultFont);
+        add(label3);
+
+        textField1.setHorizontalAlignment(SwingConstants.LEFT);
+        textField1.setFont(defaultFont);
+        add(textField1);
+
+        label4.setHorizontalAlignment(SwingConstants.LEFT);
+        label4.setVerticalAlignment(SwingConstants.CENTER);
+        label4.setFont(defaultFont);
+        add(label4);
+
+        textField2.setHorizontalAlignment(SwingConstants.LEFT);
+        textField2.setFont(defaultFont);
+        textField2.setEditable(false);
+        add(textField2);
 
         HangmanHandler handler = new HangmanHandler();
         secretWord.addActionListener(handler);

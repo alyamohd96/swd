@@ -11,7 +11,8 @@ public class Encrypt {
             throw new IllegalArgumentException("Only alphabets are allowed");          //throw exception here
         else
             this.n = n;
-            this.messageInInt = findAlphabetNumber(message.toCharArray());
+            message = message.toUpperCase();
+            this.messageInInt = getAlphabetIndex(message);
             this.messageInInt = addNValue(messageInInt, n);
             this.message = convertIntToChar(messageInInt);
     }
@@ -58,20 +59,37 @@ public class Encrypt {
         if (n > 25)
             return false;
         return true;
-    }*/
+    }
 
-    private static int[] findAlphabetNumber(char[] message)  {
+    private static int[] findAlphabetNumber(String message)  {
         int[] messageAsInt = {};
         int c = 0;
-        for (int i:message)
-            for (int j=0;j<alphabet.length;j++)
-                if (message[i] == ' ')
-                    messageAsInt[c] = 100;
-                else if (message[i] == alphabet[j])
-                    messageAsInt[c] = j;
-                    c++;
+        int index = 0;
+        for (int i = 0; i < alphabet.length; i++)
+            index = message.indexOf(alphabet[i]);
 
         return messageAsInt;
+    }*/
+
+    private static int[] getAlphabetIndex(String message)   {
+        char[] messageCharArray  = message.toCharArray();
+        int i = 0;
+        int[] messageInInt = new int[messageCharArray.length];
+        for(char c : messageCharArray)
+        {
+            int temp = (int)c;
+            int temp_integer = 64; //for upper case
+            if(temp>=65 && temp<=90) {
+                messageInInt[i] = temp - temp_integer;
+                //System.out.print(temp - temp_integer + " ");
+            }
+            else {
+                messageInInt[i] = 32;
+                //System.out.println(" space ");
+            }
+            i++;
+        }
+        return messageInInt;
     }
 
     private static char[] convertIntToChar(int[] messageInInteger) {
