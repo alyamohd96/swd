@@ -35,6 +35,8 @@ public class HangmanGUI extends JFrame {
         label4 = new JLabel("Number of guesses left:");
         textField2 = new JTextField("6");
 
+        wordToBeGuessed = new String();
+
         label1.setHorizontalTextPosition(SwingConstants.CENTER);
         label1.setVerticalAlignment(SwingConstants.TOP);
         label1.setFont(new Font("Trebuchet MS", Font.BOLD, 36));
@@ -80,7 +82,10 @@ public class HangmanGUI extends JFrame {
         return false;
     }
 
-    private int
+    /*private String getIndex(char letter, String word)  {
+        char[] wordCharArray = word.toCharArray();
+
+    }*/
 
     private class HangmanHandler implements ActionListener  {
 
