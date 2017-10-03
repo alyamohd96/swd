@@ -40,7 +40,7 @@ public class HangmanGUI extends JFrame {
         label3 = new JLabel("Enter your guess here:");
         textField1 = new JTextField();
         label4 = new JLabel("Number of guesses left:");
-        textField2 = new JTextField("6");
+        textField2 = new JTextField();
         label6 = new JLabel("Letters guessed:");
         label7 = new JLabel();
 
@@ -109,7 +109,6 @@ public class HangmanGUI extends JFrame {
     }
 
 
-
     /*
     private boolean checkLetters(char letter, String word)   {
         char[] wordCharArray = word.toCharArray();
@@ -139,16 +138,17 @@ public class HangmanGUI extends JFrame {
                 secretWord.setEditable(false);
                 wordToBeGuessed = new String();
                 wordToBeGuessed = secretWord.getText();
+                wordToBeGuessed = wordToBeGuessed.toUpperCase();
                 output = new char[wordToBeGuessed.length()];
 
                 for(int i = 0; i < wordToBeGuessed.length();i++)
-                    output[i] = '_';
+                    output[i] = '*';
 
-                numOfGuessesLeft = 0;
+                numOfGuessesLeft = 6;
                 exposed = 0;
 
-                label5.setText(output.toString());
-
+                label5.setText(outputString(output));
+                textField2.setText(Integer.toString(numOfGuessesLeft));
             }
         }
     }
