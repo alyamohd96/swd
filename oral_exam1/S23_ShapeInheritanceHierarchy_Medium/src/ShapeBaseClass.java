@@ -43,4 +43,19 @@ public class ShapeBaseClass {
         this.borderThickness = borderThickness;
     }
 
+    public int getStartCoordinates() {
+        return startCoordinates;
+    }
+
+    public void setStartCoordinates(int startCoordinates) {
+        this.startCoordinates = startCoordinates;
+    }
+
+    public int getEndCoordinates() {
+        return endCoordinates;
+    }
+
+    public void setEndCoordinates(int endCoordinates) {
+        this.endCoordinates = endCoordinates;
+    }
 }
