@@ -1,5 +1,3 @@
-import com.sun.javafx.fxml.builder.TriangleMeshBuilder;
-
 public class Triangle extends TwoDimensionalShapes {
 
     private double sideA;
