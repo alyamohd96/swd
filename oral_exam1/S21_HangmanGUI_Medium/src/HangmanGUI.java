@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class HangmanGUI extends JFrame {
 
@@ -27,6 +29,7 @@ public class HangmanGUI extends JFrame {
     private char[] output;
     private int numOfGuessesLeft;
     private int exposed;
+    private char[] lettersGuessed;
 
     public HangmanGUI() {
         super("Hangman");
@@ -98,7 +101,32 @@ public class HangmanGUI extends JFrame {
         add(textField2);
 
         HangmanHandler handler = new HangmanHandler();
-        secretWord.addActionListener(handler);
+        textField1.addKeyListener(handler);
+        secretWord.addActionListener(
+                //anonymous inner class for secretWord JTextField
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        secretWord.setEditable(false);
+                        wordToBeGuessed = new String();
+                        wordToBeGuessed = secretWord.getText();
+                        wordToBeGuessed = wordToBeGuessed.toUpperCase();
+                        output = new char[wordToBeGuessed.length()];
+                        lettersGuessed = new char[6];
+
+                        for(int i = 0; i < wordToBeGuessed.length();i++)
+                            output[i] = '*';
+
+                        numOfGuessesLeft = 6;
+                        exposed = 0;
+
+                        label5.setText(outputString(output));
+                        textField2.setText(Integer.toString(numOfGuessesLeft));
+                    }
+                }
+        );
+
+
     }
 
 /*
@@ -129,26 +157,28 @@ public class HangmanGUI extends JFrame {
         return outputInString;
     }
 
-    private class HangmanHandler implements ActionListener  {
-
+    private class HangmanHandler extends KeyAdapter{
         @Override
-        public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == secretWord)    {
-
-                secretWord.setEditable(false);
-                wordToBeGuessed = new String();
-                wordToBeGuessed = secretWord.getText();
-                wordToBeGuessed = wordToBeGuessed.toUpperCase();
-                output = new char[wordToBeGuessed.length()];
-
-                for(int i = 0; i < wordToBeGuessed.length();i++)
-                    output[i] = '*';
-
-                numOfGuessesLeft = 6;
-                exposed = 0;
-
+        public void keyTyped(KeyEvent e) {
+            //super.keyTyped(e);
+            numOfGuessesLeft++;
+            char inputLetter = e.getKeyChar();
+            lettersGuessed[exposed] = inputLetter;
+            label7.setText(String.valueOf(lettersGuessed[exposed]));
+            if(numOfGuessesLeft != 0) {
+                for (int i = 0; i < wordToBeGuessed.length(); i++) {
+                    if ((inputLetter == wordToBeGuessed.charAt(i)) && (output[i] == '*'))
+                        output[i] = wordToBeGuessed.charAt(i);
+                    exposed++;
+                }
                 label5.setText(outputString(output));
-                textField2.setText(Integer.toString(numOfGuessesLeft));
+            }
+            else {
+                if (exposed == output.length) {
+                    JOptionPane.showMessageDialog(HangmanGUI.this, String.format("You win!"));
+                } else {
+                    JOptionPane.showMessageDialog(HangmanGUI.this, String.format("You lose!"));
+                }
             }
         }
     }
