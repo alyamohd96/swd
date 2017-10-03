@@ -11,9 +11,7 @@ public class Rectangle extends TwoDimensionalShapes{
     }
 
     public Rectangle(String name, int dimX, int dimY)   {
-        super(name);
-        this.dimX = dimX;
-        this.dimY = dimY;
+        super(name, dimX, dimY);
         this.perimeter = calculatePerimeter(dimX,dimY);
         this.area = calculateArea(dimX,dimY);
     }

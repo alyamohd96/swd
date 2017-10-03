@@ -10,8 +10,7 @@ public class Circle extends TwoDimensionalShapes {
     }
 
     public Circle(String name, double radius)   {
-        super(name);
-        this.dimX = this.dimY = (int) radius;
+        super(name, (int) radius, (int) radius);
         this.radius = radius;
         this.perimeter = calculatePerimeter(radius);
         this.area = calculateArea(radius);
