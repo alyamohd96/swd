@@ -1,7 +1,7 @@
 public class TwoDimensionalShapes extends ShapeBaseClass {
 
-    protected int dimX;
-    protected int dimY;
+    private int dimX;
+    private int dimY;
 
     public TwoDimensionalShapes(String name)   {
         super(name);
