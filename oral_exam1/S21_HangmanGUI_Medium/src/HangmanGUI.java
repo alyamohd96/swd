@@ -23,9 +23,10 @@ public class HangmanGUI extends JFrame {
     private final JLabel label7;
 
     //instance variables for Hangman game
-    private final String wordToBeGuessed;
-    private String output;
+    private String wordToBeGuessed;
+    private char[] output;
     private int numOfGuessesLeft;
+    private int exposed;
 
     public HangmanGUI() {
         super("Hangman");
@@ -43,9 +44,6 @@ public class HangmanGUI extends JFrame {
         label6 = new JLabel("Letters guessed:");
         label7 = new JLabel();
 
-        //instantiation of instance fields
-        wordToBeGuessed = new String();
-        output = new String();
 
         //Welcome To Hangman Label
         label1.setVerticalAlignment(SwingConstants.CENTER);
@@ -104,12 +102,14 @@ public class HangmanGUI extends JFrame {
         secretWord.addActionListener(handler);
     }
 
-/*
-    private void checkLetters(String inputLetter)   {
-        for (int i = 0; i < wordToBeGuessed.length(); i++)  {
 
+    private void checkLetters(char inputLetter)   {
+        for (int i = 0; i < wordToBeGuessed.length(); i++)  {
+            if((inputLetter == wordToBeGuessed.charAt(i)) && (output[i] == '_'))
         }
     }
+
+
 
     /*
     private boolean checkLetters(char letter, String word)   {
@@ -131,8 +131,17 @@ public class HangmanGUI extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == secretWord)    {
+
                 secretWord.setEditable(false);
+                wordToBeGuessed = new String();
                 wordToBeGuessed = secretWord.getText();
+                output = new char[wordToBeGuessed.length()];
+
+                for(int i = 0; i < wordToBeGuessed.length();i++)
+                    output[i] = '_';
+
+                numOfGuessesLeft = 0;
+                exposed = 0;
 
             }
         }
