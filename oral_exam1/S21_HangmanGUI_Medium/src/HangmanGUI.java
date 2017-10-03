@@ -34,8 +34,8 @@ public class HangmanGUI extends JFrame {
         defaultFont = new Font("Trebuchet MS", Font.PLAIN, 30);
 
         label1 = new JLabel("Welcome to Hangman!");
-        label2 = new JLabel("Insert secret word:");
         label5 = new JLabel("Secret word will be displayed here");
+        label2 = new JLabel("Insert secret word:");
         secretWord = new JPasswordField(30);
         label3 = new JLabel("Enter your guess here:");
         textField1 = new JTextField();
@@ -43,7 +43,6 @@ public class HangmanGUI extends JFrame {
         textField2 = new JTextField("6");
         label6 = new JLabel("Letters guessed:");
         label7 = new JLabel();
-
 
         //Welcome To Hangman Label
         label1.setVerticalAlignment(SwingConstants.CENTER);
@@ -102,7 +101,7 @@ public class HangmanGUI extends JFrame {
         secretWord.addActionListener(handler);
     }
 
-
+/*
     private void checkLetters(char inputLetter)   {
         for (int i = 0; i < wordToBeGuessed.length(); i++)  {
             if((inputLetter == wordToBeGuessed.charAt(i)) && (output[i] == '_'))
@@ -126,6 +125,11 @@ public class HangmanGUI extends JFrame {
 
     }*/
 
+    private String outputString(char[] output)   {
+        String outputInString = new String(output);
+        return outputInString;
+    }
+
     private class HangmanHandler implements ActionListener  {
 
         @Override
@@ -142,6 +146,8 @@ public class HangmanGUI extends JFrame {
 
                 numOfGuessesLeft = 0;
                 exposed = 0;
+
+                label5.setText(output.toString());
 
             }
         }
