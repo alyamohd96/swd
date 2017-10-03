@@ -2,53 +2,53 @@ import java.util.Scanner;
 
 public class tests {
 
-    public static void main(String[] args)  {
-        /*System.out.println("Input:");
-        Scanner input = new Scanner(System.in);
-        String inputAsString = input.nextLine();
-        System.out.println("input as string:" + inputAsString);
-        char[] inputAsChar = inputAsString.toCharArray();
-        System.out.println("Input as char array:"+ new String(inputAsChar));
+        // return # of times user missed
+        public static int guessWord (String word){
+            int missed = 0;
+            Scanner keyboard = new Scanner(System.in);
+            int len = word.length();
+            char output[] = new char[len];
+            int exposed = 0;
 
-        char alphabet[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-
-        char[] space = {'a','b','D','e',' '};
-        System.out.println("Test" + new String(space) + "if space works");
-        String test = "ALL UPPERCASE";
-        boolean canOrNot = isAlpha(test);
-        System.out.print(canOrNot);*/
-
-        String str = "MEET ME AT THREE";
-        char[] ch  = str.toCharArray();
-        int i = 0;
-        int[] strInInt = new int[ch.length];
-        for(char c : ch)
-        {
-            int temp = (int)c;
-            int temp_integer = 64; //for upper case
-            if(temp>=65 && temp<=90) {
-                strInInt[i] = temp - temp_integer;
-                System.out.print(temp - temp_integer + " ");
+            for (int i = 0; i < len; i++) {
+                output[i] = '*';
             }
-            else {
-                strInInt[i] = 32;
-                System.out.println(" space ");
+
+            while (exposed < len) {
+                System.out.print("Guess the letters in ");
+                for (int i = 0; i < len; i++)
+                    System.out.print(output[i]);
+                System.out.print(": ");
+
+                // get one letter input from user
+                char input = keyboard.next().charAt(0);
+
+                boolean matched = false;
+                for (int i = 0; i < len; i++) {
+                    // input matches a letter in word,
+                    // also it is not exposed yet.
+                    if ((input == word.charAt(i)) && (output[i] == '*')) {
+                        output[i] = word.charAt(i);
+                        exposed++;
+                        matched = true;
+                    }
+                }
+                if (!matched)
+                    missed++;
             }
-            i++;
-        }
-    }
-
-
-    public static boolean isAlpha(String name) {
-        char[] chars = name.toCharArray();
-
-        for (char c : chars) {
-            if(!Character.isLetter(c) && !(c == ' ')) {
-                return false;
-            }
+            System.out.println("Good job! Word is \"" + word + "\"");
+            return missed;
         }
 
-        return true;
+        /**
+         * @param args the command line arguments
+         */
 
+    public static void main(String[] args) {
+        // TODO code application logic here
+        System.out.println("You missed " + guessWord("different") +
+                " times to guess different.");
     }
 }
+
+
