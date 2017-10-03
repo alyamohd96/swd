@@ -4,6 +4,8 @@ public class MainClass {
 
         ShapeBaseClass baseShape = new ShapeBaseClass("general shape", 3,2,7,8);
         System.out.print("Base Shape class created with name " + baseShape.getName() + " starting at " + baseShape.getStartXCoordinates() + ","
-                + baseShape.getStartYCoordinates());
+                + baseShape.getStartYCoordinates() + " and ends at " + baseShape.getEndXCoordinates() + "," + baseShape.getEndYCoordinates());
+
+
     }
 }
