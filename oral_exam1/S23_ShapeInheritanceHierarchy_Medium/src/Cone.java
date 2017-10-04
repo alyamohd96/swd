@@ -21,7 +21,6 @@ public class Cone extends ThreeDimensionalShapes{
         return volume;
     }
 
-
     private static double calculateSurfaceArea(double radius, double height)    {
         double a = Math.pow(height,2) + Math.pow(radius,2);
         return Math.PI*radius*(radius+(Math.sqrt(a)));
