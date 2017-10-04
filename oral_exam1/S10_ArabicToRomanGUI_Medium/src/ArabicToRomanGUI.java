@@ -42,7 +42,6 @@ public class ArabicToRomanGUI extends JFrame {
 
         ArabicToRomanHandler handler = new ArabicToRomanHandler();
         romanNumber.addActionListener(handler);
-
     }
 
     /**
@@ -129,7 +128,8 @@ public class ArabicToRomanGUI extends JFrame {
                 String arabicNumString = Integer.toString(arabic);
                 arabicNumber.setText(arabicNumString);
         }
-
     }
+
+
 
 }

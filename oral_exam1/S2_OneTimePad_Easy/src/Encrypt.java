@@ -1,8 +1,11 @@
+import java.util.Arrays;
+
 public class Encrypt {
 
     private final static char alphabet[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
     private char[] message;
     private int[] messageInInt;
+    private int[] newMessageInt;
     private int n;
 
     public Encrypt(String message, int n)   {
@@ -13,8 +16,13 @@ public class Encrypt {
             this.n = n;
             message = message.toUpperCase();
             this.messageInInt = getAlphabetIndex(message);
+            System.out.print("Changes to get Alphabet Index\n");
+            System.out.print((Arrays.toString(messageInInt)));
             this.messageInInt = addNValue(messageInInt, n);
+            System.out.print("Added N Value\n");
+            System.out.print((Arrays.toString(messageInInt)));
             this.message = convertIntToChar(messageInInt);
+            System.out.print(this.message);
     }
 
     public char[] getMessage() {
@@ -54,22 +62,6 @@ public class Encrypt {
         return true;
     }
 
-    /*
-    private static boolean isNValid(int n)  {
-        if (n > 25)
-            return false;
-        return true;
-    }
-
-    private static int[] findAlphabetNumber(String message)  {
-        int[] messageAsInt = {};
-        int c = 0;
-        int index = 0;
-        for (int i = 0; i < alphabet.length; i++)
-            index = message.indexOf(alphabet[i]);
-
-        return messageAsInt;
-    }*/
 
     private static int[] getAlphabetIndex(String message)   {
         char[] messageCharArray  = message.toCharArray();
@@ -84,7 +76,7 @@ public class Encrypt {
                 //System.out.print(temp - temp_integer + " ");
             }
             else {
-                messageInInt[i] = 32;
+                messageInInt[i] = 100;
                 //System.out.println(" space ");
             }
             i++;
@@ -93,15 +85,18 @@ public class Encrypt {
     }
 
     private static char[] convertIntToChar(int[] messageInInteger) {
-        char[] convertedMessage = {};
-        for(int i:messageInInteger)
-            if(messageInInteger[i] >= 100)
-                convertedMessage[i] = ' ';
+        char[] convertedMessage = new char[messageInInteger.length];
+
+        for(int i=0; i < messageInInteger.length;i++) {
+            if (messageInInteger[i] > 100)
+                convertedMessage[i] =' ';
             else
                 convertedMessage[i] = alphabet[messageInInteger[i]];
-
+        }
+        System.out.print(Arrays.toString(convertedMessage) + "\n");
         return convertedMessage;
     }
+
 
 
     private static int[] addNValue(int[] messageAsInt, int n)   {
@@ -110,9 +105,10 @@ public class Encrypt {
             if (messageAsInt[i] >= 26 && messageAsInt[i] < 100)
                 messageAsInt[i] -= 26;
         }
-
+        System.out.print("Added N to message: " +messageAsInt);
         return messageAsInt;
     }
+
 
     @Override
     public String toString()    {

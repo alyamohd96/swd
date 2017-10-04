@@ -12,6 +12,8 @@ public class MainClass {
         System.out.println(easterDate1.toString());
         easterDate1.calculateOneCycle();
 
+
+
     }
 
 }
