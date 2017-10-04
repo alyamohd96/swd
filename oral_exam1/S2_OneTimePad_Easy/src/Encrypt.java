@@ -46,7 +46,7 @@ public class Encrypt {
      * @return true if contain only alphabets and spaces.
      *          false if contain besides alphabets
      ******************************************************/
-    private static boolean isAlpha(String checkMessage) {
+    public static boolean isAlpha(String checkMessage) {
         char[] chars = checkMessage.toCharArray();
 
         for (char c : chars) {
@@ -88,7 +88,7 @@ public class Encrypt {
             else
                 convertedMessage[i] = alphabet[messageInInteger[i]];
         }
-        System.out.print(Arrays.toString(convertedMessage) + "\n");
+        //System.out.print(Arrays.toString(convertedMessage) + "\n");
         return convertedMessage;
     }
 
@@ -102,7 +102,6 @@ public class Encrypt {
         }
         return messageAsInt;
     }
-
 
     @Override
     public String toString()    {
