@@ -24,12 +24,6 @@ public class HangmanGUI extends JFrame {
     private final JLabel label6;
     private final JLabel label7;
 
-    //instance variables for Hangman game
-    private String wordToBeGuessed;
-    private char[] output;
-    private int numOfGuessesLeft;
-    private int exposed;
-    private char[] lettersGuessed;
 
     public HangmanGUI() {
         super("Hangman");
@@ -129,28 +123,6 @@ public class HangmanGUI extends JFrame {
 
     }
 
-/*
-    private void checkLetters(char inputLetter)   {
-        for (int i = 0; i < wordToBeGuessed.length(); i++)  {
-            if((inputLetter == wordToBeGuessed.charAt(i)) && (output[i] == '_'))
-        }
-    }
-
-
-    /*
-    private boolean checkLetters(char letter, String word)   {
-        char[] wordCharArray = word.toCharArray();
-        for (char c: wordCharArray) {
-            if (c == letter)
-                return true;
-        }
-        return false;
-    }*/
-
-    /*private String getIndex(char letter, String word)  {
-        char[] wordCharArray = word.toCharArray();
-
-    }*/
 
     private String outputString(char[] output)   {
         String outputInString = new String(output);
