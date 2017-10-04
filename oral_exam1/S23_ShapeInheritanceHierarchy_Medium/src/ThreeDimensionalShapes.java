@@ -1,41 +1,41 @@
 public class ThreeDimensionalShapes extends ShapeBaseClass {
 
-    private int dimX;
-    private int dimY;
-    private int dimZ;
+    private double dimX;
+    private double dimY;
+    private double dimZ;
 
     public ThreeDimensionalShapes(String name)  {
         super(name);
     }
 
-    public ThreeDimensionalShapes(String name, int dimX, int dimY, int dimZ)    {
+    public ThreeDimensionalShapes(String name, double dimX, double dimY, double dimZ)    {
         super(name);
         this.dimX = dimX;
         this.dimY = dimY;
         this.dimZ = dimZ;
     }
 
-    public int getDimX() {
+    public double getDimX() {
         return dimX;
     }
 
-    public void setDimX(int dimX) {
+    public void setDimX(double dimX) {
         this.dimX = dimX;
     }
 
-    public int getDimY() {
+    public double getDimY() {
         return dimY;
     }
 
-    public void setDimY(int dimY) {
+    public void setDimY(double dimY) {
         this.dimY = dimY;
     }
 
-    public int getDimZ() {
+    public double getDimZ() {
         return dimZ;
     }
 
-    public void setDimZ(int dimZ) {
+    public void setDimZ(double dimZ) {
         this.dimZ = dimZ;
     }
 }

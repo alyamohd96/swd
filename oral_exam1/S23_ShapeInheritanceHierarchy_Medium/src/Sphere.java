@@ -9,7 +9,7 @@ public class Sphere extends ThreeDimensionalShapes {
     }
 
     public Sphere(String name, double radius)   {
-        super(name,(int) radius, (int) radius, (int) radius);
+        super(name,radius, radius, radius);
         this.radius = radius;
         this.surfaceArea = calculateSurfaceArea(radius);
         this.volume = calculateVolume(radius);
@@ -28,6 +28,8 @@ public class Sphere extends ThreeDimensionalShapes {
 
     public void setRadius(double radius) {
         this.radius = radius;
+        this.surfaceArea = calculateSurfaceArea(radius);
+        this.volume = calculateVolume(radius);
     }
 
     public double getSurfaceArea() {
@@ -36,6 +38,7 @@ public class Sphere extends ThreeDimensionalShapes {
 
     public void setSurfaceArea(double surfaceArea) {
         this.surfaceArea = surfaceArea;
+        this.radius = calculateRadiusSurfaceArea(surfaceArea);
     }
 
     public double getVolume() {
@@ -44,6 +47,7 @@ public class Sphere extends ThreeDimensionalShapes {
 
     public void setVolume(double volume) {
         this.volume = volume;
+        this.radius = calculateRadiusVolume(volume);
     }
 
     private static double calculateSurfaceArea(double radius) {
@@ -52,5 +56,14 @@ public class Sphere extends ThreeDimensionalShapes {
 
     private static double calculateVolume(double radius)    {
         return (4/3)*Math.PI*Math.pow(radius,3);
+    }
+
+    private static double calculateRadiusSurfaceArea(double surfaceArea)   {
+        return 0.5*Math.sqrt((surfaceArea/Math.PI));
+    }
+
+    private static double calculateRadiusVolume(double volume)  {
+        double temp = (3*volume)/(4*Math.PI);
+        return Math.cbrt(temp);
     }
 }
