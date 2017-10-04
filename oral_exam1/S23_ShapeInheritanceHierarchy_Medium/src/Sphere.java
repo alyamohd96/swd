@@ -15,7 +15,7 @@ public class Sphere extends ThreeDimensionalShapes {
         this.volume = calculateVolume(radius);
     }
 
-    public Sphere(String name, int dimX, int dimY, int dimZ)    {
+    public Sphere(String name, double dimX, double dimY, double dimZ)    {
         super(name,dimX,dimY,dimZ);
         this.radius = dimX;
         this.surfaceArea = calculateSurfaceArea(radius);
