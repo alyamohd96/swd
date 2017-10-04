@@ -21,12 +21,12 @@ public class Cone extends ThreeDimensionalShapes{
         return volume;
     }
 
-    private static double calculateSurfaceArea(double radius, double height)    {
+    public static double calculateSurfaceArea(double radius, double height)    {
         double a = Math.pow(height,2) + Math.pow(radius,2);
         return Math.PI*radius*(radius+(Math.sqrt(a)));
     }
 
-    private static double calculateVolume(double radius, double height) {
+    public static double calculateVolume(double radius, double height) {
         return Math.PI*Math.pow(radius,2)*(height/3);
     }
 }
