@@ -99,7 +99,7 @@ public class Circle extends TwoDimensionalShapes {
      * @param radius radius of a circle
      * @return perimeter of the circle
      */
-    private static double calculatePerimeter(double radius)  {
+    public static double calculatePerimeter(double radius)  {
         return 2 * Math.PI * radius;
     }
 
@@ -109,7 +109,7 @@ public class Circle extends TwoDimensionalShapes {
      * @param radius radius of a circle
      * @return area of the circle
      */
-    private static double calculateArea(double radius)   {
+    public static double calculateArea(double radius)   {
         return Math.PI * Math.pow(radius,2);
     }
 

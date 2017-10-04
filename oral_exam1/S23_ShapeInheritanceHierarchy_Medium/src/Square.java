@@ -22,7 +22,8 @@ public class Square extends TwoDimensionalShapes{
 
     public void setPerimeter(int perimeter) {
         this.perimeter = perimeter;
-        this.dimX = this.dimY = perimeter/4;
+        setDimX(perimeter/4);
+        setDimY(perimeter/4);
     }
 
     public int getArea() {
@@ -31,7 +32,8 @@ public class Square extends TwoDimensionalShapes{
 
     public void setArea(int area) {
         this.area = area;
-        this.dimX = this.dimY = (int) Math.sqrt((double) area);
+        setDimX((int) Math.sqrt((double) area));
+        setDimY((int) Math.sqrt((double) area));
     }
 
     private static int calculatePerimeter(int dimX) {
