@@ -16,13 +16,8 @@ public class Encrypt {
             this.n = n;
             message = message.toUpperCase();
             this.messageInInt = getAlphabetIndex(message);
-            System.out.print("Changes to get Alphabet Index\n");
-            System.out.print((Arrays.toString(messageInInt)));
             this.messageInInt = addNValue(messageInInt, n);
-            System.out.print("Added N Value\n");
-            System.out.print((Arrays.toString(messageInInt)));
             this.message = convertIntToChar(messageInInt);
-            System.out.print(this.message);
     }
 
     public char[] getMessage() {
@@ -105,7 +100,6 @@ public class Encrypt {
             if (messageAsInt[i] >= 26 && messageAsInt[i] < 100)
                 messageAsInt[i] -= 26;
         }
-        System.out.print("Added N to message: " +messageAsInt);
         return messageAsInt;
     }
 

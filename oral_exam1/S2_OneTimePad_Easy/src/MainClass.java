@@ -13,6 +13,6 @@ public class MainClass {
         int n = nValue.nextInt();
 
         Encrypt secretMessage = new Encrypt(message,n);
-//        System.out.println(secretMessage.toString());
+        System.out.println(secretMessage.toString());
     }
 }
