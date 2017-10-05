@@ -3,119 +3,120 @@
   <ID>JAVA</ID>
   <OriginalElement>Circle</OriginalElement>
   <nodes>
-    <node x="3346.0" y="462.0">Circle</node>
-    <node x="1311.0" y="462.0">TriangularPrism</node>
-    <node x="2213.0" y="474.0">Cone</node>
-    <node x="1229.5" y="274.0">ThreeDimensionalShapes</node>
-    <node x="3604.5" y="286.0">TwoDimensionalShapes</node>
-    <node x="3723.0" y="474.0">Rectangle</node>
-    <node x="4355.0" y="498.5">Triangle</node>
-    <node x="2987.0" y="450.0">Rhombus</node>
-    <node x="4050.0" y="474.0">Square</node>
-    <node x="0.0" y="438.0">Sphere</node>
-    <node x="894.0" y="474.0">Cylinder</node>
-    <node x="429.0" y="474.0">Pyramid</node>
-    <node x="0.0" y="684.0">MainClass</node>
-    <node x="1844.0" y="474.0">Cube</node>
-    <node x="2630.0" y="498.5">Trapezoid</node>
-    <node x="2350.875" y="0.0">ShapeBaseClass</node>
+    <node x="3214.0" y="596.0">Circle</node>
+    <node x="988.0" y="608.5">TriangularPrism</node>
+    <node x="1687.0" y="620.5">Cone</node>
+    <node x="820.0000000000002" y="323.0">ThreeDimensionalShapes</node>
+    <node x="2744.0" y="335.0">TwoDimensionalShapes</node>
+    <node x="2917.0" y="620.5">Rectangle</node>
+    <node x="2280.0" y="584.5">Triangle</node>
+    <node x="3527.0" y="584.5">Rhombus</node>
+    <node x="2608.0" y="596.0">Square</node>
+    <node x="288.0" y="536.0">Sphere</node>
+    <node x="701.0" y="620.5">Cylinder</node>
+    <node x="0.0" y="620.5">Pyramid</node>
+    <node x="0.0" y="928.0">MainClass</node>
+    <node x="1341.0" y="596.0">Cube</node>
+    <node x="1956.0" y="584.5">Trapezoid</node>
+    <node x="1749.7083333333335" y="0.0">ShapeBaseClass</node>
   </nodes>
   <notes />
   <edges>
     <edge source="Cone" target="ThreeDimensionalShapes">
-      <point x="0.0" y="-64.5" />
-      <point x="2411.5" y="398.0" />
-      <point x="1413.75" y="398.0" />
-      <point x="83.75" y="52.0" />
+      <point x="0.0" y="-89.0" />
+      <point x="1811.5" y="496.0" />
+      <point x="1139.9166666666667" y="496.0" />
+      <point x="145.41666666666652" y="76.5" />
     </edge>
     <edge source="Rectangle" target="TwoDimensionalShapes">
-      <point x="0.0" y="-64.5" />
-      <point x="3876.5" y="418.0" />
-      <point x="3716.5" y="418.0" />
-      <point x="16.0" y="40.0" />
+      <point x="0.0" y="-89.0" />
+      <point x="3055.5" y="516.0" />
+      <point x="2930.6666666666665" y="516.0" />
+      <point x="26.666666666666515" y="64.5" />
     </edge>
     <edge source="Cylinder" target="ThreeDimensionalShapes">
-      <point x="0.0" y="-64.5" />
-      <point x="1092.5" y="418.0" />
-      <point x="1313.25" y="418.0" />
-      <point x="-16.75" y="52.0" />
+      <point x="0.0" y="-89.0" />
+      <point x="834.5" y="516.0" />
+      <point x="965.4166666666669" y="516.0" />
+      <point x="-29.08333333333337" y="76.5" />
     </edge>
     <edge source="ThreeDimensionalShapes" target="ShapeBaseClass">
-      <point x="0.0" y="-52.0" />
-      <point x="1330.0" y="249.0" />
-      <point x="2417.875" y="249.0" />
-      <point x="-67.0" y="112.0" />
+      <point x="0.0" y="-76.5" />
+      <point x="994.5000000000002" y="298.0" />
+      <point x="1847.9583333333335" y="298.0" />
+      <point x="-98.25" y="136.5" />
     </edge>
     <edge source="Triangle" target="TwoDimensionalShapes">
-      <point x="0.0" y="-40.0" />
-      <point x="4538.5" y="398.0" />
-      <point x="3780.5" y="398.0" />
-      <point x="80.0" y="40.0" />
+      <point x="0.0" y="-125.0" />
+      <point x="2434.0" y="506.0" />
+      <point x="2824.0" y="506.0" />
+      <point x="-80.0" y="64.5" />
     </edge>
     <edge source="Circle" target="TwoDimensionalShapes">
-      <point x="0.0" y="-76.5" />
-      <point x="3524.5" y="418.0" />
-      <point x="3684.5" y="418.0" />
-      <point x="-16.0" y="40.0" />
+      <point x="0.0" y="-113.5" />
+      <point x="3360.5" y="506.0" />
+      <point x="2984.0" y="506.0" />
+      <point x="80.0" y="64.5" />
     </edge>
     <edge source="Square" target="TwoDimensionalShapes">
-      <point x="0.0" y="-64.5" />
-      <point x="4192.5" y="408.0" />
-      <point x="3748.5" y="408.0" />
-      <point x="48.0" y="40.0" />
+      <point x="0.0" y="-113.5" />
+      <point x="2752.5" y="516.0" />
+      <point x="2877.3333333333335" y="516.0" />
+      <point x="-26.666666666666515" y="64.5" />
     </edge>
     <edge source="Sphere" target="ThreeDimensionalShapes">
-      <point x="0.0" y="-100.5" />
-      <point x="204.5" y="398.0" />
-      <point x="1246.25" y="398.0" />
-      <point x="-83.75" y="52.0" />
+      <point x="0.0" y="-173.5" />
+      <point x="484.5" y="506.0" />
+      <point x="907.2500000000002" y="506.0" />
+      <point x="-87.25" y="76.5" />
     </edge>
     <edge source="Pyramid" target="ThreeDimensionalShapes">
-      <point x="0.0" y="-64.5" />
-      <point x="651.5" y="408.0" />
-      <point x="1279.75" y="408.0" />
-      <point x="-50.25" y="52.0" />
+      <point x="0.0" y="-89.0" />
+      <point x="134.0" y="496.0" />
+      <point x="849.0833333333337" y="496.0" />
+      <point x="-145.41666666666663" y="76.5" />
     </edge>
     <edge source="Cube" target="ThreeDimensionalShapes">
-      <point x="1.1368683772161603E-13" y="-64.5" />
-      <point x="2018.5" y="408.0" />
-      <point x="1380.25" y="408.0" />
-      <point x="50.25" y="52.0" />
+      <point x="0.0" y="-113.5" />
+      <point x="1504.0" y="506.0" />
+      <point x="1081.7500000000002" y="506.0" />
+      <point x="87.25" y="76.5" />
     </edge>
     <edge source="TriangularPrism" target="ThreeDimensionalShapes">
-      <point x="0.0" y="-76.5" />
-      <point x="1567.5" y="418.0" />
-      <point x="1346.75" y="418.0" />
-      <point x="16.75" y="52.0" />
+      <point x="0.0" y="-101.0" />
+      <point x="1154.5" y="516.0" />
+      <point x="1023.5833333333335" y="516.0" />
+      <point x="29.083333333333258" y="76.5" />
     </edge>
     <edge source="Rhombus" target="TwoDimensionalShapes">
-      <point x="0.0" y="-88.5" />
-      <point x="3156.5" y="408.0" />
-      <point x="3652.5" y="408.0" />
-      <point x="-48.0" y="40.0" />
+      <point x="0.0" y="-125.0" />
+      <point x="3695.0" y="496.0" />
+      <point x="3037.3333333333335" y="496.0" />
+      <point x="133.33333333333348" y="64.5" />
     </edge>
     <edge source="Trapezoid" target="TwoDimensionalShapes">
-      <point x="0.0" y="-40.0" />
-      <point x="2798.5" y="398.0" />
-      <point x="3620.5" y="398.0" />
-      <point x="-80.0" y="40.0" />
+      <point x="0.0" y="-125.0" />
+      <point x="2108.0" y="496.0" />
+      <point x="2770.6666666666665" y="496.0" />
+      <point x="-133.33333333333348" y="64.5" />
     </edge>
     <edge source="TwoDimensionalShapes" target="ShapeBaseClass">
-      <point x="0.0" y="-40.0" />
-      <point x="3700.5" y="249.0" />
-      <point x="2551.875" y="249.0" />
-      <point x="67.0" y="112.0" />
+      <point x="0.0" y="-64.5" />
+      <point x="2904.0" y="298.0" />
+      <point x="2044.4583333333335" y="298.0" />
+      <point x="98.25" y="136.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.2418810628426824" x="2361.0" y="370.0" />
-  <SelectedNodes>
-    <node>TriangularPrism</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic Group" zoom="0.3418810628426824" x="2361.0000000000005" y="370.00000000000006" />
+  <SelectedNodes />
   <Categories>
     <Category>Properties</Category>
     <Category>Methods</Category>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Inner Classes</Category>
   </Categories>
-  <SCOPE>All</SCOPE>
+  <SCOPE>Project Files</SCOPE>
   <VISIBILITY>private</VISIBILITY>
 </Diagram>
 
