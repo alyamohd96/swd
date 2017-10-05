@@ -132,6 +132,11 @@ public class HangmanGUI extends JFrame {
     private class HangmanHandler extends KeyAdapter{
         @Override
         public void keyTyped(KeyEvent e) {
+
+
+
+
+            /*
             //super.keyTyped(e);
             numOfGuessesLeft++;
             char inputLetter = e.getKeyChar();
@@ -151,7 +156,7 @@ public class HangmanGUI extends JFrame {
                 } else {
                     JOptionPane.showMessageDialog(HangmanGUI.this, String.format("You lose!"));
                 }
-            }
+            }*/
         }
     }
 }

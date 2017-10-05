@@ -4,6 +4,8 @@
  * has an private inner class for handling events.
  */
 
+import com.sun.deploy.util.StringUtils;
+
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
@@ -184,7 +186,7 @@ public class ArabicToRomanGUI extends JFrame {
      * @return
      */
     private boolean checkValidityRoman(String roman)    {
-        return roman.matches("^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
+        return roman.matches("^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
     }
 
     /**
@@ -215,9 +217,15 @@ public class ArabicToRomanGUI extends JFrame {
             }
             else if (event.getSource() == arabicNumber) {
                 temp = arabicNumber.getText();
-                arabicToConvert = Integer.parseInt(temp);
-                String roman = IntegerToRomanNumeral(arabicToConvert);
-                romanNumber.setText(roman);
+                if( temp.matches("[-+]?\\d*\\.?\\d+") )    {
+                    arabicToConvert = Integer.parseInt(temp);
+                    String roman = IntegerToRomanNumeral(arabicToConvert);
+                    romanNumber.setText(roman);
+                }
+                else    {
+                    romanNumber.setText("Invalid input");
+                }
+
             }
 
         }
