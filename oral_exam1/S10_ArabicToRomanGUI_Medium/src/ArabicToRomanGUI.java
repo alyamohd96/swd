@@ -48,6 +48,7 @@ public class ArabicToRomanGUI extends JFrame {
      * This function converts the roman numerals to the arabic numerals.
      * The function is taken from the following website:
      * http://math.hws.edu/eck/cs124/javanotes3/c9/ex-9-3-answer.html
+     * with some only a line of code changed
      * @param roman the roman numberal to be converted
      * @return the number in arabic
      */
@@ -90,7 +91,7 @@ public class ArabicToRomanGUI extends JFrame {
 
     /**
      * This function finds the number that corresponds to the roman numeral.
-     * It is taken from this website:
+     * This function is taken from this website:
      * http://bcbutler.com/Java_Tuts/java_roman_numeral_converter_GUI.php
      * @param letter the roman letter
      * @return the number in arabic
