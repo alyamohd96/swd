@@ -76,7 +76,10 @@ public class ArabicToRomanGUI extends JFrame {
                     arabic += (nextNumber - number);
                     i++;
                 }
-                else {
+                else if(nextNumber<0) {
+                    arabic = -1;
+                }
+                else    {
                     // Don't combine the letters.  Just add the value of the one letter onto the number.
                     arabic += number;
                 }
@@ -125,8 +128,13 @@ public class ArabicToRomanGUI extends JFrame {
             if(event.getSource() == romanNumber)
                 romanToConvert = romanNumber.getText();
                 int arabic = romanToArabic(romanToConvert);
-                String arabicNumString = Integer.toString(arabic);
-                arabicNumber.setText(arabicNumString);
+                if(arabic>0) {
+                    String arabicNumString = Integer.toString(arabic);
+                    arabicNumber.setText(arabicNumString);
+                }
+                else    {
+                    arabicNumber.setText("Invalid Input");
+                }
         }
     }
 
