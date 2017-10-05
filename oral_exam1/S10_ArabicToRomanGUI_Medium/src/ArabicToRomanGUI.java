@@ -14,10 +14,9 @@ public class ArabicToRomanGUI extends JFrame {
 
     private final JLabel label1;
     private final JLabel label2;
-    private final JFormattedTextField romanNumber;
-    private final JFormattedTextField arabicNumber;
+    private final JTextField romanNumber;
+    private final JTextField arabicNumber;
     private final Font defaultFont;
-    private final MaskFormatter romanFormatter;
 
     /**
      * The constructor for the class. The constructor adds the JLabel
@@ -32,20 +31,20 @@ public class ArabicToRomanGUI extends JFrame {
         label1.setFont(defaultFont);
         add(label1);
 
-        MaskFormatter romanFormatter = new MaskFormatter();
-        romanNumber = new JFormattedTextField("UUUUUUU");
+        romanNumber = new JTextField();
         romanNumber.setFont(defaultFont);
         add(romanNumber);
 
         label2 = new JLabel("Arabic Number:");
         label2.setFont(defaultFont);
         add(label2);
-        arabicNumber = new JTextField(30);
+        arabicNumber = new JTextField();
         arabicNumber.setFont(defaultFont);
         add(arabicNumber);
 
         ArabicToRomanHandler handler = new ArabicToRomanHandler();
         romanNumber.addActionListener(handler);
+        arabicNumber.addActionListener(handler);
     }
 
     /**
@@ -121,6 +120,64 @@ public class ArabicToRomanGUI extends JFrame {
         }
     }
 
+    public static String IntegerToRomanNumeral(int input) {
+        if (input < 1 || input > 3999)
+            return "Invalid Roman Number Value";
+        String s = "";
+        while (input >= 1000) {
+            s += "M";
+            input -= 1000;        }
+        while (input >= 900) {
+            s += "CM";
+            input -= 900;
+        }
+        while (input >= 500) {
+            s += "D";
+            input -= 500;
+        }
+        while (input >= 400) {
+            s += "CD";
+            input -= 400;
+        }
+        while (input >= 100) {
+            s += "C";
+            input -= 100;
+        }
+        while (input >= 90) {
+            s += "XC";
+            input -= 90;
+        }
+        while (input >= 50) {
+            s += "L";
+            input -= 50;
+        }
+        while (input >= 40) {
+            s += "XL";
+            input -= 40;
+        }
+        while (input >= 10) {
+            s += "X";
+            input -= 10;
+        }
+        while (input >= 9) {
+            s += "IX";
+            input -= 9;
+        }
+        while (input >= 5) {
+            s += "V";
+            input -= 5;
+        }
+        while (input >= 4) {
+            s += "IV";
+            input -= 4;
+        }
+        while (input >= 1) {
+            s += "I";
+            input -= 1;
+        }
+        return s;
+    }
+
     /**
      * This inner class is the handler class for this GUI. The class
      * is a private class that implements the interface ActionListener
@@ -130,16 +187,25 @@ public class ArabicToRomanGUI extends JFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
             String romanToConvert = new String();
-            if(event.getSource() == romanNumber)
+            String temp;
+            int arabicToConvert;
+            if(event.getSource() == romanNumber) {
                 romanToConvert = romanNumber.getText();
                 int arabic = romanToArabic(romanToConvert);
-                if(arabic>0) {
+                if (arabic > 0) {
                     String arabicNumString = Integer.toString(arabic);
                     arabicNumber.setText(arabicNumString);
-                }
-                else    {
+                } else {
                     arabicNumber.setText("Invalid Input");
                 }
+            }
+            else if (event.getSource() == arabicNumber) {
+                temp = arabicNumber.getText();
+                arabicToConvert = Integer.parseInt(temp);
+                String roman = IntegerToRomanNumeral(arabicToConvert);
+                romanNumber.setText(roman);
+            }
+
         }
     }
 
