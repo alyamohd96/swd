@@ -5,6 +5,7 @@
  */
 
 import javax.swing.*;
+import javax.swing.text.MaskFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,9 +14,10 @@ public class ArabicToRomanGUI extends JFrame {
 
     private final JLabel label1;
     private final JLabel label2;
-    private final JTextField romanNumber;
-    private final JTextField arabicNumber;
+    private final JFormattedTextField romanNumber;
+    private final JFormattedTextField arabicNumber;
     private final Font defaultFont;
+    private final MaskFormatter romanFormatter;
 
     /**
      * The constructor for the class. The constructor adds the JLabel
@@ -29,7 +31,9 @@ public class ArabicToRomanGUI extends JFrame {
         label1 = new JLabel("Roman Number:");
         label1.setFont(defaultFont);
         add(label1);
-        romanNumber = new JTextField("Insert here",30);
+
+        MaskFormatter romanFormatter = new MaskFormatter();
+        romanNumber = new JFormattedTextField("UUUUUUU");
         romanNumber.setFont(defaultFont);
         add(romanNumber);
 
