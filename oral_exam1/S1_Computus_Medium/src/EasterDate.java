@@ -19,12 +19,21 @@ public class EasterDate {
 
     /**
      * Default constructor with the year as an input.
-     * It calls the
-     * @param year year of the easter date
+     *
+     * @param input
      */
-    public EasterDate(int year) {
-        int[] monthDay = calculateEasterDate(year);
-        easterDate = new Date(monthDay[0],monthDay[1],year);
+    public EasterDate(String input) {
+        if (!isNumber(input)) {
+            throw new IllegalArgumentException("Accepts only numbers!");
+        }
+        else if(Integer.parseInt(input) <1700)   {
+            throw new IllegalArgumentException("Easter was not recorded till the year 1700.");
+        }
+        else {
+            int year = Integer.parseInt(input);
+            int[] monthDay = calculateEasterDate(year);
+            easterDate = new Date(monthDay[0], monthDay[1], year);
+        }
     }
 
     /**
@@ -65,7 +74,6 @@ public class EasterDate {
     public void calculateOneCycle()    {
         int[] resultTemporary = new int[2];
         int index;
-        int count = 0;
         int year = 1876;
         for (int i = 0; i<5700000; i++)   {
             resultTemporary = calculateEasterDate(year);
@@ -90,6 +98,17 @@ public class EasterDate {
             System.out.println("March " + marchEasterDays[i] + " = " + marchCount[i]);
         for(int i = 0;i<aprilCount.length;i++)
             System.out.println("April " + aprilEasterDays[i] + " = " + aprilCount[i]);
+    }
+
+    /**
+     * A method that checks whether the input is numbers or not.
+     * Returns true if the input is only numbers and false
+     * if it contains anything else
+     * @param input Input from user of type String
+     * @return
+     */
+    private static boolean isNumber(String input)   {
+        return input.matches("[-+]?\\d*\\.?\\d+");
     }
 
     /**

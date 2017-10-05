@@ -1,4 +1,7 @@
-import java.lang.reflect.Array;
+/**
+ *
+ */
+
 import java.util.Arrays;
 
 public class Encrypt {
@@ -8,6 +11,11 @@ public class Encrypt {
     private int[] messageInInt;
     private int n;
 
+    /**
+     *
+     * @param message
+     * @param n
+     */
     public Encrypt(String message, int n)   {
         //Validation so that no number or symbols is in the message
         if (!isAlpha(message))
@@ -26,10 +34,18 @@ public class Encrypt {
             System.out.print(Arrays.toString(messageInInt));
     }
 
+    /**
+     *
+     * @return
+     */
     public char[] getMessage() {
         return message;
     }
 
+    /**
+     *
+     * @param message
+     */
     public void setMessage(String message) {
         if (!isAlpha(message))
             throw new IllegalArgumentException("Only alphabets are allowed");               //throw new exception
@@ -37,14 +53,25 @@ public class Encrypt {
             this.message = message.toCharArray();
     }
 
+    /**
+     *
+     * @return
+     */
     public int getN() {
         return n;
     }
 
+    /**
+     *
+     * @param n
+     */
     public void setN(int n) {
         this.n = n;
     }
 
+    /**
+     *
+     */
     public void decrypt() {
         System.out.print("Message is: " + Arrays.toString(message));
         String temp = new String(this.message);
@@ -77,7 +104,11 @@ public class Encrypt {
         return true;
     }
 
-
+    /**
+     *
+     * @param message
+     * @return
+     */
     private static int[] getAlphabetIndex(String message)   {
         char[] messageCharArray  = message.toCharArray();
         int i = 0;
@@ -99,6 +130,11 @@ public class Encrypt {
         return messageInInt;
     }
 
+    /**
+     *
+     * @param messageInInteger
+     * @return
+     */
     private static char[] convertIntToChar(int[] messageInInteger) {
         char[] convertedMessage = new char[messageInInteger.length];
 
@@ -112,7 +148,12 @@ public class Encrypt {
         return convertedMessage;
     }
 
-
+    /**
+     *
+     * @param messageAsInt
+     * @param n
+     * @return
+     */
     private static int[] addNValue(int[] messageAsInt, int n)   {
         for (int i =0;i<messageAsInt.length;i++) {
             messageAsInt[i] += n;
@@ -122,6 +163,12 @@ public class Encrypt {
         return messageAsInt;
     }
 
+    /**
+     *
+     * @param messageAsInt
+     * @param n
+     * @return
+     */
     private int[] subtractNValue(int[] messageAsInt, int n) {
         for (int i =0;i<messageAsInt.length;i++) {
             messageAsInt[i] -= n;
@@ -133,6 +180,10 @@ public class Encrypt {
         return messageAsInt;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString()    {
         return new String(message);
