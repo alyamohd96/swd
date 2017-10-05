@@ -179,6 +179,15 @@ public class ArabicToRomanGUI extends JFrame {
     }
 
     /**
+     * https://stackoverflow.com/questions/267399/how-do-you-match-only-valid-roman-numerals-with-a-regular-expression
+     * @param roman
+     * @return
+     */
+    private boolean checkValidityRoman(String roman)    {
+        return roman.matches("^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
+    }
+
+    /**
      * This inner class is the handler class for this GUI. The class
      * is a private class that implements the interface ActionListener
      */
@@ -190,13 +199,18 @@ public class ArabicToRomanGUI extends JFrame {
             String temp;
             int arabicToConvert;
             if(event.getSource() == romanNumber) {
-                romanToConvert = romanNumber.getText();
-                int arabic = romanToArabic(romanToConvert);
-                if (arabic > 0) {
-                    String arabicNumString = Integer.toString(arabic);
-                    arabicNumber.setText(arabicNumString);
-                } else {
-                    arabicNumber.setText("Invalid Input");
+                if(checkValidityRoman(romanNumber.getText()))   {
+                    romanToConvert = romanNumber.getText();
+                    int arabic = romanToArabic(romanToConvert);
+                    if (arabic > 0) {
+                        String arabicNumString = Integer.toString(arabic);
+                        arabicNumber.setText(arabicNumString);
+                    } else {
+                        arabicNumber.setText("Invalid Input");
+                    }
+                }
+                else {
+                    arabicNumber.setText("Invalid Input roman numeral wrong");
                 }
             }
             else if (event.getSource() == arabicNumber) {
