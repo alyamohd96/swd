@@ -9,13 +9,14 @@ public class MainClass {
         Scanner input = new Scanner(System.in);
         String message = input.nextLine();
 
+        /*
         while (!Encrypt.isAlpha(message)) {
 
             System.out.println("Message invalid. Please ensure that message should not contain any numbers or symbols:");
             input = new Scanner(System.in);
             message = input.nextLine();
 
-        };
+        };*/
 
         System.out.println("Enter the n value:");
         Scanner nValue = new Scanner(System.in);
@@ -23,6 +24,10 @@ public class MainClass {
 
         Encrypt secretMessage = new Encrypt(message,n);
         System.out.println("Encrypted Message:");
+        System.out.println(secretMessage.toString());
+
+        secretMessage.decrypt();
+        System.out.println("Decrypted Message:");
         System.out.println(secretMessage.toString());
     }
 }

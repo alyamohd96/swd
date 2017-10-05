@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Encrypt {
@@ -5,7 +6,6 @@ public class Encrypt {
     private final static char alphabet[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
     private char[] message;
     private int[] messageInInt;
-    private int[] newMessageInt;
     private int n;
 
     public Encrypt(String message, int n)   {
@@ -16,8 +16,14 @@ public class Encrypt {
             this.n = n;
             message = message.toUpperCase();
             this.messageInInt = getAlphabetIndex(message);
-            this.messageInInt = addNValue(messageInInt, n);
-            this.message = convertIntToChar(messageInInt);
+            System.out.println("Alphabet Index");
+            System.out.print(Arrays.toString(messageInInt));
+            this.messageInInt = addNValue(this.messageInInt, n);
+            System.out.println("added N");
+            System.out.print(Arrays.toString(messageInInt));
+            this.message = convertIntToChar(this.messageInInt);
+            System.out.println("encrypted");
+            System.out.print(Arrays.toString(messageInInt));
     }
 
     public char[] getMessage() {
@@ -37,6 +43,20 @@ public class Encrypt {
 
     public void setN(int n) {
         this.n = n;
+    }
+
+    public void decrypt() {
+        System.out.print("Message is: " + Arrays.toString(message));
+        String temp = new String(this.message);
+        this.messageInInt = getAlphabetIndex(temp);
+        System.out.println("Alphabet Index");
+        System.out.print(Arrays.toString(messageInInt));
+        this.messageInInt = subtractNValue(this.messageInInt,n);
+        System.out.println("\nSubtracted N Value");
+        System.out.print(Arrays.toString(messageInInt));
+        this.message = convertIntToChar(this.messageInInt);
+        System.out.println("\nConverted");
+        System.out.print(Arrays.toString(message));
     }
 
     /******************************************************
@@ -83,15 +103,14 @@ public class Encrypt {
         char[] convertedMessage = new char[messageInInteger.length];
 
         for(int i=0; i < messageInInteger.length;i++) {
-            if (messageInInteger[i] > 100)
+            if (messageInInteger[i] >= 100)
                 convertedMessage[i] =' ';
             else
-                convertedMessage[i] = alphabet[messageInInteger[i]];
+                convertedMessage[i] = alphabet[messageInInteger[i]-1];
         }
         //System.out.print(Arrays.toString(convertedMessage) + "\n");
         return convertedMessage;
     }
-
 
 
     private static int[] addNValue(int[] messageAsInt, int n)   {
@@ -99,6 +118,17 @@ public class Encrypt {
             messageAsInt[i] += n;
             if (messageAsInt[i] >= 26 && messageAsInt[i] < 100)
                 messageAsInt[i] -= 26;
+        }
+        return messageAsInt;
+    }
+
+    private int[] subtractNValue(int[] messageAsInt, int n) {
+        for (int i =0;i<messageAsInt.length;i++) {
+            messageAsInt[i] -= n;
+            if (messageAsInt[i] < 0 )
+                messageAsInt[i] = 25 + messageAsInt[i];
+            else if(messageAsInt[i] >= 26)
+                messageAsInt[i] = 100;
         }
         return messageAsInt;
     }
