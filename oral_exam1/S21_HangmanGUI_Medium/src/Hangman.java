@@ -1,8 +1,8 @@
-import java.util.Scanner;
-
 /**
  * http://www.cs.jhu.edu/~joanne/cs107/code/StaticMethods/hangmanMethods.java
  */
+
+//import java.util.Scanner;
 
 public class Hangman {
 
@@ -14,7 +14,6 @@ public class Hangman {
     private String guess;
     private String guesses;
     private char letter;
-
     private boolean win;
 
     public Hangman(String secret)    {
@@ -26,10 +25,37 @@ public class Hangman {
         this.win = false;
     }
 
+    public int getMAXPARTS() {
+        return MAXPARTS;
+    }
+
+    public String getSecret() {
+        return secret;
+    }
+
+    public StringBuffer getOutput() {
+        return output;
+    }
+
     public int getBodyparts() {
         return bodyparts;
     }
 
+    public String getGuess() {
+        return guess;
+    }
+
+    public String getGuesses() {
+        return guesses;
+    }
+
+    public char getLetter() {
+        return letter;
+    }
+
+    public boolean isWin() {
+        return win;
+    }
 
     public void startHangman(String input)   {
 
@@ -54,19 +80,16 @@ public class Hangman {
             }
             else
                 matchLetter(secret, output, letter);
-                System.out.print("output " + output);
+            //System.out.print("output " + output);
 
-
-            System.out.print("num body parts: " + getBodyparts());   //display body parts
+            //System.out.print("num body parts: " + getBodyparts());   //display body parts
 
             if(isDone())    {
                 win = false;
-                System.out.print("You lose");
                 done = true;
             }
             else if(secret.equals(output.toString())) {
                 win = true;
-                System.out.print("You win");
                 done = true;
             }
 
@@ -84,7 +107,9 @@ public class Hangman {
         for (int index = 0; index < secret.length(); index++)
             if (secret.charAt(index) == letter)
                 output.setCharAt(index, letter);
-        System.out.print("good guess : ");
+
+
+        //System.out.print("good guess : ");
 
     }
 
@@ -93,11 +118,12 @@ public class Hangman {
         for(int count=0; count < secret.length(); count++)
             output.append('-');
 
-        System.out.print("in make output: " + output);
+        //System.out.print("in make output: " + output);
         return output;
     }
 
 
+    /*
     public static void main(String args[])  {
         System.out.print("Enter secret word:");
         Scanner input = new Scanner(System.in);
@@ -110,9 +136,8 @@ public class Hangman {
             session1.startHangman(input.next());
 
 
-        }
+        }*/
 
-
-    }
 
 }
+

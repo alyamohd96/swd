@@ -2,6 +2,8 @@ import org.junit.Test;
 
 public class ComputusTest {
 
+    public int[] year = {};
+    public int[] month = {};
 
 
     @Test
