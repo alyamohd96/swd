@@ -105,7 +105,9 @@ public class HangmanGUI extends JFrame {
 
                         secretWord.setEditable(false);
 
-                        hangman1 = new Hangman(secretWord.getText());
+                        String secret = secretWord.getText().toUpperCase();
+
+                        hangman1 = new Hangman(secret);
 
                         label5.setText(hangman1.getOutput().toString());
                         textField2.setText(Integer.toString(hangman1.getBodyparts()));
@@ -130,23 +132,7 @@ public class HangmanGUI extends JFrame {
         public void actionPerformed(ActionEvent e) {
 
             String input = textField1.getText();
-
-            /*
-            while(! hangman1.isDone())  {
-                String input = textField1.getText();
-                hangman1.setGuess(input);
-                if(hangman1.getGuess().length() > 1) {
-                    if (hangman1.getGuess().equals(hangman1.getSecret()))
-                        hangman1.setWin(true);
-                    else
-                        hangman1.setWin(false);
-
-                    hangman1.setDone(true);
-                }
-
-                else    {
-                    hangman1.setLetter(hangman1.getGuess().charAt(0));
-                }*/
+            input = input.toUpperCase();
 
             if(!hangman1.isDone()) {
                 hangman1.startHangman(input);
