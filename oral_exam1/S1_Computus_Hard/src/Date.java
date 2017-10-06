@@ -23,10 +23,11 @@ public class Date {
     }
 
     /**
-     *
-     * @param month
-     * @param day
-     * @param year
+     * This is the class constructor that accepts month day and year as its
+     * parameter.
+     * @param month month of the date of type int
+     * @param day day of the date of type int
+     * @param year year of the date of type int
      */
     public Date(int month, int day, int year) {
         if(isMonthValid(month) && isDayValid(month, day, year)) {
@@ -38,22 +39,39 @@ public class Date {
             throw new IllegalArgumentException("Date Invalid");
     }
 
+    /**
+     * Accessor method for the instance variable month.
+     * @return integer month
+     */
     public int getMonth() {
         return month;
     }
 
+    /**
+     * Accessor method for the instance variable day
+     * @return integer day
+     */
     public int getDay() {
         return day;
     }
 
+    /**
+     * Accessor method for the instance variable year
+     * @return integer year
+     */
     public int getYear() {
         return year;
     }
 
+    /**
+     * Mutator method for the month.
+     * @param month
+     */
     public void setMonth(int month) {
         if(!isMonthValid(month))
             throw new IllegalArgumentException("Month Invalid");
-        this.month = month;
+        else
+            this.month = month;
     }
 
     public void setDay(int day) {
