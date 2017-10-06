@@ -11,24 +11,31 @@ import java.util.Arrays;
 public class EasterDate {
 
     /**
-     * This class has 5 instance variables. All of the variables are private
      * The instance variable "easterDate" is of type Date. It stores the easter date
      * after it is calculated.
+     */
+    private Date easterDate;       //stores the easter date in Date type class
+    /**
      * The instance variable "aprilCount" is of type integer array. It has 26 elements and
      * is initialized to the default value. This array is used to store the number of times
      * easter falls on a specific day in April.
+     */
+    private int[] aprilCount = new int[26];
+    /**
      * The instance variable "marchCount" is of type integer array. It has 10 elements and
      * is initialized to the default value. This array is used to store the number of times
      * easter falls on a specific day in March.
+     */
+    private int[] marchCount = new int[10];
+    /**
      * The instance variable "aprilEasterDays" is of type integer array. It has 26 elements and
      * is initialized to numbers from 1 to 26.
+     */
+    private final Integer aprilEasterDays[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26};
+    /**
      * The instance variable "marchEasterDays" is of type integer array. It has 10 elements and
      * is initialized to numbers from 22 to 31;
      */
-    private Date easterDate;       //stores the easter date in Date type class
-    private int[] aprilCount = new int[26];
-    private int[] marchCount = new int[10];
-    private final Integer aprilEasterDays[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26};
     private final Integer marchEasterDays[] = {22,23,24,25,26,27,28,29,30,31};
 
     /**

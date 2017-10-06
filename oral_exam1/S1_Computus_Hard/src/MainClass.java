@@ -1,12 +1,13 @@
+
+
+import java.util.Scanner;
+
 /**
  * This is the driver class for S1_Computus_Hard. It asks for a user input
  * for the year to calculate the Easter Date. It will then create an object
  * of type EasterDate called easterDate1 and prints the easter date
  * It will also calls the method to calculate one whole cycle of easter.
  */
-
-import java.util.Scanner;
-
 public class MainClass {
 
     public static void main(String[] args)  {

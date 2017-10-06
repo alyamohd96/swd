@@ -1,24 +1,32 @@
+
+import java.util.Arrays;
+
 /**
  * This Encrypt class is a class that encrypts and decrypts a secret message.
  * It takes in a secret message and a value "n" from a user. It takes the alphabet index
  * and add the n value to the index. Then it will change the index back to the alphabet that
  * corresponds to the new index.
  */
-
-import java.util.Arrays;
-
 public class Encrypt {
 
     /**
-     * This class has 4 fields. One of it is a class field and three are instance
-     * field. All of the variables are private
      * The "alphabet" is character array that stores all of the alphabet. It is also
-     * static and final
-     *
+     * static and final.
      */
     private final static char alphabet[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+    /**
+     * The "message" is a character array that stores the secret after it is encrypted
+     */
     private char[] message;
+
+    /**
+     * messageInInt is an integer array stores the message in integer based on the alphabet index
+     */
     private int[] messageInInt;
+
+    /**
+     * n stores the value n which is the number that would be added to the alphabet index
+     */
     private int n;
 
     /**
@@ -47,16 +55,18 @@ public class Encrypt {
     }
 
     /**
-     *
-     * @return
+     * This is an accessor method for the instance variable message
+     * @return the secret message after it is encrypted
      */
     public char[] getMessage() {
         return message;
     }
 
     /**
-     *
-     * @param message
+     * This is a mutator method that sets the message instance variable. It also checks whether it only contains alphabets. It will throw
+     * an IllegalArgumentException when the message has symbols and numbers in it
+     * @param message the message to be set to
+     * @throws IllegalArgumentException when the message contains anything other than alphabets
      */
     public void setMessage(String message) {
         if (!isAlpha(message))
@@ -66,45 +76,46 @@ public class Encrypt {
     }
 
     /**
-     *
-     * @return
+     * An accessor methods to get the value of n
+     * @return the value of n
      */
     public int getN() {
         return n;
     }
 
     /**
-     *
-     * @param n
+     * A mutator method to set n.
+     * @param n the value of n to be set
      */
     public void setN(int n) {
         this.n = n;
     }
 
     /**
-     *
+     * A method that decrpts the message after it has been encrypted. It uses the n value stored in the n instance variable
+     * and calls the static methods to decrypt it
      */
     public void decrypt() {
-        System.out.print("Message is: " + Arrays.toString(message));
+        // System.out.print("Message is: " + Arrays.toString(message));
         String temp = new String(this.message);
         this.messageInInt = getAlphabetIndex(temp);
-        System.out.println("Alphabet Index");
-        System.out.print(Arrays.toString(messageInInt));
+        //System.out.println("Alphabet Index");
+        //System.out.print(Arrays.toString(messageInInt));
         this.messageInInt = subtractNValue(this.messageInInt,n);
-        System.out.println("\nSubtracted N Value");
-        System.out.print(Arrays.toString(messageInInt));
+        //System.out.println("\nSubtracted N Value");
+        //System.out.print(Arrays.toString(messageInInt));
         this.message = convertIntToChar(this.messageInInt);
-        System.out.println("\nConverted");
-        System.out.print(Arrays.toString(message));
+        //System.out.println("\nConverted");
+        //System.out.print(Arrays.toString(message));
     }
 
-    /******************************************************
+    /**
      * This method validate the message to contain only
      * alphabets.
      * @param checkMessage
      * @return true if contain only alphabets and spaces.
      *          false if contain besides alphabets
-     ******************************************************/
+     */
     public static boolean isAlpha(String checkMessage) {
         char[] chars = checkMessage.toCharArray();
 
@@ -117,9 +128,9 @@ public class Encrypt {
     }
 
     /**
-     *
-     * @param message
-     * @return
+     * This static method gets the alphabet index from the message.
+     * @param message the secret message
+     * @return an integer array that contains the secret message in its index
      */
     private static int[] getAlphabetIndex(String message)   {
         char[] messageCharArray  = message.toCharArray();
@@ -143,9 +154,9 @@ public class Encrypt {
     }
 
     /**
-     *
-     * @param messageInInteger
-     * @return
+     * This static method converts a message in integers to alphabets using the alphabet's instance variables.
+     * @param messageInInteger the message in integers after encryption
+     * @return a character array of the encrypted message
      */
     private static char[] convertIntToChar(int[] messageInInteger) {
         char[] convertedMessage = new char[messageInInteger.length];
@@ -161,10 +172,11 @@ public class Encrypt {
     }
 
     /**
-     *
-     * @param messageAsInt
-     * @param n
-     * @return
+     * This static methods accepts two arguments; an integer array that contains the message and an n value.
+     * This methods does the encryption by adding the n value to every element in the integer array
+     * @param messageAsInt the message to be encrypted in integers
+     * @param n the n value to be added to the message
+     * @return the encrypted message in integers
      */
     private static int[] addNValue(int[] messageAsInt, int n)   {
         for (int i =0;i<messageAsInt.length;i++) {
@@ -176,10 +188,11 @@ public class Encrypt {
     }
 
     /**
-     *
-     * @param messageAsInt
-     * @param n
-     * @return
+     * This method accepts two arguments; an integer array that contains the message to be decrypted and an n value.
+     * This methods does the decryption by subtracting the n value to every element in the integer array
+     * @param messageAsInt the message to be decrypted in an integer array
+     * @param n the n value to be subtracted from the message
+     * @return the decrypted message
      */
     private int[] subtractNValue(int[] messageAsInt, int n) {
         for (int i =0;i<messageAsInt.length;i++) {
@@ -193,8 +206,8 @@ public class Encrypt {
     }
 
     /**
-     *
-     * @return
+     * This method override the Objects toString method.
+     * @return a string of the message.
      */
     @Override
     public String toString()    {

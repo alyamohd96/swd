@@ -5,17 +5,14 @@
  * the accessor and mutator methods. It also has methods to check the validity of dates,
  * whether the year is a leap year, and it's own toString methods.
  * @author ttmohd
- *
- *
  */
 public class Date {
 
     /**
      * There are 3 fields; month, day, year.
      * All the fields are private and of type integer.
-     */
-
-    /**The month stores the month*/
+     * */
+    /** The month stores the month */
     private int month;          //stores the month
     /** The day stores the day*/
     private int day;            //stores the day

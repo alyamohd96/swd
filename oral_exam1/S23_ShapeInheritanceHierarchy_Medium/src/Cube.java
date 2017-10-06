@@ -1,5 +1,12 @@
+/**
+ * This Cube class is a class that exhibits the characteristics of a cube. It extends the ThreeDimensionalClass and stores the surfaceArea and
+ * the volume of the cube.
+ */
 public class Cube extends ThreeDimensionalShapes {
 
+    /**
+     *
+     */
     private double surfaceArea;
     private double volume;
 
