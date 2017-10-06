@@ -11,7 +11,19 @@ import java.util.Arrays;
 public class EasterDate {
 
     /**
-     *
+     * This class has 5 instance variables. All of the variables are private
+     * The instance variable "easterDate" is of type Date. It stores the easter date
+     * after it is calculated.
+     * The instance variable "aprilCount" is of type integer array. It has 26 elements and
+     * is initialized to the default value. This array is used to store the number of times
+     * easter falls on a specific day in April.
+     * The instance variable "marchCount" is of type integer array. It has 10 elements and
+     * is initialized to the default value. This array is used to store the number of times
+     * easter falls on a specific day in March.
+     * The instance variable "aprilEasterDays" is of type integer array. It has 26 elements and
+     * is initialized to numbers from 1 to 26.
+     * The instance variable "marchEasterDays" is of type integer array. It has 10 elements and
+     * is initialized to numbers from 22 to 31;
      */
     private Date easterDate;       //stores the easter date in Date type class
     private int[] aprilCount = new int[26];
@@ -20,9 +32,14 @@ public class EasterDate {
     private final Integer marchEasterDays[] = {22,23,24,25,26,27,28,29,30,31};
 
     /**
-     * Default constructor with the year as an input.
+     * Default constructor with the year as an input. It validate the
+     * year by checking if contains anything other than numbers. It also v
+     * validates the year lesser than 1700 as the easter date started on
+     * 1770. If all the validity passes, the constructor calls the method
+     * calculateEasterDate to calculate the easter date and set it to the instance
+     * variable easterDate
      *
-     * @param input
+     * @param input year in String
      */
     public EasterDate(String input) {
         if (!isNumber(input)) {
@@ -107,7 +124,7 @@ public class EasterDate {
      * Returns true if the input is only numbers and false
      * if it contains anything else
      * @param input Input from user of type String
-     * @return
+     * @return true if the argument contains only numbers. false if not
      */
     private static boolean isNumber(String input)   {
         return input.matches("[-+]?\\d*\\.?\\d+");

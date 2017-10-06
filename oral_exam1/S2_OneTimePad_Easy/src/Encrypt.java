@@ -1,20 +1,32 @@
 /**
- *
+ * This Encrypt class is a class that encrypts and decrypts a secret message.
+ * It takes in a secret message and a value "n" from a user. It takes the alphabet index
+ * and add the n value to the index. Then it will change the index back to the alphabet that
+ * corresponds to the new index.
  */
 
 import java.util.Arrays;
 
 public class Encrypt {
 
+    /**
+     * This class has 4 fields. One of it is a class field and three are instance
+     * field. All of the variables are private
+     * The "alphabet" is character array that stores all of the alphabet. It is also
+     * static and final
+     *
+     */
     private final static char alphabet[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
     private char[] message;
     private int[] messageInInt;
     private int n;
 
     /**
-     *
-     * @param message
-     * @param n
+     * This is the constructor for Encrypt class. It takes in two
+     * arguments. One secret message of type String and one n value
+     * of type integer.
+     * @param message the secret message of type String
+     * @param n the n value to encrypt of type integer
      */
     public Encrypt(String message, int n)   {
         //Validation so that no number or symbols is in the message
