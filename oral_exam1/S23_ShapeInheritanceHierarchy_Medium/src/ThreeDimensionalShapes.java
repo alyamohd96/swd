@@ -8,6 +8,10 @@ public class ThreeDimensionalShapes extends ShapeBaseClass {
         super(name);
     }
 
+    public ThreeDimensionalShapes(String name, String color)  {
+        super(name, color);
+    }
+
     public ThreeDimensionalShapes(String name, double dimX, double dimY, double dimZ)    {
         super(name);
         this.dimX = dimX;

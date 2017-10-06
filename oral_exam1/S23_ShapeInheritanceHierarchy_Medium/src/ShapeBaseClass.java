@@ -13,6 +13,11 @@ public class ShapeBaseClass {
         this.name = name;
     }
 
+    public ShapeBaseClass(String name, String color) {
+        this.name = name;
+        this.color = color;
+    }
+
     public ShapeBaseClass(String name, int startXCoordinates, int startYCoordinates, int endXCoordinates, int endYCoordinates)    {
         this.name = name;
         this.startXCoordinates = startXCoordinates;

@@ -8,6 +8,10 @@ public class TriangularPrism extends ThreeDimensionalShapes {
         super(name);
     }
 
+    public TriangularPrism(String name, String color)   {
+        super(name,color);
+    }
+
     public TriangularPrism(String name, double dimX, double dimY, double dimZ, double height)      {
         super(name, dimX, dimY, dimZ);
         this.height = height;

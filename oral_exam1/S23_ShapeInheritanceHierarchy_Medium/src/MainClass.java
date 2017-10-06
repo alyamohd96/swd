@@ -26,5 +26,8 @@ public class MainClass {
         System.out.print("Circle shape extends from TwoDimensionalShapes class is created with the name " + circle1.getName() + " with area " + circle1.getArea() + "\n");
         System.out.print("Using the static calculatePerimeter function from Circle class with the radius of 5: " + Circle.calculatePerimeter(5));
 
+
+        TriangularPrism triangularPrism1 = new TriangularPrism("cool prism", "Magenta");
+        System.out.print("Triangular prism created name " + triangularPrism1.getName() + "with color " + triangularPrism1.getColor());
     }
 }
