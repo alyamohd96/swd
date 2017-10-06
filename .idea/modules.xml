@@ -58,12 +58,12 @@
       <module fileurl="file://$PROJECT_DIR$/lab/Myfig2-6/Myfig2-6.iml" filepath="$PROJECT_DIR$/lab/Myfig2-6/Myfig2-6.iml" />
       <module fileurl="file://$PROJECT_DIR$/oral_exam1/S10_ArabicToRomanGUI_Medium/S10_ArabicToRomanGUI_Medium.iml" filepath="$PROJECT_DIR$/oral_exam1/S10_ArabicToRomanGUI_Medium/S10_ArabicToRomanGUI_Medium.iml" />
       <module fileurl="file://$PROJECT_DIR$/oral_exam1/S1_Computus_Hard/S1_Computus_Hard.iml" filepath="$PROJECT_DIR$/oral_exam1/S1_Computus_Hard/S1_Computus_Hard.iml" />
-      <module fileurl="file://$PROJECT_DIR$/oral_exam1/S21_HangmanGUI_Medium/S21_HangmanGUI_Medium.iml" filepath="$PROJECT_DIR$/oral_exam1/S21_HangmanGUI_Medium/S21_HangmanGUI_Medium.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oral_exam1/S21_HangmanGUI_Hard/S21_HangmanGUI_Hard.iml" filepath="$PROJECT_DIR$/oral_exam1/S21_HangmanGUI_Hard/S21_HangmanGUI_Hard.iml" />
       <module fileurl="file://$PROJECT_DIR$/oral_exam1/S23_ShapeInheritanceHierarchy_Medium/S23_ShapeInheritanceHierarchy_Medium.iml" filepath="$PROJECT_DIR$/oral_exam1/S23_ShapeInheritanceHierarchy_Medium/S23_ShapeInheritanceHierarchy_Medium.iml" />
       <module fileurl="file://$PROJECT_DIR$/oral_exam1/S2_OneTimePad_Easy/S2_OneTimePad_Easy.iml" filepath="$PROJECT_DIR$/oral_exam1/S2_OneTimePad_Easy/S2_OneTimePad_Easy.iml" />
       <module fileurl="file://$PROJECT_DIR$/class_demos/ch15/SerializationApps/SerializationApps.iml" filepath="$PROJECT_DIR$/class_demos/ch15/SerializationApps/SerializationApps.iml" />
       <module fileurl="file://$PROJECT_DIR$/class_demos/supplemental/SupermarketSimulation/SupermarketSimulation.iml" filepath="$PROJECT_DIR$/class_demos/supplemental/SupermarketSimulation/SupermarketSimulation.iml" />
-      <module fileurl="file://$PROJECT_DIR$/oral_exam1/Tests_Hangman/Tests_Hangman.iml" filepath="$PROJECT_DIR$/oral_exam1/Tests_Hangman/Tests_Hangman.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab/Tests_Hangman/Tests_Hangman.iml" filepath="$PROJECT_DIR$/lab/Tests_Hangman/Tests_Hangman.iml" />
       <module fileurl="file://$PROJECT_DIR$/class_demos/ch15/TextFileApps/TextFileApps.iml" filepath="$PROJECT_DIR$/class_demos/ch15/TextFileApps/TextFileApps.iml" />
       <module fileurl="file://$PROJECT_DIR$/class_demos/ch25/TipCalculator/TipCalculator.iml" filepath="$PROJECT_DIR$/class_demos/ch25/TipCalculator/TipCalculator.iml" />
       <module fileurl="file://$PROJECT_DIR$/class_demos/ch25/Welcome/Welcome.iml" filepath="$PROJECT_DIR$/class_demos/ch25/Welcome/Welcome.iml" />

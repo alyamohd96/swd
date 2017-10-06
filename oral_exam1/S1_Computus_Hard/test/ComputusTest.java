@@ -2,8 +2,9 @@ import org.junit.Test;
 
 public class ComputusTest {
 
-    public int[] year = {};
-    public int[] month = {};
+    public int[] year = {1997,1998,1999,2000,2001,2002,2003,2020,2032,2037};
+    public int[] month = {3,4,4,4,4,3,4,4,3,4};
+    public int[] day =  {30,12,4,23,15,31,20,12,28,5};
 
 
     @Test
@@ -33,5 +34,12 @@ public class ComputusTest {
         System.out.println(test4.toString());
         test4.calculateOneCycle();
     }
+
+    /*@Test
+    public void testDates() throws Exception    {
+        for(int i=0;i<year.length;i++)
+            EasterDate testDates = new EasterDate(Integer.toString(year[i]));
+
+    }*/
 
 }
