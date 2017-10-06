@@ -7,6 +7,8 @@
 import com.sun.deploy.util.StringUtils;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -44,7 +46,14 @@ public class ArabicToRomanGUI extends JFrame {
         arabicNumber.setFont(defaultFont);
         add(arabicNumber);
 
+        /*
+        ArabicToRomanHandler arabToRoman = new ArabicToRomanHandler();
+        RomanToArabicHandler romanToArab = new RomanToArabicHandler();
+        arabicNumber.getDocument().addDocumentListener(arabToRoman);
+        romanNumber.getDocument().addDocumentListener(romanToArab);*/
+
         ArabicToRomanHandler handler = new ArabicToRomanHandler();
+
         romanNumber.addActionListener(handler);
         arabicNumber.addActionListener(handler);
     }
@@ -189,6 +198,7 @@ public class ArabicToRomanGUI extends JFrame {
         return roman.matches("^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
     }
 
+
     /**
      * This inner class is the handler class for this GUI. The class
      * is a private class that implements the interface ActionListener
@@ -227,10 +237,8 @@ public class ArabicToRomanGUI extends JFrame {
                 }
 
             }
-
         }
     }
-
 
 
 }

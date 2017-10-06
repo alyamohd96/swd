@@ -10,7 +10,9 @@ import java.util.Arrays;
 
 public class EasterDate {
 
-    //class fields
+    /**
+     *
+     */
     private Date easterDate;       //stores the easter date in Date type class
     private int[] aprilCount = new int[26];
     private int[] marchCount = new int[10];

@@ -1,14 +1,33 @@
+/**
+ * The Date class is a class for storing dates. It contains the usual methods;
+ * the accessor and mutator methods. It also has methods to check the validity of dates,
+ * whether the year is a leap year, and it's own toString methods.
+ *
+ */
 public class Date {
 
-    private int month;
-    private int day;
-    private int year;
+    /**
+     * There are 3 fields. All the fields are private and of type integer.
+     */
+    private int month;          //stores the month
+    private int day;            //stores the day
+    private int year;           //stores the year
 
+    /**
+     * This Date constructor receives the year as it's parameter and
+     * sets it to the class field year.
+     * @param year
+     */
     public Date(int year)   {
-        //if(isNumber(String.valueOf(year)))
-            this.year = year;
+        this.year = year;
     }
 
+    /**
+     *
+     * @param month
+     * @param day
+     * @param year
+     */
     public Date(int month, int day, int year) {
         if(isMonthValid(month) && isDayValid(month, day, year)) {
             this.month = month;
@@ -44,18 +63,6 @@ public class Date {
     public void setYear(int year) {
         this.year = year;
     }
-
-    /*
-    public static boolean isNumber(String input)    {
-        try {
-            Integer.parseInt(input);
-        }
-        catch(NumberFormatException ex)    {
-            System.out.println("Alphabet and Symbols not accepted");
-            return false;
-        }
-        return true;
-    }*/
 
     public static boolean isDayValid(int month, int day, int year)  {
         if (day < 0 || day > 31)
