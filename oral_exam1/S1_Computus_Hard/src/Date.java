@@ -7,7 +7,11 @@
 public class Date {
 
     /**
-     * There are 3 fields. All the fields are private and of type integer.
+     * There are 3 fields; month, day, year.
+     * All the fields are private and of type integer.
+     * The month stores the month
+     * The day stores the day
+     * The year stores the year
      */
     private int month;          //stores the month
     private int day;            //stores the day
@@ -64,8 +68,11 @@ public class Date {
     }
 
     /**
-     * Mutator method for the month.
-     * @param month
+     * Mutator method for the month. This mutator method calss a
+     * static method that checks the validity of the month. If the
+     * validity does not pass, it throws an IllegalArgumentException.
+     * @param month month
+     * @throws IllegalArgumentException if the month is not valid
      */
     public void setMonth(int month) {
         if(!isMonthValid(month))
@@ -74,14 +81,38 @@ public class Date {
             this.month = month;
     }
 
+    /**
+     * Mutator method for the day. This mutator method class a
+     * static method that checks the validity of the day. If the
+     * validity does not pass, it throws an IllegalArgumentException.
+     * @param day
+     * @throws IllegalArgumentException if the day is not valid
+     */
     public void setDay(int day) {
-        this.day = day;
+        if(!isDayValid(this.month,day,this.year))
+            throw new IllegalArgumentException("Day Invalid");
+        else
+            this.day = day;
     }
 
+    /**
+     * Mutator method for the year. Sets the instance variable year to
+     * the integer passed in the parameter
+     * @param year
+     */
     public void setYear(int year) {
         this.year = year;
     }
 
+    /**
+     * This is a static method that checks the validity of the day.
+     * If the day is valid, it will return boolean value true and vice
+     * versa. This method takes into account leap years and the month.
+     * @param month
+     * @param day
+     * @param year
+     * @return true if valid. false if not.
+     */
     public static boolean isDayValid(int month, int day, int year)  {
         if (day < 0 || day > 31)
             return false;
@@ -99,6 +130,12 @@ public class Date {
             return true;
     }
 
+    /**
+     * This is a static method that checks whether the month is valid.
+     * Any number smaller than 1 and greater than 12 will be invalid.
+     * @param month
+     * @return true if valid, false if invalid
+     */
     public static boolean isMonthValid(int month)  {
         if (month < 1 || month > 12)
             return false;
@@ -106,6 +143,11 @@ public class Date {
             return true;
     }
 
+    /**
+     * This static method checks if the year is a leap year.
+     * @param year
+     * @return true if leap year, false if not.
+     */
     public static boolean isLeapYear(int year)  {
         if(year%4 != 0)
             return false;
@@ -122,7 +164,7 @@ public class Date {
      * month based on the integer input. For example, input 3 in
      * the method will return a String "March"
      * @param month
-     * @return String of the month
+     * @return a String of the month
      */
     private static String monthInString(int month)  {
         String monthInString;
