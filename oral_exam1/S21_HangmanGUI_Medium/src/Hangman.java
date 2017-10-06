@@ -1,14 +1,17 @@
+import javax.swing.*;
+import java.awt.*;
+
 /**
  * http://www.cs.jhu.edu/~joanne/cs107/code/StaticMethods/hangmanMethods.java
  */
 
 
-public class Hangman {
+public class Hangman extends JPanel{
 
     private final int MAXPARTS = 6;
     private String secret;
     private StringBuffer output;
-    private int bodyparts;
+    private int bodyparts = MAXPARTS;
     private boolean done;
     private String guess;
     private String guesses;
@@ -129,5 +132,9 @@ public class Hangman {
         return output;
     }
 
+    @Override
+    public void paintComponent(Graphics g)  {
+        g.drawLine(20,100,10,10);
+    }
 }
 

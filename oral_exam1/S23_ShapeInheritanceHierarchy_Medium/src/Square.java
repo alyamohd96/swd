@@ -10,10 +10,10 @@ public class Square extends TwoDimensionalShapes{
         super(name);
     }
 
-    public Square(String name, int dimX, int dimY) {
-        super(name, dimX, dimY);
-        this.perimeter = calculatePerimeter(dimX);
-        this.area = calculateArea(dimX);
+    public Square(String name, int side) {
+        super(name, side, side);
+        this.perimeter = calculatePerimeter(side);
+        this.area = calculateArea(side);
     }
 
     public int getPerimeter() {

@@ -26,11 +26,15 @@ public class HangmanGUI extends JFrame {
     private final JLabel label6;
     private final JLabel label7;
 
+    private final HangmanFigure hangmanFigure;
+
+    //
     private Hangman hangman1;
 
-    public HangmanGUI() {
+
+    public HangmanGUI(){
         super("Hangman");
-        setLayout(new GridLayout(10,1));    //set frame layout
+        setLayout(new GridLayout(5,5));    //set frame layout
         defaultFont = new Font("Trebuchet MS", Font.PLAIN, 30);
 
         label1 = new JLabel("Welcome to Hangman!");
@@ -50,11 +54,19 @@ public class HangmanGUI extends JFrame {
         label1.setFont(new Font("Trebuchet MS", Font.BOLD, 28));
         add(label1);
 
+
         //Secret word will be displayed here Label
         label5.setVerticalAlignment(SwingConstants.CENTER);
         label5.setHorizontalAlignment(SwingConstants.CENTER);
         label5.setFont(new Font("Trebuchet MS", Font.BOLD, 36));
         add(label5);
+
+        add(new JLabel(""));
+
+        hangmanFigure = new HangmanFigure();
+        hangmanFigure.setSize(600,1000);
+        hangmanFigure.setAlignmentX(CENTER_ALIGNMENT);
+        add(hangmanFigure);
 
         //Insert secret word Label
         label2.setHorizontalAlignment(SwingConstants.LEFT);
@@ -65,6 +77,8 @@ public class HangmanGUI extends JFrame {
         //secret word JPasswordField
         secretWord.setFont(defaultFont);
         add(secretWord);
+
+        add(new JLabel(""));
 
         //Enter your guess here Label
         label3.setHorizontalAlignment(SwingConstants.LEFT);
@@ -77,6 +91,8 @@ public class HangmanGUI extends JFrame {
         textField1.setFont(defaultFont);
         add(textField1);
 
+        add(new JLabel(""));
+
         label6.setHorizontalAlignment(SwingConstants.LEFT);
         label6.setVerticalAlignment(SwingConstants.CENTER);
         label6.setFont(defaultFont);
@@ -86,6 +102,8 @@ public class HangmanGUI extends JFrame {
         label7.setVerticalAlignment(SwingConstants.CENTER);
         label7.setFont(defaultFont);
         add(label7);
+
+        add(new JLabel(""));
 
         label4.setHorizontalAlignment(SwingConstants.LEFT);
         label4.setVerticalAlignment(SwingConstants.CENTER);
@@ -97,6 +115,8 @@ public class HangmanGUI extends JFrame {
         textField2.setEditable(false);
         add(textField2);
 
+        hangmanFigure.repaint();
+
         secretWord.addActionListener(
                 //anonymous inner class for secretWord JTextField
                 new ActionListener() {
@@ -104,30 +124,28 @@ public class HangmanGUI extends JFrame {
                     public void actionPerformed(ActionEvent e) {
 
                         secretWord.setEditable(false);
-
                         String secret = secretWord.getText().toUpperCase();
-
                         hangman1 = new Hangman(secret);
-
                         label5.setText(hangman1.getOutput().toString());
                         textField2.setText(Integer.toString(hangman1.getBodyparts()));
+                        hangmanFigure.repaint();
                     }
                 }
         );
-
 
         HangmanHandler handler = new HangmanHandler();
         textField1.addActionListener(handler);
 
     }
 
-
     private String outputString(char[] output)   {
         String outputInString = new String(output);
         return outputInString;
     }
 
+
     private class HangmanHandler implements ActionListener {
+
         @Override
         public void actionPerformed(ActionEvent e) {
 
@@ -138,6 +156,8 @@ public class HangmanGUI extends JFrame {
                 hangman1.startHangman(input);
                 label7.setText(hangman1.getGuesses());
                 textField2.setText(Integer.toString(hangman1.getBodyparts()));
+                hangmanFigure.setBodyParts(hangman1.getBodyparts());
+                hangmanFigure.repaint();
                 label5.setText(hangman1.getOutput().toString());
                 if (hangman1.isWin()) {
                     JOptionPane.showMessageDialog(null, "You Win!");
@@ -155,6 +175,8 @@ public class HangmanGUI extends JFrame {
 
 
         }
+
+
 
 
     }
