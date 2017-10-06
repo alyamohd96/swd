@@ -2,7 +2,6 @@
  * http://www.cs.jhu.edu/~joanne/cs107/code/StaticMethods/hangmanMethods.java
  */
 
-//import java.util.Scanner;
 
 public class Hangman {
 
@@ -98,7 +97,6 @@ public class Hangman {
             else
                 matchLetter(secret, output, letter);
 
-
             if(isDone())    {
                 win = false;
                 done = true;
@@ -107,9 +105,7 @@ public class Hangman {
                 win = true;
                 done = true;
             }
-
         }
-
     }
 
     public boolean isDone() {
@@ -123,8 +119,6 @@ public class Hangman {
                 output.setCharAt(index, letter);
 
 
-        //System.out.print("good guess : ");
-
     }
 
     private static StringBuffer makeOutput(String secret)    {
@@ -132,26 +126,8 @@ public class Hangman {
         for(int count=0; count < secret.length(); count++)
             output.append('-');
 
-        //System.out.print("in make output: " + output);
         return output;
     }
-
-
-    /*
-    public static void main(String args[])  {
-        System.out.print("Enter secret word:");
-        Scanner input = new Scanner(System.in);
-        String secretWord = input.next();
-
-        Hangman session1 = new Hangman(secretWord);
-        while(! session1.done) {
-
-            System.out.print("enter letter/word:");
-            session1.startHangman(input.next());
-
-
-        }*/
-
 
 }
 

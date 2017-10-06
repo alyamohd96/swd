@@ -7,7 +7,11 @@ public class Cube extends ThreeDimensionalShapes {
         super(name);
     }
 
-
+    /**
+     *
+     * @param name
+     * @param edge
+     */
     public Cube(String name, double edge) {
         super(name, edge, edge, edge);
         this.surfaceArea = calculateSurfaceArea(edge);
@@ -38,6 +42,11 @@ public class Cube extends ThreeDimensionalShapes {
         setDimZ(edge);
     }
 
+    /**
+     *
+     * @param edge
+     * @return
+     */
     private static double calculateSurfaceArea(double edge) {
         return 6*Math.pow(edge,2);
     }
