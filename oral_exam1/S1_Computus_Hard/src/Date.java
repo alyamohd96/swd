@@ -2,6 +2,8 @@
  * The Date class is a class for storing dates. It contains the usual methods;
  * the accessor and mutator methods. It also has methods to check the validity of dates,
  * whether the year is a leap year, and it's own toString methods.
+ * @author ttmohd
+ *
  *
  */
 public class Date {
