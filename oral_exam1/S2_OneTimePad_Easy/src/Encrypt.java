@@ -92,7 +92,7 @@ public class Encrypt {
     }
 
     /**
-     * A method that decrpts the message after it has been encrypted. It uses the n value stored in the n instance variable
+     * A method that decrypts the message after it has been encrypted. It uses the n value stored in the n instance variable
      * and calls the static methods to decrypt it
      */
     public void decrypt() {

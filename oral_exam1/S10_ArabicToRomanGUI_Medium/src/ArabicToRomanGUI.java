@@ -1,9 +1,3 @@
-/**
- * This ArabicToRomanGUI class is the GUI component of the HangmanGUI program.
- * The class inherits the JFrame class to construct the GUI. The class also
- * has an private inner class for handling events.
- */
-
 import com.sun.deploy.util.StringUtils;
 
 import javax.swing.*;
@@ -14,17 +8,41 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * This ArabicToRomanGUI class is the GUI component of the HangmanGUI program.
+ * The class inherits the JFrame class to construct the GUI. The class also
+ * has an private inner class for handling events.
+ */
 public class ArabicToRomanGUI extends JFrame {
 
+    /**
+     * label1 is an instance variable of type JLabel that will say "Roman Number"
+     */
     private final JLabel label1;
+    /**
+     * label2 is an instance variable of type JLabel that will say "Arabic Number"
+     */
     private final JLabel label2;
+    /**
+     * romanNumber is an instance variable of type JTextField. The roman number to be converted
+     * or the roman number after conversion will appear here
+     */
     private final JTextField romanNumber;
+    /**
+     * arabicNumber is an instance variable of type JTextField that will be where the arabic number
+     * be placed.
+     */
     private final JTextField arabicNumber;
+    /**
+     * defaultFont is an instance variable of type Font that store the preffered font
+     * which is Trebuchet MS of size 30
+     */
     private final Font defaultFont;
 
     /**
      * The constructor for the class. The constructor adds the JLabel
-     * and the JTextField to the JFrame.
+     * and the JTextField to the JFrame. It will also add an ActionHandler
+     * to the actionListener of the arabicNumber and romanNumber JTextField
      */
     public ArabicToRomanGUI()   {
         super("Arabic To Roman");
@@ -45,12 +63,6 @@ public class ArabicToRomanGUI extends JFrame {
         arabicNumber = new JTextField();
         arabicNumber.setFont(defaultFont);
         add(arabicNumber);
-
-        /*
-        ArabicToRomanHandler arabToRoman = new ArabicToRomanHandler();
-        RomanToArabicHandler romanToArab = new RomanToArabicHandler();
-        arabicNumber.getDocument().addDocumentListener(arabToRoman);
-        romanNumber.getDocument().addDocumentListener(romanToArab);*/
 
         ArabicToRomanHandler handler = new ArabicToRomanHandler();
 
@@ -131,6 +143,13 @@ public class ArabicToRomanGUI extends JFrame {
         }
     }
 
+    /**
+     * This method converts integer to roman numeral. It will also check whether
+     * the input is less than 1 and greater than 3999 as the roman numeral
+     * is only valid between 1 and 3999
+     * @param input arabic number to be converted to roman
+     * @return a String that contains the roman numeral
+     */
     public static String IntegerToRomanNumeral(int input) {
         if (input < 1 || input > 3999)
             return "Invalid Roman Number Value";
@@ -190,9 +209,11 @@ public class ArabicToRomanGUI extends JFrame {
     }
 
     /**
+     * This method checks whether the roman numeral to be converted is valid or not.
+     * This method is taken from the following website:
      * https://stackoverflow.com/questions/267399/how-do-you-match-only-valid-roman-numerals-with-a-regular-expression
-     * @param roman
-     * @return
+     * @param roman the roman numeral to be checked
+     * @return true if the roman numeral is valid. false if not
      */
     private boolean checkValidityRoman(String roman)    {
         return roman.matches("^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
@@ -202,9 +223,17 @@ public class ArabicToRomanGUI extends JFrame {
     /**
      * This inner class is the handler class for this GUI. The class
      * is a private class that implements the interface ActionListener
+     * and calls the appropriate methods to convert the numbers. It will also
+     * display the result to the appropriate JTextField
      */
     private class ArabicToRomanHandler implements ActionListener {
 
+        /**
+         * This method is the Overridden method from the ActionListener.
+         * It decides what to do when an action is performed from the
+         * arabicNumber JTextField and the romanNumber JTextField
+         * @param event
+         */
         @Override
         public void actionPerformed(ActionEvent event) {
             String romanToConvert = new String();
