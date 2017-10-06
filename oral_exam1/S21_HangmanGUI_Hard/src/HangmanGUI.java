@@ -122,25 +122,40 @@ public class HangmanGUI extends JFrame {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-
                         secretWord.setEditable(false);
                         String secret = secretWord.getText().toUpperCase();
-                        hangman1 = new Hangman(secret);
-                        label5.setText(hangman1.getOutput().toString());
-                        textField2.setText(Integer.toString(hangman1.getBodyparts()));
-                        hangmanFigure.repaint();
+                        if(!secret.isEmpty() || isAlpha(secret)) {
+                            hangman1 = new Hangman(secret);
+                            label5.setText(hangman1.getOutput().toString());
+                            textField2.setText(Integer.toString(hangman1.getBodyparts()));
+                            hangmanFigure.repaint();
+                        }
+                        else
+                            JOptionPane.showMessageDialog(null, "Invalid input!");
                     }
                 }
         );
-
         HangmanHandler handler = new HangmanHandler();
         textField1.addActionListener(handler);
-
     }
 
-    private String outputString(char[] output)   {
-        String outputInString = new String(output);
-        return outputInString;
+
+    /**
+     * This method validate the message to contain only
+     * alphabets.
+     * @param check
+     * @return true if contain only alphabets and spaces.
+     *          false if contain besides alphabets
+     */
+    public static boolean isAlpha(String check) {
+        char[] chars = check.toCharArray();
+
+        for (char c : chars) {
+            if(!Character.isLetter(c) && !(c == ' ')) {
+                return false;
+            }
+        }
+        return true;
     }
 
 
@@ -152,28 +167,28 @@ public class HangmanGUI extends JFrame {
             String input = textField1.getText();
             input = input.toUpperCase();
 
-            if(!hangman1.isDone()) {
-                hangman1.startHangman(input);
-                label7.setText(hangman1.getGuesses());
-                textField2.setText(Integer.toString(hangman1.getBodyparts()));
-                hangmanFigure.setBodyParts(hangman1.getBodyparts());
-                hangmanFigure.repaint();
-                label5.setText(hangman1.getOutput().toString());
-                if (hangman1.isWin()) {
-                    JOptionPane.showMessageDialog(null, "You Win!");
-                }
-            }
-            else    {
-                if (hangman1.isWin()) {
-                    JOptionPane.showMessageDialog(null, "You Win!");
-                }
-                else {
-                    JOptionPane.showMessageDialog(null, "You lose!");
+            if (isAlpha(input)) {
+
+                if (!hangman1.isDone()) {
+                    hangman1.startHangman(input);
+                    label7.setText(hangman1.getGuesses());
+                    textField2.setText(Integer.toString(hangman1.getBodyparts()));
+                    hangmanFigure.setBodyParts(hangman1.getBodyparts());
+                    hangmanFigure.repaint();
+                    label5.setText(hangman1.getOutput().toString());
+                    if (hangman1.isWin()) {
+                        JOptionPane.showMessageDialog(null, "You Win!");
+                    }
+                } else {
+                    if (hangman1.isWin()) {
+                        JOptionPane.showMessageDialog(null, "You Win!");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "You lose!");
+                    }
+
                 }
 
             }
-
-
         }
 
 

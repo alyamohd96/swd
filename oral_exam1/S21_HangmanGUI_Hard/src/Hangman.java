@@ -2,10 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
+ * This Hangman class is a class that have the methods and the logic for the
+ * basic hangman game. The code for this class is inspired by the following website:
  * http://www.cs.jhu.edu/~joanne/cs107/code/StaticMethods/hangmanMethods.java
+ * This class also contains a method that
  */
-
-
 public class Hangman extends JPanel{
 
     private final int MAXPARTS = 6;
@@ -132,9 +133,6 @@ public class Hangman extends JPanel{
         return output;
     }
 
-    @Override
-    public void paintComponent(Graphics g)  {
-        g.drawLine(20,100,10,10);
-    }
+
 }
 
