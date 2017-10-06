@@ -1,3 +1,5 @@
+
+
 /**
  * The Date class is a class for storing dates. It contains the usual methods;
  * the accessor and mutator methods. It also has methods to check the validity of dates,
@@ -11,18 +13,19 @@ public class Date {
     /**
      * There are 3 fields; month, day, year.
      * All the fields are private and of type integer.
-     * The month stores the month
-     * The day stores the day
-     * The year stores the year
      */
+
+    /**The month stores the month*/
     private int month;          //stores the month
+    /** The day stores the day*/
     private int day;            //stores the day
+    /**The year stores the year*/
     private int year;           //stores the year
 
     /**
-     * This Date constructor receives the year as it's parameter and
+     * This Date constructor receives the year as its parameter and
      * sets it to the class field year.
-     * @param year
+     * @param year year of the date
      */
     public Date(int year)   {
         this.year = year;
@@ -87,7 +90,7 @@ public class Date {
      * Mutator method for the day. This mutator method class a
      * static method that checks the validity of the day. If the
      * validity does not pass, it throws an IllegalArgumentException.
-     * @param day
+     * @param day day of the date
      * @throws IllegalArgumentException if the day is not valid
      */
     public void setDay(int day) {

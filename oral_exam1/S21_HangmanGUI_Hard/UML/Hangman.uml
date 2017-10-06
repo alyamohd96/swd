@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Hangman</OriginalElement>
+  <nodes>
+    <node x="265.0" y="545.0">HangmanMainClass</node>
+    <node x="0.0" y="545.0">HangmanFigure</node>
+    <node x="470.0" y="0.0">Hangman</node>
+    <node x="0.0" y="0.0">HangmanGUI</node>
+    <node x="72.0" y="444.0">HangmanGUI.HangmanHandler</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="HangmanGUI.HangmanHandler" target="HangmanGUI">
+      <point x="0.0" y="-28.0" />
+      <point x="0.0" y="197.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="473.5" y="381.5" />
+  <SelectedNodes>
+    <node>Hangman</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>Project Files</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

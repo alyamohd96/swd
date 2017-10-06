@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>ArabicToRomanGUI</OriginalElement>
+  <nodes>
+    <node x="0.0" y="0.0">ArabicToRomanGUI</node>
+    <node x="362.0" y="109.0">ArabicToRomanMainClass</node>
+    <node x="22.0" y="324.0">ArabicToRomanGUI.ArabicToRomanHandler</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ArabicToRomanGUI.ArabicToRomanHandler" target="ArabicToRomanGUI">
+      <point x="0.0" y="-28.0" />
+      <point x="0.0" y="137.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="419.5" y="420.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>Project Files</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
