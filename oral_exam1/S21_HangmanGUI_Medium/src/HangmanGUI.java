@@ -2,6 +2,8 @@
  * This HangmanGUI class is the class
  */
 
+import jdk.nashorn.internal.scripts.JO;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -24,6 +26,7 @@ public class HangmanGUI extends JFrame {
     private final JLabel label6;
     private final JLabel label7;
 
+    private Hangman hangman1;
 
     public HangmanGUI() {
         super("Hangman");
@@ -94,32 +97,25 @@ public class HangmanGUI extends JFrame {
         textField2.setEditable(false);
         add(textField2);
 
-        HangmanHandler handler = new HangmanHandler();
-        textField1.addKeyListener(handler);
         secretWord.addActionListener(
                 //anonymous inner class for secretWord JTextField
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
+
                         secretWord.setEditable(false);
-                        wordToBeGuessed = new String();
-                        wordToBeGuessed = secretWord.getText();
-                        wordToBeGuessed = wordToBeGuessed.toUpperCase();
-                        output = new char[wordToBeGuessed.length()];
-                        lettersGuessed = new char[6];
 
-                        for(int i = 0; i < wordToBeGuessed.length();i++)
-                            output[i] = '*';
+                        hangman1 = new Hangman(secretWord.getText());
 
-                        numOfGuessesLeft = 6;
-                        exposed = 0;
-
-                        label5.setText(outputString(output));
-                        textField2.setText(Integer.toString(numOfGuessesLeft));
+                        label5.setText(hangman1.getOutput().toString());
+                        textField2.setText(Integer.toString(hangman1.getBodyparts()));
                     }
                 }
         );
 
+
+        HangmanHandler handler = new HangmanHandler();
+        textField1.addActionListener(handler);
 
     }
 
@@ -129,34 +125,51 @@ public class HangmanGUI extends JFrame {
         return outputInString;
     }
 
-    private class HangmanHandler extends KeyAdapter{
+    private class HangmanHandler implements ActionListener {
         @Override
-        public void keyTyped(KeyEvent e) {
+        public void actionPerformed(ActionEvent e) {
 
-
-
+            String input = textField1.getText();
 
             /*
-            //super.keyTyped(e);
-            numOfGuessesLeft++;
-            char inputLetter = e.getKeyChar();
-            lettersGuessed[exposed] = inputLetter;
-            label7.setText(String.valueOf(lettersGuessed[exposed]));
-            if(numOfGuessesLeft != 0) {
-                for (int i = 0; i < wordToBeGuessed.length(); i++) {
-                    if ((inputLetter == wordToBeGuessed.charAt(i)) && (output[i] == '*'))
-                        output[i] = wordToBeGuessed.charAt(i);
-                    exposed++;
+            while(! hangman1.isDone())  {
+                String input = textField1.getText();
+                hangman1.setGuess(input);
+                if(hangman1.getGuess().length() > 1) {
+                    if (hangman1.getGuess().equals(hangman1.getSecret()))
+                        hangman1.setWin(true);
+                    else
+                        hangman1.setWin(false);
+
+                    hangman1.setDone(true);
                 }
-                label5.setText(outputString(output));
+
+                else    {
+                    hangman1.setLetter(hangman1.getGuess().charAt(0));
+                }*/
+
+            if(!hangman1.isDone()) {
+                hangman1.startHangman(input);
+                label7.setText(hangman1.getGuesses());
+                textField2.setText(Integer.toString(hangman1.getBodyparts()));
+                label5.setText(hangman1.getOutput().toString());
+                if (hangman1.isWin()) {
+                    JOptionPane.showMessageDialog(null, "You Win!");
+                }
             }
-            else {
-                if (exposed == output.length) {
-                    JOptionPane.showMessageDialog(HangmanGUI.this, String.format("You win!"));
-                } else {
-                    JOptionPane.showMessageDialog(HangmanGUI.this, String.format("You lose!"));
+            else    {
+                if (hangman1.isWin()) {
+                    JOptionPane.showMessageDialog(null, "You Win!");
                 }
-            }*/
+                else {
+                    JOptionPane.showMessageDialog(null, "You lose!");
+                }
+
+            }
+
+
         }
+
+
     }
 }

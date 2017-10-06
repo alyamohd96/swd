@@ -54,7 +54,6 @@ public class Hangman {
             }
             else
                 matchLetter(secret, output, letter);
-                System.out.print("output " + output);
 
 
             System.out.print("num body parts: " + getBodyparts());   //display body parts

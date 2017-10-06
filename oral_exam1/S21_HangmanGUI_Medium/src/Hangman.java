@@ -45,6 +45,10 @@ public class Hangman {
         return guess;
     }
 
+    public void setGuess(String guess) {
+        this.guess = guess;
+    }
+
     public String getGuesses() {
         return guesses;
     }
@@ -53,8 +57,20 @@ public class Hangman {
         return letter;
     }
 
+    public void setLetter(char letter) {
+        this.letter = letter;
+    }
+
     public boolean isWin() {
         return win;
+    }
+
+    public void setWin(boolean win) {
+        this.win = win;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
     }
 
     public void startHangman(String input)   {
@@ -62,10 +78,11 @@ public class Hangman {
         this.guess = input;
 
         if(this.guess.length() > 1)  {
-            if (this.guess.equals(secret))
-                System.out.print("You win");
+            if (this.guess.equals(secret))  {
+                win = true;
+            }
             else
-                System.out.print("You lose");
+                win = false;
 
             this.done = true;
         }
@@ -80,9 +97,7 @@ public class Hangman {
             }
             else
                 matchLetter(secret, output, letter);
-            //System.out.print("output " + output);
 
-            //System.out.print("num body parts: " + getBodyparts());   //display body parts
 
             if(isDone())    {
                 win = false;
@@ -94,11 +109,10 @@ public class Hangman {
             }
 
         }
-        //this.output = makeOutput(secret);
 
     }
 
-    private boolean isDone() {
+    public boolean isDone() {
         return this.bodyparts == 0;
     }
 
