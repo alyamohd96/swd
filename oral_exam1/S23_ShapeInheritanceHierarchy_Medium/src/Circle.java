@@ -2,7 +2,7 @@
  * The Circle class extends the TwoDimensionalShapes. The fields that are
  * specific to this Circle class radius, perimeter, and area. The methods that
  * are specific to this class is the setters and getters for the instance
- * fields, calculateArea function, and calculatePerimeter function which
+ * fields, calculateArea function, and calculatePerimeter function which calculates
  * the area the perimeter respectively given a radius.
  *
  */
