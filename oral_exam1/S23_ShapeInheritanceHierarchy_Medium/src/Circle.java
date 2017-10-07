@@ -9,7 +9,7 @@
 
 public class Circle extends TwoDimensionalShapes {
 
-    //instance fields for the Circle class
+
     private double radius;
     private double perimeter;
     private double area;
