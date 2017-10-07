@@ -1,3 +1,8 @@
+/**
+ * The ShapeBaseClass is a class that contains the general attributes of a base shape.
+ * This class contains 7 instance variables and only has accessor and mutator methods
+ * for the instance variables
+ */
 public class ShapeBaseClass {
 
     private String name;
