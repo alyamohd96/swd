@@ -1,15 +1,9 @@
 import org.junit.Test;
 
-/**
- * This is the testing class for the computus using JUnit. There are 4 tests that tries to set the year to valid and invalid years.
- */
 public class ComputusTest {
 
 
-    /**
-     * Tests the computus with year 1990
-     * @throws Exception
-     */
+
     @Test
     public void testComputus1990() throws Exception {
         EasterDate test1 = new EasterDate("1990");
@@ -17,10 +11,7 @@ public class ComputusTest {
         test1.calculateOneCycle();
     }
 
-    /**
-     * tests the computus with random symbols and numbers
-     * @throws Exception
-     */
+
     @Test
     public void testComputusRandomSymbols() throws Exception {
         EasterDate test2 = new EasterDate("#sa()7");
@@ -28,10 +19,7 @@ public class ComputusTest {
         test2.calculateOneCycle();
     }
 
-    /**
-     * tests the computus with the yar 2017
-     * @throws Exception
-     */
+
     @Test
     public void testComputus2017() throws Exception {
         EasterDate test3 = new EasterDate("2017");
@@ -39,10 +27,7 @@ public class ComputusTest {
         test3.calculateOneCycle();
     }
 
-    /**
-     * tests the computus with the year 1670
-     * @throws Exception
-     */
+
     @Test
     public void testComputus1670() throws Exception {
         EasterDate test4 = new EasterDate("1670");
