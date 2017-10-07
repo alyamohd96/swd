@@ -1,5 +1,5 @@
 /**
- * Created by ttmohd on 9/27/17.
+ * k\
  */
 public class Rectangle extends TwoDimensionalShapes{
 
