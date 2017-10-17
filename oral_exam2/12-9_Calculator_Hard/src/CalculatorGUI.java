@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class CalculatorGUI extends JFrame {
 
@@ -22,6 +23,19 @@ public class CalculatorGUI extends JFrame {
     private final JButton equal;
     private final JButton decimal;
 
+    private final Font defaultFont;
+
+    public CalculatorGUI()  {
+        super("Calculator");
+        setLayout(new GridLayout(5,5));
+        defaultFont = new Font("Trebuchet MS", Font.PLAIN, 30);
+
+        input = new JTextField("0");
+
+        num1 = new JButton("1");
+
+
+    }
 
 
 }
