@@ -33,8 +33,15 @@ public class CalculatorGUI extends JFrame {
         input = new JTextField("0");
 
         num1 = new JButton("1");
-
-
+        num2 = new JButton("2");
+        num3 = new JButton("3");
+        num4 = new JButton("4");
+        num5 = new JButton("5");
+        num6 = new JButton("6");
+        num7 = new JButton("7");
+        num8 = new JButton("8");
+        num9 = new JButton("9");
+        num0 = new JButton("0");
     }
 
 
