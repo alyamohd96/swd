@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CalculatorGUI extends JFrame {
 
@@ -27,8 +29,12 @@ public class CalculatorGUI extends JFrame {
 
     public CalculatorGUI()  {
         super("Calculator");
-        setLayout(new GridLayout(5,5));
-        defaultFont = new Font("Trebuchet MS", Font.PLAIN, 30);
+
+        //TODO: FIND CODE FOR LAYOUT BASED ON THE CALCULATORgui
+        setLayout(new GridLayout(3,3));
+
+
+        defaultFont = new Font("Trebuchet MS", Font.PLAIN, 60);
 
         input = new JTextField("0");
         add(input);
@@ -44,12 +50,13 @@ public class CalculatorGUI extends JFrame {
         num9 = new JButton("9");
         num0 = new JButton("0");
         divide = new JButton("/");
-        multiply = new JButton("*");
+        multiply = new JButton("X");
         subtract = new JButton("-");
         add = new JButton("+");
         equal = new JButton("=");
         decimal = new JButton(".");
 
+        //added all the JButtons in the Frame
         add(num1);
         add(num2);
         add(num3);
@@ -66,6 +73,17 @@ public class CalculatorGUI extends JFrame {
         add(add);
         add(equal);
         add(decimal);
+
+        //add event listener to all buttons
+        equal.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+
+                    }
+                }
+        );
+
 
     }
 
