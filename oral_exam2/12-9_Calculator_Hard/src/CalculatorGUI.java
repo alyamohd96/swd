@@ -31,6 +31,7 @@ public class CalculatorGUI extends JFrame {
         defaultFont = new Font("Trebuchet MS", Font.PLAIN, 30);
 
         input = new JTextField("0");
+        add(input);
 
         num1 = new JButton("1");
         num2 = new JButton("2");
@@ -42,7 +43,30 @@ public class CalculatorGUI extends JFrame {
         num8 = new JButton("8");
         num9 = new JButton("9");
         num0 = new JButton("0");
-    }
+        divide = new JButton("/");
+        multiply = new JButton("*");
+        subtract = new JButton("-");
+        add = new JButton("+");
+        equal = new JButton("=");
+        decimal = new JButton(".");
 
+        add(num1);
+        add(num2);
+        add(num3);
+        add(num4);
+        add(num5);
+        add(num6);
+        add(num7);
+        add(num8);
+        add(num9);
+        add(num0);
+        add(divide);
+        add(multiply);
+        add(subtract);
+        add(add);
+        add(equal);
+        add(decimal);
+
+    }
 
 }
