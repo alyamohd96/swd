@@ -23,7 +23,7 @@ public class Server extends JFrame {
 
         try // create DatagramSocket for sending and receiving packets
         {
-            socket = new DatagramSocket(50000);
+            socket = new DatagramSocket(23567);
         } catch (SocketException socketException) {
             socketException.printStackTrace();
             System.exit(1);
