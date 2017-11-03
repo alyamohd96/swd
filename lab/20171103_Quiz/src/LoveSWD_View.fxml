@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="CENTER" prefHeight="186.0" prefWidth="342.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoveSWDView">
+   <children>
+      <Label text="I LOVE SOFTWARE DESIGN" textAlignment="CENTER" textFill="#23ae5f">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../nfs/s-l011/local/vol03/t/ttmohd/git/ttmohd_swd/lab/20171103_Quiz/src/bug.png" />
+         </image>
+      </ImageView>
+   </children>
+</VBox>
