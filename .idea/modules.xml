@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/oral_exam2/10-13_Shapes_Easy/10-13_Shapes_Easy.iml" filepath="$PROJECT_DIR$/oral_exam2/10-13_Shapes_Easy/10-13_Shapes_Easy.iml" />
       <module fileurl="file://$PROJECT_DIR$/oral_exam2/12-9_Calculator_Hard/12-9_Calculator_Hard.iml" filepath="$PROJECT_DIR$/oral_exam2/12-9_Calculator_Hard/12-9_Calculator_Hard.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab/20170901_quiz/20170901_quiz.iml" filepath="$PROJECT_DIR$/lab/20170901_quiz/20170901_quiz.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab/20170911_Quiz/20170911_Quiz.iml" filepath="$PROJECT_DIR$/lab/20170911_Quiz/20170911_Quiz.iml" />
