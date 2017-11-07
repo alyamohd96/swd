@@ -7,7 +7,7 @@ public class Circle {
     }
 
     @Override
-    public double getArea() {
+    public abstract double getArea() {
         return calculateArea(radius);
     }
 
