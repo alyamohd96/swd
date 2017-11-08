@@ -1,15 +1,27 @@
 /**
  * Created by ttmohd on 11/6/17.
  */
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.NumberFormat;
+
 import javafx.event.ActionEvent;
 
 
 public class TipController {
+    // formatters for currency and percentages
+    private static final NumberFormat currency =
+            NumberFormat.getCurrencyInstance();
+    private static final NumberFormat percent =
+            NumberFormat.getPercentInstance();
+
+    private BigDecimal tipPercentage = new BigDecimal(0.10); // 15% default
 
     @FXML
     private Slider tipPercentageSlider;
@@ -40,6 +52,24 @@ public class TipController {
             amountTextField.selectAll();
             amountTextField.requestFocus();
         }
+    }
+
+    // called by FXMLLoader to initialize the controller
+    public void initialize()    {
+        currency.setRoundingMode(RoundingMode.HALF_UP);
+
+        //add listener to the tip percentage slider
+        tipPercentageSlider.valueProperty().addListener(
+                //Annonymous inner class for the event handler
+                new ChangeListener<Number>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                        tipPercentage = BigDecimal.valueOf(newValue.intValue() / 100.0);
+                        tipPercentageLabel.setText(percent.format(tipPercentage));
+                    }
+                }
+        );
+
     }
 
 }
