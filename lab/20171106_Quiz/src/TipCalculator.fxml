@@ -22,7 +22,7 @@
   </rowConstraints>
    <children>
       <Button mnemonicParsing="false" onAction="#calculator" prefHeight="25.0" prefWidth="260.0" text="Calculate" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-      <Slider fx:id="tipPercentageSlider" blockIncrement="1.0" max="30.0" maxWidth="-Infinity" prefWidth="432.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+      <Slider fx:id="tipPercentageSlider" blockIncrement="1.0" max="30.0" maxWidth="-Infinity" prefWidth="432.0" value="15.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
       <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" text="Amount" textAlignment="RIGHT" GridPane.halignment="RIGHT" />
       <Label fx:id="tipPercentageLabel" text="percentage" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
       <Label text="Tip" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />

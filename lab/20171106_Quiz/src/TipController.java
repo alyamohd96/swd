@@ -57,6 +57,7 @@ public class TipController {
     // called by FXMLLoader to initialize the controller
     public void initialize()    {
         currency.setRoundingMode(RoundingMode.HALF_UP);
+        tipPercentageLabel.setText(percent.format(tipPercentage));
 
         //add listener to the tip percentage slider
         tipPercentageSlider.valueProperty().addListener(
