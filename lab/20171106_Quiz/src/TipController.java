@@ -21,7 +21,7 @@ public class TipController {
     private static final NumberFormat percent =
             NumberFormat.getPercentInstance();
 
-    private BigDecimal tipPercentage = new BigDecimal(0.10); // 15% default
+    private BigDecimal tipPercentage = new BigDecimal(0.15); // 15% default
 
     @FXML
     private Slider tipPercentageSlider;
@@ -63,8 +63,10 @@ public class TipController {
                 //Annonymous inner class for the event handler
                 new ChangeListener<Number>() {
                     @Override
-                    public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                        tipPercentage = BigDecimal.valueOf(newValue.intValue() / 100.0);
+                    public void changed(ObservableValue<? extends Number> ov,
+                                        Number oldValue, Number newValue) {
+                        tipPercentage =
+                                BigDecimal.valueOf(newValue.intValue() / 100.0);
                         tipPercentageLabel.setText(percent.format(tipPercentage));
                     }
                 }
