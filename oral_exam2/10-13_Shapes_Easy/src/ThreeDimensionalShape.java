@@ -1,2 +1,4 @@
-public class ThreeDimensionalShape {
+public abstract class ThreeDimensionalShape {
+
+    public abstract double getSurfaceArea();
 }
