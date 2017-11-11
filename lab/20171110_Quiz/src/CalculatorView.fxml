@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="387.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane layoutX="9.0" layoutY="103.0" prefHeight="284.0" prefWidth="365.0">
@@ -25,26 +24,26 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="7" />
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="8" GridPane.columnIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="9" GridPane.columnIndex="2" />
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="/" GridPane.columnIndex="3" />
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="X^2" GridPane.columnIndex="4" />
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="4" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="*" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="sin" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="1" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="cos" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="0" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="C" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="=" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="exp" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Button fx:id="sevenButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="7" />
+            <Button fx:id="eightButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="8" GridPane.columnIndex="1" />
+            <Button fx:id="nineButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="9" GridPane.columnIndex="2" />
+            <Button fx:id="divideButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="/" GridPane.columnIndex="3" />
+            <Button fx:id="squareButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="X^2" GridPane.columnIndex="4" />
+            <Button fx:id="fourButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="4" GridPane.rowIndex="1" />
+            <Button fx:id="fiveButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="sixButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="multiplyButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="*" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button fx:id="sinButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="sin" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Button fx:id="oneButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="1" GridPane.rowIndex="2" />
+            <Button fx:id="twoButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="threeButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button fx:id="minusButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button fx:id="cosButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="cos" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Button fx:id="zeroButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="0" GridPane.rowIndex="3" />
+            <Button fx:id="clearButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="C" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button fx:id="equalsButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="=" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Button fx:id="addButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Button fx:id="expButton" mnemonicParsing="false" prefHeight="46.0" prefWidth="55.0" text="exp" GridPane.columnIndex="4" GridPane.rowIndex="3" />
          </children>
       </GridPane>
       <TextField fx:id="displayTextField" layoutX="17.0" layoutY="26.0" prefHeight="66.0" prefWidth="349.0" />
