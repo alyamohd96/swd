@@ -1,8 +1,13 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class CalculatorController {
+
+    private CalculatorModel model = new CalculatorModel();
+    private boolean start = true;
+
 
     @FXML
     private Button sevenButton;
@@ -66,5 +71,21 @@ public class CalculatorController {
 
     @FXML
     private TextField displayTextField;
+
+    @FXML
+    private void processNumber(ActionEvent event) {
+        if (start) {
+            output.setText("");
+            start = false;
+        }
+
+        String value = ((Button)event.getSource()).getText();
+        output.setText(output.getText() + value);
+    }
+
+
+
+
+
 
 }

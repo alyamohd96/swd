@@ -2,36 +2,63 @@ public class CalculatorModel {
 
     private double num1;
     private double num2;
-    private String operator;
-    private String result;
+    private double result;
+    private String operator = "";
+    private String display = "0";
 
-    public CalculatorModel(double num1, double num2, String operator)    {
-        this.num1 = num1;
-        this.num2 = num2;
-        this.operator = operator;
-        this.result = "0";
+    public CalculatorModel()    {
+    }
+
+    public double getNum1() {
+        return num1;
+    }
+
+    public double getNum2() {
+        return num2;
+    }
+
+    public double getResult() {
+        return result;
+    }
+
+    public String getOperator() {
+        return operator;
+    }
+
+    public String getDisplay() {
+        return display;
     }
 
     public double calculate()   {
         switch (operator) {
             case "+":
-                return num1 + num2;
+                result = num1 + num2;
+                display = Double.toString(result);
+                return result;
             case "-":
-                return num1 - num2;
+                result = num1 - num2;
+                display = Double.toString(result);
+                return result;
             case "*":
-                return num1 * num2;
+                result = num1 * num2;
+                display = Double.toString(result);
+                return result;
             case "/":
                 if (num2 == 0) {
-                    result = "Cannot be divided by 0";
-                    return 0;
+                    display = "Cannot be divided by 0";
+                    result = 0;
+                    return result;
                 }
                 else    {
-                return num1 / num2;
+                    result = num1 / num2;
+                    display = Double.toString(result);
+                    return result;
                 }
+            case "=":
+                display = Double.toString(result);
         }
-
-        System.out.println("Unknown operator - " + operator);
         return 0;
     }
+
 
 }
