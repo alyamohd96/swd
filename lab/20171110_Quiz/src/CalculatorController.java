@@ -32,7 +32,7 @@ public class CalculatorController {
         String value = ((Button)event.getSource()).getText();
 
         if (!"=".equals(value)) {
-            if (!operator.isEmpty())
+            if (!displayTextField.isEmpty())
                 return;
 
             operator = value;
