@@ -8,7 +8,6 @@ public class CalculatorController {
     private CalculatorModel model = new CalculatorModel();
     private boolean start = true;
 
-
     @FXML
     private TextField displayTextField;
 
@@ -22,7 +21,35 @@ public class CalculatorController {
         displayTextField.setText(displayTextField.getText() + value);
     }
 
+    @FXML
+    private void processClear(ActionEvent event) {
+        displayTextField.setText("");
+        model.clear();
+    }
 
+    @FXML
+    private void processOperator(ActionEvent event) {
+        String value = ((Button)event.getSource()).getText();
+
+        if (!"=".equals(value)) {
+            if (!operator.isEmpty())
+                return;
+
+            operator = value;
+            model.setNumber1(Long.parseLong(output.getText()));
+            output.setText("");
+        }
+        else {
+            if (operator.isEmpty())
+                return;
+
+            model.setNumber2(Long.parseLong(output.getText()));
+            result = model.calculate(operator);
+            output.setText(String.valueOf(result));
+            operator = "";
+            start = true;
+        }
+    }
 
 
 

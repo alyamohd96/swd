@@ -3,7 +3,6 @@ public class CalculatorModel {
     private double num1;
     private double num2;
     private double result;
-    private String operator = "";
     private String display = "0";
 
     public CalculatorModel()    {
@@ -21,15 +20,11 @@ public class CalculatorModel {
         return result;
     }
 
-    public String getOperator() {
-        return operator;
-    }
-
     public String getDisplay() {
         return display;
     }
 
-    public double calculate()   {
+    public double calculate(String operator)   {
         switch (operator) {
             case "+":
                 result = num1 + num2;
@@ -60,5 +55,11 @@ public class CalculatorModel {
         return 0;
     }
 
+    public void clear() {
+        this.num1 = 0;
+        this.num2 = 0;
+        this.result = 0;
+        this.display = "0";
+    }
 
 }
