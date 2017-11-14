@@ -7,6 +7,8 @@ public class CalculatorController {
 
     private CalculatorModel model = new CalculatorModel();
     private boolean start = true;
+    private String operator = "";
+    private double number1;
 
     @FXML
     private TextField displayTextField;
@@ -17,40 +19,40 @@ public class CalculatorController {
             displayTextField.setText("");
             start = false;
         }
-        String value = ((Button)event.getSource()).getText();
+        String value = ((Button) event.getSource()).getText();
         displayTextField.setText(displayTextField.getText() + value);
     }
 
     @FXML
     private void processClear(ActionEvent event) {
         displayTextField.setText("");
-        model.clear();
+        this.number1 = 0;
+        this.operator = "";
     }
 
     @FXML
     private void processOperator(ActionEvent event) {
-        String value = ((Button)event.getSource()).getText();
+        String value = ((Button) event.getSource()).getText();
 
         if (!"=".equals(value)) {
-            if (!displayTextField.isEmpty())
+
+            if (!operator.isEmpty())
+
                 return;
 
             operator = value;
-            model.setNumber1(Long.parseLong(output.getText()));
-            output.setText("");
-        }
-        else {
+            number1 = Long.parseLong(displayTextField.getText());
+            displayTextField.setText("");
+        } else {
+
             if (operator.isEmpty())
+
                 return;
 
-            model.setNumber2(Long.parseLong(output.getText()));
-            result = model.calculate(operator);
-            output.setText(String.valueOf(result));
+            displayTextField.setText(String.valueOf(model.calculate(number1, Long.parseLong(displayTextField.getText()), operator)));
             operator = "";
             start = true;
         }
     }
-
-
 
 }
