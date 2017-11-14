@@ -11,6 +11,11 @@ public class Square extends TwoDimensionalShapes{
         return calculateArea(this.edge);
     }
 
+    @Override
+    public String toString()    {
+        return " The area of this Square is: " + String.valueOf(getArea() + "\n");
+    }
+
     public static double calculateArea(double edge)   {
         return Math.pow(edge,2);
     }

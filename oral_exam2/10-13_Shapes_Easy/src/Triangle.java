@@ -22,6 +22,11 @@ public class Triangle extends TwoDimensionalShapes {
         return calculateArea(this.width, this.height);
     }
 
+    @Override
+    public String toString()    {
+        return " The area of this Triangle is: " + String.valueOf(getArea() + "\n");
+    }
+
     /**
      * This is a public static method to calculate an area of a triangle.
      * @param width width of triangle

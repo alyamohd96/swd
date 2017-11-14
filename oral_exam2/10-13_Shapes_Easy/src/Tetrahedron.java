@@ -7,8 +7,8 @@ public class Tetrahedron extends ThreeDimensionalShape {
     }
 
     @Override
-    public double getSurfaceArea() {
-        return calculateSurfaceArea(this.edge);
+    public double getArea() {
+        return calculateArea(this.edge);
     }
 
     @Override
@@ -16,7 +16,12 @@ public class Tetrahedron extends ThreeDimensionalShape {
         return calculateVolume(this.edge);
     }
 
-    public static double calculateSurfaceArea(double edge)    {
+    @Override
+    public String toString()   {
+        return " The area of this Tetrahedron is: " + String.valueOf(getArea() + " and the volume is " + String.valueOf(getVolume()) + "\n");
+    }
+
+    public static double calculateArea(double edge)    {
         return Math.sqrt(3)*Math.pow(edge,2);
     }
 

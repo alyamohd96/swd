@@ -11,6 +11,11 @@ public class Circle extends TwoDimensionalShapes {
         return calculateArea(radius);
     }
 
+    @Override
+    public String toString()    {
+        return " The area of this Circle is: " + String.valueOf(getArea() + "\n");
+    }
+
     /**
      * A static method for calculating an area of the circle given
      * a radius

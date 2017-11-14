@@ -6,22 +6,19 @@ public class Cube extends ThreeDimensionalShape {
         this.edge = edge;
     }
 
-    public double getEdge() {
-        return edge;
-    }
-
-    public void setEdge(double edge) {
-        this.edge = edge;
-    }
-
     @Override
-    public double getSurfaceArea()  {
+    public double getArea()  {
         return calculateArea(this.edge);
     }
 
     @Override
     public double getVolume()   {
         return calculateVolume(this.edge);
+    }
+
+    @Override
+    public String toString()   {
+        return " The area of this Cube is: " + String.valueOf(getArea() + " and the volume is " + String.valueOf(getVolume()) + "\n");
     }
 
     public static double calculateArea(double edge)    {
