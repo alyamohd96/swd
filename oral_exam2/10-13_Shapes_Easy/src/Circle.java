@@ -1,13 +1,13 @@
-public class Circle {
+public class Circle extends TwoDimensionalShapes {
 
     private double radius;
 
-    public Circle() {
-
+    public Circle(double radius) {
+        this.radius = radius;
     }
 
     @Override
-    public abstract double getArea() {
+    public double getArea() {
         return calculateArea(radius);
     }
 

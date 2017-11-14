@@ -2,8 +2,8 @@ public class Cube extends ThreeDimensionalShape {
 
     private double edge;
 
-    public Cube()   {
-        super();
+    public Cube(double edge)   {
+        this.edge = edge;
     }
 
     public double getEdge() {
@@ -16,12 +16,20 @@ public class Cube extends ThreeDimensionalShape {
 
     @Override
     public double getSurfaceArea()  {
-        return 6*Math.pow(this.edge,2);
+        return calculateArea(this.edge);
     }
 
     @Override
     public double getVolume()   {
-        return Math.pow(this.edge,3);
+        return calculateVolume(this.edge);
+    }
+
+    public static double calculateArea(double edge)    {
+        return 6*Math.pow(edge,2);
+    }
+
+    public static double calculateVolume(double edge) {
+        return Math.pow(edge,3);
     }
 
 }
