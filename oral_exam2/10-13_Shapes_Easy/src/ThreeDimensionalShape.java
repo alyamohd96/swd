@@ -1,4 +1,4 @@
-public abstract class ThreeDimensionalShape {
+public abstract class ThreeDimensionalShape implements ShapesBaseClass {
 
     public ThreeDimensionalShape()  {
     }
