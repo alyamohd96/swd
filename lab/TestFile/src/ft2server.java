@@ -30,7 +30,7 @@ public class ft2server
         BufferedOutputStream put=new BufferedOutputStream(cs.getOutputStream());
         BufferedReader st=new BufferedReader(new InputStreamReader(cs.getInputStream()));
         String s=st.readLine();
-        String str = "/home/milind/Desktop/";
+        String str = "C:/Users/alyam/Dekstop/";
         String path = str + s;
         System.out.println("The requested file is path: "+path);
         System.out.println("The requested file is : "+s);

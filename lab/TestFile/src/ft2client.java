@@ -21,7 +21,7 @@ public class ft2client
             f=dis.readLine();
             put.println(f);
             File f1=new File(f);
-            String str = "/home/milind/";
+            String str = "C:/Users/alyam/Dekstop/";
             FileOutputStream  fs=new FileOutputStream(new File(str,f1.toString()));
             byte jj[]=new byte[1024];
             while((u=get.read(jj,0,1024))!=-1)

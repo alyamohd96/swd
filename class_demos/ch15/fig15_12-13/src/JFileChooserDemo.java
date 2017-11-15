@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
 
 public class JFileChooserDemo extends JFrame {
     private final JTextArea outputArea; // displays file contents
@@ -38,6 +39,9 @@ public class JFileChooserDemo extends JFrame {
             builder.append(String.format("Path: %s%n", path));
             builder.append(String.format("Absolute path: %s%n",
                     path.toAbsolutePath()));
+
+            //byte[] fileContent = Files.readAllBytes(path);
+            //builder.append(String.format(new String(fileContent)));
 
             if (Files.isDirectory(path)) // output directory listing
             {
