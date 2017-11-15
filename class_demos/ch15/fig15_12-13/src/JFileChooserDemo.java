@@ -40,8 +40,8 @@ public class JFileChooserDemo extends JFrame {
             builder.append(String.format("Absolute path: %s%n",
                     path.toAbsolutePath()));
 
-            //byte[] fileContent = Files.readAllBytes(path);
-            //builder.append(String.format(new String(fileContent)));
+            byte[] fileContent = Files.readAllBytes(path);
+            builder.append(String.format(new String(fileContent)));
 
             if (Files.isDirectory(path)) // output directory listing
             {
