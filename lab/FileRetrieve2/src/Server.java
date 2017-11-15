@@ -5,10 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.file.Files;
@@ -142,7 +139,12 @@ public class Server extends JFrame {
      * @return
      */
     private String findFile(String fileName) {
-        Path path = Paths.get(fileName);
+        String pathOfFile = new String("C:\\Users\\alyam\\Git\\ttmohd_swd\\lab\\FileRetrieve2\\src\\" + fileName);
+        displayMessage("\nSERVER>>> " + pathOfFile);
+
+        Path path = Paths.get(pathOfFile);
+        //File fileDirectory = Files(getClass().getResource(fileName).toURI());
+
 
         if(path!= null && Files.exists(path)) {
             try {
@@ -196,17 +198,3 @@ public class Server extends JFrame {
     }
 }
 
-/**************************************************************************
- * (C) Copyright 1992-2014 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
