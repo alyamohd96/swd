@@ -127,7 +127,7 @@ public class Client extends JFrame {
     private void sendData(String message) {
         try // send object to server
         {
-            output.writeObject("message");
+            output.writeObject(message);
             output.flush(); // flush data to output
             displayMessage("\nCLIENT>>> " + message);
         } catch (IOException ioException) {
