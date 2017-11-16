@@ -23,12 +23,12 @@ public class CalculatorController {
         displayTextField.setText(displayTextField.getText() + value);
     }
 
-    @FXML
+    /*@FXML
     private void processClear(ActionEvent event) {
         displayTextField.setText("");
         this.number1 = 0;
         this.operator = "";
-    }
+    }*/
 
     @FXML
     private void processOperator(ActionEvent event) {
