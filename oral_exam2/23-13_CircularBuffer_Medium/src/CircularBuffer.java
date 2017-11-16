@@ -1,131 +1,87 @@
-// Fig. 23.13: CircularBuffer.java
-// SynchronizedBuffer synchronizes access to a single shared integer.
+// Fig. 23.18: CircularBuffer.java
+// Synchronizing access to a shared three-element bounded buffer.
+public class CircularBuffer implements Buffer {
+    private final int[] buffer = {-1, -1, -1}; // shared buffer
 
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-import java.util.concurrent.locks.Condition;
-
-public class CircularBuffer implements Buffer
-{
-    // Lock to control synchronization with this buffer
-    private Lock accessLock = new ReentrantLock();
-
-    // conditions to control reading and writing
-    private Condition canWrite = accessLock.newCondition();
-    private Condition canRead = accessLock.newCondition();
-
-    private int[] buffer = { -1, -1, -1 };
-
-    private int occupiedBuffers = 0; // count number of buffers used
-    private int writeIndex = 0; // index to write next value
-    private int readIndex = 0; // index to read next value
+    private int occupiedCells = 0; // count number of buffers used
+    private int writeIndex = 0; // index of next element to write to
+    private int readIndex = 0; // index of next element to read
 
     // place value into buffer
-    public void set( int value )
-    {
-        accessLock.lock(); // lock this object
+    public synchronized void blockingPut(int value)
+            throws InterruptedException {
+        // wait until buffer has space avaialble, then write value;
+        // while no empty locations, place thread in waiting state
+        while (occupiedCells == buffer.length) {
+            System.out.printf("Buffer is full. Producer waits.%n");
+            wait(); // wait until a buffer cell is free
+        }
 
-        // output thread information and buffer information, then wait
-        try
-        {
-            // while no empty locations, place thread in waiting state
-            while ( occupiedBuffers == buffer.length )
-            {
-                System.out.printf( "All buffers full. Producer waits.\n" );
-                canWrite.await();// await until a buffer element is free
-            } // end while
+        buffer[writeIndex] = value; // set new buffer value
 
-            buffer[ writeIndex ] = value; // set new buffer value
+        // update circular write index
+        writeIndex = (writeIndex + 1) % buffer.length;
 
-            // update circular write index
-            writeIndex = ( writeIndex + 1 ) % buffer.length;
-
-            occupiedBuffers++; // one more buffer element is full
-            displayState( "Producer writes " + value );
-            canRead.signal(); // signal threads waiting to read from buffer
-        } // end try
-        catch ( InterruptedException exception )
-        {
-            exception.printStackTrace();
-        } // end catch
-        finally
-        {
-            accessLock.unlock(); // unlock this object
-        } // end finally
-    } // end method set
+        ++occupiedCells; // one more buffer cell is full
+        displayState("Producer writes " + value);
+        notifyAll(); // notify threads waiting to read from buffer
+    }
 
     // return value from buffer
-    public int get()
-    {
-        int readValue = 0; // initialize value read from buffer
-        accessLock.lock(); // lock this object
+    public synchronized int blockingGet() throws InterruptedException {
+        // wait until buffer has data, then read value;
+        // while no data to read, place thread in waiting state
+        while (occupiedCells == 0) {
+            System.out.printf("Buffer is empty. Consumer waits.%n");
+            wait(); // wait until a buffer cell is filled
+        }
 
-        // wait until buffer has data, then read value
-        try
-        {
-            // while no data to read, place thread in waiting state
-            while ( occupiedBuffers == 0 )
-            {
-                System.out.printf( "All buffers empty. Consumer waits.\n" );
-                canRead.await(); // await until a buffer element is filled
-            } // end while
+        int readValue = buffer[readIndex]; // read value from buffer
 
-            readValue = buffer[ readIndex ]; // read value from buffer
+        // update circular read index
+        readIndex = (readIndex + 1) % buffer.length;
 
-            // update circular read index
-            readIndex = ( readIndex + 1 ) % buffer.length;
-
-            occupiedBuffers--; // one more buffer element is empty
-            displayState( "Consumer reads " + readValue );
-            canWrite.signal(); // signal threads waiting to write to buffer
-        } // end try
-        // if waiting thread interrupted, print stack trace
-        catch ( InterruptedException exception )
-        {
-            exception.printStackTrace();
-        } // end catch
-        finally
-        {
-            accessLock.unlock(); // unlock this object
-        } // end finally
+        --occupiedCells; // one fewer buffer cells are occupied
+        displayState("Consumer reads " + readValue);
+        notifyAll(); // notify threads waiting to write to buffer
 
         return readValue;
-    } // end method get
+    }
 
     // display current operation and buffer state
-    public void displayState( String operation )
-    {
-        // output operation and number of occupied buffers
-        System.out.printf( "%s%s%d)\n%s", operation,
-                " (buffers occupied: ", occupiedBuffers, "buffers:  " );
+    public synchronized void displayState(String operation) {
+        // output operation and number of occupied buffer cells
+        System.out.printf("%s%s%d)%n%s", operation,
+                " (buffer cells occupied: ", occupiedCells, "buffer cells:  ");
 
-        for ( int value : buffer )
-            System.out.printf( " %2d  ", value ); // output values in buffer
+        for (int value : buffer)
+            System.out.printf(" %2d  ", value); // output values in buffer
 
-        System.out.print( "\n         " );
-        for ( int i = 0; i < buffer.length; i++ )
-            System.out.print( "---- " );
+        System.out.printf("%n               ");
 
-        System.out.print( "\n         " );
-        for ( int i = 0; i < buffer.length; i++ )
-        {
-            if ( i == writeIndex && i == readIndex )
-                System.out.print( " WR" ); // both write and read index
-            else if ( i == writeIndex )
-                System.out.print( " W   " ); // just write index
-            else if ( i == readIndex )
-                System.out.print( "  R  " ); // just read index
+        for (int i = 0; i < buffer.length; i++)
+            System.out.print("---- ");
+
+        System.out.printf("%n               ");
+
+        for (int i = 0; i < buffer.length; i++) {
+            if (i == writeIndex && i == readIndex)
+                System.out.print(" WR"); // both write and read index
+            else if (i == writeIndex)
+                System.out.print(" W   "); // just write index
+            else if (i == readIndex)
+                System.out.print("  R  "); // just read index
             else
-                System.out.print( "     " ); // neither index
-        } // end for
+                System.out.print("     "); // neither index
+        }
 
-        System.out.println( "\n" );
-    } // end method displayState
+        System.out.printf("%n%n");
+    }
 } // end class CircularBuffer
 
 
 /**************************************************************************
- * (C) Copyright 1992-2005 by Deitel & Associates, Inc. and               *
+ * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
  * Pearson Education, Inc. All Rights Reserved.                           *
  *                                                                        *
  * DISCLAIMER: The authors and publisher of this book have used their     *
