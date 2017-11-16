@@ -115,12 +115,12 @@ public class Tree<T extends Comparable<T>> {
         }
     }
 
-
+    //TODO
     private void outputTreeExam(TreeNode<T> node, int totalSpaces) {
         if(node!=null)   {
             outputTreeExam(node.rightNode,totalSpaces+3);
             for(int i = 1;i<=totalSpaces;i++)
-                System.out.print("\");
+                System.out.print("\n");
 
             System.out.print(node.data + "\t");
 
