@@ -10,6 +10,7 @@ public class ClientTest {
         else
             application = new Client(args[0]); // use args to connect
 
+        application.setSize(1000,500);
         application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         application.runClient(); // run client application
     }

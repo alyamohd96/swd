@@ -1,12 +1,12 @@
 // Fig. 23.13: CircularBuffer.java
 // SynchronizedBuffer synchronizes access to a single shared integer.
-import java.nio.Buffer;
+
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.Condition;
 
-public class CircularBuffer extends Buffer {
-
+public class CircularBuffer implements Buffer
+{
     // Lock to control synchronization with this buffer
     private Lock accessLock = new ReentrantLock();
 

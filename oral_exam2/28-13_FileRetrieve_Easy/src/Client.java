@@ -20,6 +20,7 @@ public class Client extends JFrame {
     private String message = ""; // message from server
     private String chatServer; // host server for this application
     private Socket client; // socket to communicate with server
+    private Font defaultFont;
 
     // initialize chatServer and set up GUI
     public Client(String host) {
@@ -27,7 +28,10 @@ public class Client extends JFrame {
 
         chatServer = host; // set server to which this client connects
 
+        defaultFont = new Font("Trebuchet MS", Font.PLAIN, 30);
+
         enterField = new JTextField(); // create enterField
+        enterField.setFont(defaultFont);
         enterField.setEditable(false);
         enterField.addActionListener(
                 new ActionListener() {
@@ -43,6 +47,7 @@ public class Client extends JFrame {
         add(enterField, BorderLayout.NORTH);
 
         displayArea = new JTextArea(); // create displayArea
+        displayArea.setFont(defaultFont);
         add(new JScrollPane(displayArea), BorderLayout.CENTER);
 
         setSize(300, 150); // set size of window

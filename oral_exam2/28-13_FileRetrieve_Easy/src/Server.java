@@ -23,12 +23,15 @@ public class Server extends JFrame {
     private ServerSocket server; // server socket
     private Socket connection; // connection to client
     private int counter = 1; // counter of number of connections
+    private final Font defaultFont;
 
     // set up GUI
     public Server() {
         super("Server");
 
+        defaultFont = new Font("Trebuchet MS", Font.PLAIN, 30);
         enterField = new JTextField(); // create enterField
+        enterField.setFont(defaultFont);
         enterField.setEditable(false);
         enterField.addActionListener(
                 new ActionListener() {
@@ -45,6 +48,7 @@ public class Server extends JFrame {
         add(enterField, BorderLayout.NORTH);
 
         displayArea = new JTextArea(); // create displayArea
+        displayArea.setFont(defaultFont);
         add(new JScrollPane(displayArea), BorderLayout.CENTER);
 
         setSize(300, 150); // set size of window
