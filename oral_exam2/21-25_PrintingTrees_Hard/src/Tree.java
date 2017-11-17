@@ -100,7 +100,7 @@ public class Tree<T extends Comparable<T>> {
 
     public void outputTree()    {
         outputTreeBook(root, 0);
-        outputTreeExam(root,0);
+        outputTreeExam();
     }
 
     private void outputTreeBook(TreeNode<T> node, int totalSpaces) {
@@ -116,17 +116,51 @@ public class Tree<T extends Comparable<T>> {
     }
 
     //TODO
-    private void outputTreeExam(TreeNode<T> node, int totalSpaces) {
-        if(node!=null)   {
-            outputTreeExam(node.rightNode,totalSpaces+3);
-            for(int i = 1;i<=totalSpaces;i++)
-                System.out.print("\n");
+    private void outputTreeExam(TreeNode<T> node, int level) {
+        if (node == null)
+            return;
+        if (level == 1)
+            System.out.print(node.data + " ");
+        else if (level > 1)
+        {
+            outputTreeExam(node.leftNode, level-1);
+            System.out.println("right\t\t");
+            outputTreeExam(node.rightNode, level-1);
+        }
+        /*if (node.leftNode != null) {
+            outputTreeExam(node.leftNode, level - 1);
+        }
+        else if(node.rightNode != null) {
+            outputTreeExam(node.rightNode, level - 1);
+        }
+        System.out.print(node.data + " ");*/
+    }
 
-            System.out.print(node.data + "\t");
+    public void outputTreeExam() {
+        for (int d = 1;d<=height(this.root);d++)
+            outputTreeExam(this.root,d);
 
-            outputTreeExam(node.leftNode,totalSpaces+3);
+    }
+
+    //http://www.geeksforgeeks.org/level-order-tree-traversal/
+    private int height(TreeNode<T> node)    {
+        if (node == null) {
+            return 0;
+        }
+        else
+        {
+            /* compute  height of each subtree */
+            int lheight = height(node.leftNode);
+            int rheight = height(node.rightNode);
+
+            /* use the larger one */
+            if (lheight > rheight)
+                return(lheight+1);
+            else
+                return(rheight+1);
         }
     }
+
 }
 
 

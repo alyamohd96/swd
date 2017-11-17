@@ -1,6 +1,5 @@
 // Fig. 28.3: Server.java
 // Server portion of a client/server stream-socket connection. 
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -152,7 +151,6 @@ public class Server extends JFrame {
 
         Path path = Paths.get(pathOfFile);
         //File fileDirectory = Files(getClass().getResource(fileName).toURI());
-
 
         if(path!= null && Files.exists(path)) {
             try {
