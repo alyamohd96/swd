@@ -141,13 +141,13 @@ public class Server extends JFrame {
     }
 
     /**
-     *
+     *"C:\\Users\\alyam\\Git\\ttmohd_swd\\lab\\FileRetrieve2\\src\\"
      * @param fileName
      * @return
      */
     private String findFile(String fileName) {
         //TODO change the pathOfFile
-        String pathOfFile = new String("C:\\Users\\alyam\\Git\\ttmohd_swd\\lab\\FileRetrieve2\\src\\" + fileName);
+        String pathOfFile = new String("/user/t/ttmohd/git/ttmohd_swd/oral_exam2/28-13_FileRetrieve_Easy/src/" + fileName);
         displayMessage("\nSERVER>>> " + pathOfFile);
 
         Path path = Paths.get(pathOfFile);
