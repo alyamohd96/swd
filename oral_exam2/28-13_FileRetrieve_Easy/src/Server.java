@@ -1,3 +1,6 @@
+/**
+ * This Server class is
+ */
 // Fig. 28.3: Server.java
 // Server portion of a client/server stream-socket connection. 
 import javax.swing.*;
