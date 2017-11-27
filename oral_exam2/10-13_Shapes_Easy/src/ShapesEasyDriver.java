@@ -1,3 +1,8 @@
+/**
+ * This is the driver class for Shapes Easy. It creates a few different shapes and stores it in a ShapesBaseClass
+ * array. Then, it will print the class of the shape whether two dimensional or three dimensional, areas and volume
+ * of the shape.
+ */
 public class ShapesEasyDriver {
 
     public static void main(String args[])  {

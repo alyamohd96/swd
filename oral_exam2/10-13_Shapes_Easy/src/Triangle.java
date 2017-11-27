@@ -14,14 +14,20 @@ public class Triangle extends TwoDimensionalShapes {
     }
 
     /**
-     *
-     * @return
+     * This method returns the area of the triangle. It uses the calculateArea static method to calculate
+     * the area of the triangle.
+     * @return the area of the triangle
      */
     @Override
     public double getArea() {
         return calculateArea(this.width, this.height);
     }
 
+    /**
+     * This toString method overrides the default toString method. It prints out just the area of
+     * the triangle instead
+     * @return String of the area of the triangle
+     */
     @Override
     public String toString()    {
         return " The area of this Triangle is: " + String.valueOf(getArea() + "\n");

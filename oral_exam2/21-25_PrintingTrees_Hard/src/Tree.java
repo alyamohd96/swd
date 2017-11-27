@@ -1,6 +1,8 @@
 // Fig. 21.17: Tree.java
 // TreeNode and Tree class declarations for a binary search tree.
 
+import com.sun.corba.se.impl.orbutil.graph.Graph;
+
 import java.awt.*;
 
 // class TreeNode definition

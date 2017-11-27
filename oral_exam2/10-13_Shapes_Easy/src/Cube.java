@@ -28,8 +28,9 @@ public class Cube extends ThreeDimensionalShape {
     }
 
     /**
-     *
-     * @return
+     * This method returns the volume of the cube. It uses the calculateVolume static method to calculate
+     * the volume of the cube.
+     * @return volume of the cube
      */
     @Override
     public double getVolume()   {
@@ -37,9 +38,9 @@ public class Cube extends ThreeDimensionalShape {
     }
 
     /**
-     * This toString method overrides the default toString method. It prints out just the area of
-     * the circle instead
-     * @return String of the area of the circle
+     * This toString method overrides the default toString method. It prints out just the area and the volume of
+     * the cube instead
+     * @return String of the area and the volume of the cube
      */
     @Override
     public String toString()   {
@@ -47,18 +48,18 @@ public class Cube extends ThreeDimensionalShape {
     }
 
     /**
-     *
-     * @param edge
-     * @return
+     * This is a static method that calculate the area of a cube. It has one argument which is the edge of the cube.
+     * @param edge edge of cube
+     * @return area of the cube
      */
     public static double calculateArea(double edge)    {
         return 6*Math.pow(edge,2);
     }
 
     /**
-     *
-     * @param edge
-     * @return
+     * This is a static method that calculate the volume of a cube. It has one argument which is the edge of the cube.
+     * @param edge edge of cube
+     * @return volume of the cube
      */
     public static double calculateVolume(double edge) {
         return Math.pow(edge,3);
