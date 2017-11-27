@@ -1,6 +1,8 @@
 // Fig. 21.17: Tree.java
 // TreeNode and Tree class declarations for a binary search tree.
 
+import java.awt.*;
+
 // class TreeNode definition
 class TreeNode<T extends Comparable<T>> {
     // package access members
@@ -99,23 +101,47 @@ public class Tree<T extends Comparable<T>> {
 // end class Tree
 
     public void outputTree()    {
-        outputTreeBook(root, 0);
-        outputTreeExam();
+        outputTree(root, 0);
+
     }
 
-    private void outputTreeBook(TreeNode<T> node, int totalSpaces) {
+    private void outputTree(TreeNode<T> node, int totalSpaces) {
         if(node!=null)   {
-            outputTreeBook(node.rightNode,totalSpaces+5);
+            outputTree(node.rightNode,totalSpaces+5);
             for(int i = 1;i<=totalSpaces;i++)
                 System.out.print(" ");
 
             System.out.print(node.data + "\n");
 
-            outputTreeBook(node.leftNode,totalSpaces +5);
+            outputTree(node.leftNode,totalSpaces +5);
         }
     }
 
-    //TODO
+    public void drawTree(Graphics2D g)    {
+        drawTree(root,290,40, g);
+    }
+
+    private void drawTree(TreeNode<T> currentNode, int xCoordinate, int yCoordinate,Graphics2D g)   {
+        if(currentNode == null) {
+            return;
+        }
+        g.drawString(currentNode.data+"",xCoordinate,yCoordinate);
+        if(currentNode.leftNode != null)    {
+            int leftXCoordinate = xCoordinate - 100;
+            int leftYCoordinate = yCoordinate + 100;
+            g.drawLine(xCoordinate,yCoordinate,leftXCoordinate,leftYCoordinate);
+            drawTree(currentNode.leftNode,leftXCoordinate,leftYCoordinate,g);
+        }
+        else if(currentNode.rightNode != null)  {
+            int rightXCoordinate = xCoordinate + 100;
+            int rightYCoordinate = yCoordinate + 100;
+            g.drawLine(xCoordinate,yCoordinate,rightXCoordinate,rightYCoordinate);
+            drawTree(currentNode.rightNode,rightXCoordinate,rightYCoordinate,g);
+        }
+    }
+
+    /*
+
     private void outputTreeExam(TreeNode<T> node, int level) {
         if (node == null)
             return;
@@ -124,16 +150,10 @@ public class Tree<T extends Comparable<T>> {
         else if (level > 1)
         {
             outputTreeExam(node.leftNode, level-1);
-            System.out.println("right\t\t");
+
             outputTreeExam(node.rightNode, level-1);
+            System.out.println("\t\t");
         }
-        /*if (node.leftNode != null) {
-            outputTreeExam(node.leftNode, level - 1);
-        }
-        else if(node.rightNode != null) {
-            outputTreeExam(node.rightNode, level - 1);
-        }
-        System.out.print(node.data + " ");*/
     }
 
     public void outputTreeExam() {
@@ -149,17 +169,17 @@ public class Tree<T extends Comparable<T>> {
         }
         else
         {
-            /* compute  height of each subtree */
+            // compute  height of each subtree
             int lheight = height(node.leftNode);
             int rheight = height(node.rightNode);
 
-            /* use the larger one */
+            // use the larger one
             if (lheight > rheight)
                 return(lheight+1);
             else
                 return(rheight+1);
         }
-    }
+    }*/
 
 }
 
