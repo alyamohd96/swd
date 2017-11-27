@@ -1,3 +1,8 @@
+/**
+ * This is the driver class for MergeSort. It creates an int array of size 100 and inserts random numbers from 0-100
+ * Then it calls the sort method from the merge sort class and sorts the array.
+ */
+
 import java.util.Arrays;
 import java.util.Random;
 
