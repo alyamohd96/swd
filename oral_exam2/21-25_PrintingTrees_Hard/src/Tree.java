@@ -119,11 +119,11 @@ public class Tree<T extends Comparable<T>> {
         }
     }
 
-    public void drawTree(Graphics2D g)    {
+    public void drawTree(Graphics g)    {
         drawTree(root,290,40, g);
     }
 
-    private void drawTree(TreeNode<T> currentNode, int xCoordinate, int yCoordinate,Graphics2D g)   {
+    private void drawTree(TreeNode<T> currentNode, int xCoordinate, int yCoordinate,Graphics g)   {
         if(currentNode == null) {
             return;
         }

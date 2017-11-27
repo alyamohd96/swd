@@ -28,10 +28,9 @@ public class Client extends JFrame {
     private Font defaultFont;
 
     /**
-     *
+     * initialize chatServer and set up GUI
      * @param host
      */
-    // initialize chatServer and set up GUI
     public Client(String host) {
         super("Client");
 
@@ -63,7 +62,9 @@ public class Client extends JFrame {
         setVisible(true); // show window
     }
 
-    // connect to server and process messages from server
+    /**
+     * connect to server and process messages from server
+     */
     public void runClient() {
         try // connect to server, get streams, process connection
         {
