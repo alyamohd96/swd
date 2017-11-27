@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.security.SecureRandom;
 
-public class PrintingTreesGUI extends JFrame{
+public class PrintingTreesGUI extends JPanel{
 
     public PrintingTreesGUI()   {
         Tree<Integer> tree = new Tree<Integer>();
@@ -17,7 +17,11 @@ public class PrintingTreesGUI extends JFrame{
             tree.insertNode(value);
         }
 
-        Graphics2D g2 = (Graphics2D) g;
-        tree.drawTree();
     }
+
+    @Override
+    public void paintComponent(Graphics g)  {
+
+    }
+
 }

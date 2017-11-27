@@ -142,46 +142,6 @@ public class Tree<T extends Comparable<T>> {
         }
     }
 
-    /*
-
-    private void outputTreeExam(TreeNode<T> node, int level) {
-        if (node == null)
-            return;
-        if (level == 1)
-            System.out.print(node.data + " ");
-        else if (level > 1)
-        {
-            outputTreeExam(node.leftNode, level-1);
-
-            outputTreeExam(node.rightNode, level-1);
-            System.out.println("\t\t");
-        }
-    }
-
-    public void outputTreeExam() {
-        for (int d = 1;d<=height(this.root);d++)
-            outputTreeExam(this.root,d);
-
-    }
-
-    //http://www.geeksforgeeks.org/level-order-tree-traversal/
-    private int height(TreeNode<T> node)    {
-        if (node == null) {
-            return 0;
-        }
-        else
-        {
-            // compute  height of each subtree
-            int lheight = height(node.leftNode);
-            int rheight = height(node.rightNode);
-
-            // use the larger one
-            if (lheight > rheight)
-                return(lheight+1);
-            else
-                return(rheight+1);
-        }
-    }*/
 
 }
 
