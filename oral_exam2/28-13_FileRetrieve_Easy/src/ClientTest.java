@@ -1,3 +1,7 @@
+/**
+ * This is the ClientTest method which is the class that the user will run to start the client GUI
+ */
+
 import javax.swing.*;
 
 public class ClientTest {

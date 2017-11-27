@@ -5,7 +5,6 @@
  * the textbook and class demos
  */
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -81,7 +80,9 @@ public class Client extends JFrame {
         }
     }
 
-    // connect to server
+    /**
+     * This method connect to server by creating a new socket connection
+      */
     private void connectToServer() throws IOException {
         displayMessage("Attempting connection\n");
 
@@ -93,7 +94,9 @@ public class Client extends JFrame {
                 client.getInetAddress().getHostName());
     }
 
-    // get streams to send and receive data
+    /**
+     * This method get streams to send and receive data
+      */
     private void getStreams() throws IOException {
         // set up output stream for objects
         output = new ObjectOutputStream(client.getOutputStream());
@@ -105,7 +108,10 @@ public class Client extends JFrame {
         displayMessage("\nGot I/O streams\n");
     }
 
-    // process connection with server
+    /**
+     * This method process connection with server
+      */
+
     private void processConnection() throws IOException {
         // enable enterField so client user can send messages
         setTextFieldEditable(true);
@@ -124,7 +130,10 @@ public class Client extends JFrame {
         } while (!message.equals("SERVER>>> TERMINATE"));
     }
 
-    // close streams and socket
+    /**
+     * this method close streams and socket
+      */
+
     private void closeConnection() {
         displayMessage("\nClosing connection");
         setTextFieldEditable(false); // disable enterField
@@ -138,7 +147,9 @@ public class Client extends JFrame {
         }
     }
 
-    // send message to server
+    /**
+     * This method send message to server
+      */
     private void sendData(String message) {
         try // send object to server
         {
@@ -150,7 +161,9 @@ public class Client extends JFrame {
         }
     }
 
-    // manipulates displayArea in the event-dispatch thread
+    /**
+     * This method manipulates displayArea in the event-dispatch thread
+      */
     private void displayMessage(final String messageToDisplay) {
         SwingUtilities.invokeLater(
                 new Runnable() {
@@ -162,7 +175,9 @@ public class Client extends JFrame {
         );
     }
 
-    // manipulates enterField in the event-dispatch thread
+    /**
+     * This method manipulates enterField in the event-dispatch thread
+      */
     private void setTextFieldEditable(final boolean editable) {
         SwingUtilities.invokeLater(
                 new Runnable() {

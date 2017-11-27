@@ -1,3 +1,7 @@
+/**
+ * This is the ServerTest class which is the driver class for the server.
+ */
+
 import javax.swing.*;
 
 public class ServerTest {
