@@ -2,6 +2,8 @@
  *
  * http://www.geeksforgeeks.org/merge-sort/
  * https://www.toptal.com/developers/sorting-algorithms/merge-sort
+ *
+ * WHY FINAL?
  * Correct way to define utility class is to make it final so that no other class can extend it and to have
  * private no-args constructor so that no one can create an instance of the class.
  * So you won't be able to create instance of class any how. However if you go by abstract approach, you cannot
@@ -10,60 +12,65 @@
 
 public final class MergeSort {
 
+    private MergeSort() {
+
+    }
+
     // Merges two subarrays of arr[].
     // First subarray is arr[l..m]
     // Second subarray is arr[m+1..r]
-    private static void merge(int arr[], int l, int m, int r)
+    private static void merge(int arr[], int firstIndex, int middle, int lastIndex)
     {
         // Find sizes of two subarrays to be merged
-        int n1 = m - l + 1;
-        int n2 = r - m;
+        int size1 = middle - firstIndex + 1;
+        int size2 = lastIndex - middle;
 
         /* Create temp arrays */
-        int L[] = new int [n1];
-        int R[] = new int [n2];
+        int left[] = new int [size1];
+        int right[] = new int [size2];
 
         /*Copy data to temp arrays*/
-        for (int i=0; i<n1; ++i)
-            L[i] = arr[l + i];
-        for (int j=0; j<n2; ++j)
-            R[j] = arr[m + 1+ j];
+        for (int i=0; i<size1; ++i)
+            left[i] = arr[firstIndex + i];
+        for (int j=0; j<size2; ++j)
+            right[j] = arr[middle + 1+ j];
 
 
         /* Merge the temp arrays */
 
         // Initial indexes of first and second subarrays
-        int i = 0, j = 0;
+        int i = 0;
+        int j = 0;
 
         // Initial index of merged subarry array
-        int k = l;
-        while (i < n1 && j < n2)
+        int k = firstIndex;
+        while (i < size1 && j < size2)
         {
-            if (L[i] <= R[j])
+            if (left[i] <= right[j])
             {
-                arr[k] = L[i];
+                arr[k] = left[i];
                 i++;
             }
             else
             {
-                arr[k] = R[j];
+                arr[k] = right[j];
                 j++;
             }
             k++;
         }
 
-        /* Copy remaining elements of L[] if any */
-        while (i < n1)
+        /* Copy remaining elements of left[] if any */
+        while (i < size1)
         {
-            arr[k] = L[i];
+            arr[k] = left[i];
             i++;
             k++;
         }
 
         /* Copy remaining elements of R[] if any */
-        while (j < n2)
+        while (j < size2)
         {
-            arr[k] = R[j];
+            arr[k] = right[j];
             j++;
             k++;
         }
@@ -71,19 +78,19 @@ public final class MergeSort {
 
     // Main function that sorts arr[l..r] using
     // merge()
-    public static void sort(int arr[], int l, int r)
+    public static void sort(int arr[], int firstIndex, int lastIndex)
     {
-        if (l < r)
+        if (firstIndex < lastIndex)
         {
             // Find the middle point
-            int m = (l+r)/2;
+            int middle = (firstIndex+lastIndex)/2;
 
             // Sort first and second halves
-            sort(arr, l, m);
-            sort(arr , m+1, r);
+            sort(arr, firstIndex, lastIndex);
+            sort(arr , middle+1, lastIndex);
 
             // Merge the sorted halves
-            merge(arr, l, m, r);
+            merge(arr, firstIndex, middle, lastIndex);
         }
     }
 
