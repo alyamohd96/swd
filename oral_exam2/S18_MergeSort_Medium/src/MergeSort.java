@@ -3,12 +3,14 @@
  * http://www.geeksforgeeks.org/merge-sort/
  * https://www.toptal.com/developers/sorting-algorithms/merge-sort
  *
- * WHY FINAL?
- * Correct way to define utility class is to make it final so that no other class can extend it and to have
- * private no-args constructor so that no one can create an instance of the class.
- * So you won't be able to create instance of class any how. However if you go by abstract approach, you cannot
- * use final and there is no way you can prevent it from being extended. Hence former approach is better.
+ *
  */
+
+// WHY FINAL?
+// Correct way to define utility class is to make it final so that no other class can extend it and to have
+// private no-args constructor so that no one can create an instance of the class so you won't be able to create
+// instance of class any how. However if you go by abstract approach, you cannot use final and there is no way
+// you can prevent it from being extended. Hence former approach is better.
 
 public final class MergeSort {
 

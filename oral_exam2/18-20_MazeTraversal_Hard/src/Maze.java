@@ -4,7 +4,7 @@ public class Maze {
 
         static char[][] a = new char[12][12];
 
-        private static void mazeTraversal(int i, int j) {
+        private static void mazeTraversal(char maze[][],int i, int j) {
 
             game++;
 
@@ -34,25 +34,25 @@ public class Maze {
 
                 a[i][j] = 'X';
 
-                mazeTraversal(i, j - 1);
+                mazeTraversal(maze,i, j - 1);
 
             } else if (j < 11 && a[i][j + 1] == '.') {////RIGHT move
 
                 a[i][j] = 'X';
 
-                mazeTraversal(i, j + 1);
+                mazeTraversal(maze,i, j + 1);
 
             } else if (i > 0 && a[i - 1][j] == '.') {////UP move
 
                 a[i][j] = 'X';
 
-                mazeTraversal(i - 1, j);
+                mazeTraversal(maze,i - 1, j);
 
             } else if (i < 11 && a[i + 1][j] == '.') {////DOWN move
 
                 a[i][j] = 'X';
 
-                mazeTraversal(i + 1, j);
+                mazeTraversal(maze,i + 1, j);
 
             } else if (i == 0 || j == 0 || i == 11 || j == 11) {
 
@@ -68,25 +68,25 @@ public class Maze {
 
                     a[i][j] = '0';
 
-                    mazeTraversal(i, j - 1);
+                    mazeTraversal(maze,i, j - 1);
 
                 } else if (j < 11 && a[i][j + 1] == 'X') {//RIGHT
 
                     a[i][j] = '0';
 
-                    mazeTraversal(i, j + 1);
+                    mazeTraversal(maze,i, j + 1);
 
                 } else if (i > 0 && a[i - 1][j] == 'X') {//UP
 
                     a[i][j] = '0';
 
-                    mazeTraversal(i - 1, j);
+                    mazeTraversal(maze,i - 1, j);
 
                 } else if (i < 11 && a[i + 1][j] == 'X') {//DOWN
 
                     a[i][j] = '0';
 
-                    mazeTraversal(i + 1, j);
+                    mazeTraversal(maze,i + 1, j);
 
                 }
 
@@ -145,8 +145,19 @@ public class Maze {
             }
 
             //Inputting to the maze
-
-            mazeTraversal(2, 0);
+            char maze[][] = { {'#','#','#','#','#','#','#','#','#','#','#','#'},
+                    {'#','.','.','.','#','.','.','.','.','.','.','#'},
+                    {'.','.','#','.','#','.','#','#','#','#','.','#'},
+                    {'#','#','#','.','#','.','.','.','.','#','.','#'},
+                    {'#','.','.','.','.','#','#','#','.','#','.','.'},
+                    {'#','#','#','#','.','#','.','#','.','#','.','#'},
+                    {'#','.','.','#','.','#','.','#','.','#','.','#'},
+                    {'#','#','.','#','.','#','.','#','.','#','.','#'},
+                    {'#','.','.','.','.','.','.','.','.','#','.','#'},
+                    {'#','#','#','#','#','#','.','#','#','#','.','#'},
+                    {'#','.','.','.','.','.','.','#','.','.','.','#'},
+                    {'#','#','#','#','#','#','#','#','#','#','#','#'} };
+            mazeTraversal(maze,2, 0);
 
             System.out.println("Final Move Number-" + game);
 

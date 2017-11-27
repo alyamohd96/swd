@@ -1,108 +1,116 @@
-import java.util.Scanner;
+/**
+ * http://www.octopusfunda.com/2015/05/maze-traversal-using-recursive.html
+ */
 
-public class MazeTraversal {
+public final class MazeTraversal {
 
-    private static final int DOWN = 0;
-    private static final int RIGHT = 1;
-    private static final int UP = 2;
-    private static final int LEFT = 3;
-    private static final int startRow = 2;
-    private static final int startColumn = 0;
     private static int moves = 0;
-    private static char maze[][] = { {'#','#','#','#','#','#','#','#','#','#','#','#'},
-            {'#','.','.','.','#','.','.','.','.','.','.','#'},
-            {'.','.','#','.','#','.','#','#','#','#','.','#'},
-            {'#','#','#','.','#','.','.','.','.','#','.','#'},
-            {'#','.','.','.','.','#','#','#','.','#','.','.'},
-            {'#','#','#','#','.','#','.','#','.','#','.','#'},
-            {'#','.','.','#','.','#','.','#','.','#','.','#'},
-            {'#','#','.','#','.','#','.','#','.','#','.','#'},
-            {'#','.','.','.','.','.','.','.','.','#','.','#'},
-            {'#','#','#','#','#','#','.','#','#','#','.','#'},
-            {'#','.','.','.','.','.','.','#','.','.','.','#'},
-            {'#','#','#','#','#','#','#','#','#','#','#','#'} };
-    public Scanner input = new Scanner(System.in);
 
-    public void traverse() {
-        boolean result = mazeTraversal(maze, startRow, startColumn);
-        if (!result)
-            System.out.println("Maze has no solution");
+    /**
+     *
+     */
+    private MazeTraversal() {
+
     }
 
-    private boolean mazeTraversal(char maze[][], int x, int y) {
-        maze[x][y] = 'X';
-        moves++;
-        printMaze();
-        if(( x == startRow) && (y == startColumn) && (moves > 1))   {
-            System.out.print("Returned to starting location!");
-            return false;
-        }
-        else if( mazeExited(x,y) && (moves > 1)) {
-            System.out.println("Maze successfully exited");
-            return true;
-        }
-        else    {
-            System.out.print( "Enter 'y' to continue 'n' to exit: ");
-            char response = input.nextLine().charAt(0);
-            if(response == 'n')
-                System.exit(0);
+    /**
+     *
+     * @param maze
+     */
+    public static void traverse(char maze[][], int startRow, int startColumn) {
+        mazeTraversal(maze, startRow, startColumn);
+    }
 
-            for(int count = 0; count < 4; count++)  {
-                switch(count)   {
-                    case DOWN:
-                        if(validMove(x+1,y))    {
-                            if(mazeTraversal(maze,x+1,y))
-                                return true;
-                        }
-                        break;
-                    case RIGHT:
-                        if(validMove(x,y+1))    {
-                            if(mazeTraversal(maze,x+1,y))
-                                return true;
-                        }
-                        break;
-                    case UP:
-                        if(validMove(x-1,y))    {
-                            if(mazeTraversal(maze,x+1,y))
-                                return true;
-                        }
-                        break;
-                    case LEFT:
-                        if(validMove(x,y-1))    {
-                            if(mazeTraversal(maze,x+1,y))
-                                return true;
-                        }
-                }
+    /**
+     *
+     * @param maze
+     */
+    public static void printMaze(char maze[][]) {
+        System.out.println("Move Number-" + moves);
+        for (int k = 0; k < 12; k++) {
+
+            for (int l = 0; l < 12; l++) {
+                System.out.print(maze[k][l] + "  ");
             }
-            maze[x][y] = '0';
-            return false;
-        }
-    }
-
-    private boolean validMove(int row, int col) {
-        return ( (row >= 0) && (row <= 11) && (col >= 0) && (col <= 11) && (maze[row][col] == '.') );
-    }
-
-    private boolean mazeExited(int row, int col) {
-        return ( (row == 11) || (col == 11) );
-    }
-
-    private void printMaze() {
-        int x = 5;
-        int y = 30;
-
-        for (int row = 0; row < maze.length; row++) {
-            for (int col = 0; col < maze[row].length; col++) {
-                if (maze[row][col] == '0')
-                    System.out.print(".");
-                else
-                    System.out.print(" " + maze[row][col]);
-            }
-            y += 10;
-            x = 5;
             System.out.println();
+
         }
-        System.out.println();
+    }
+
+    /**
+     *
+     * @param maze
+     * @param i
+     * @param j
+     */
+    private static void mazeTraversal(char maze[][], int i, int j) {
+        moves++;
+
+        //LEFT move
+        if (j > 0 && maze[i][j - 1] == '.') {
+
+            maze[i][j] = 'X';
+            mazeTraversal(maze,i, j - 1);
+
+        }
+        ////RIGHT move
+        else if (j < 11 && maze[i][j + 1] == '.') {
+
+            maze[i][j] = 'X';
+            mazeTraversal(maze,i, j + 1);
+
+        }
+        ////UP move
+        else if (i > 0 && maze[i - 1][j] == '.') {
+
+            maze[i][j] = 'X';
+
+            mazeTraversal(maze,i - 1, j);
+
+        }
+        ////DOWN move
+        else if (i < 11 && maze[i + 1][j] == '.') {
+
+            maze[i][j] = 'X';
+
+            mazeTraversal(maze,i + 1, j);
+
+        } else if (i == 0 || j == 0 || i == 11 || j == 11) {
+
+            maze[i][j] = 'X';
+
+        } else {
+
+            maze[i][j] = '0';//Wrong Path
+
+            /////////////////////////TRACING BACK//////////////////////
+
+            if (j > 0 && maze[i][j - 1] == 'X') {//LEFT
+
+                maze[i][j] = '0';
+
+                mazeTraversal(maze, i, j - 1);
+
+            } else if (j < 11 && maze[i][j + 1] == 'X') {//RIGHT
+
+                maze[i][j] = '0';
+
+                mazeTraversal(maze, i, j + 1);
+
+            } else if (i > 0 && maze[i - 1][j] == 'X') {//UP
+
+                maze[i][j] = '0';
+
+                mazeTraversal(maze, i - 1, j);
+
+            } else if (i < 11 && maze[i + 1][j] == 'X') {//DOWN
+
+                maze[i][j] = '0';
+
+                mazeTraversal(maze, i + 1, j);
+
+            }
+        }
     }
 
 }
