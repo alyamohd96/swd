@@ -1,8 +1,9 @@
 /**
- * This Server class is
+ * Fig. 28.3: Server.java
+ * Server portion of a client/server stream-socket connection.
+ * This Server class is the class that will act as a server and that will find the file and send it to the client.
  */
-// Fig. 28.3: Server.java
-// Server portion of a client/server stream-socket connection. 
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -24,7 +25,9 @@ public class Server extends JFrame {
     private int counter = 1; // counter of number of connections
     private final Font defaultFont;
 
-    // set up GUI
+    /**
+     * This method set up GUI
+      */
     public Server() {
         super("Server");
 
@@ -54,7 +57,9 @@ public class Server extends JFrame {
         setVisible(true); // show window
     }
 
-    // set up and run server
+    /**
+     * This method set up and run server
+      */
     public void runServer() {
         try // set up server to receive connections; process connections
         {
@@ -78,7 +83,9 @@ public class Server extends JFrame {
         }
     }
 
-    // wait for connection to arrive, then display connection info
+    /**
+     * This method wait for connection to arrive, then display connection info
+      */
     private void waitForConnection() throws IOException {
         displayMessage("Waiting for connection\n");
         connection = server.accept(); // allow server to accept connection
@@ -86,7 +93,9 @@ public class Server extends JFrame {
                 connection.getInetAddress().getHostName());
     }
 
-    // get streams to send and receive data
+    /**
+     * This method get streams to send and receive data
+      */
     private void getStreams() throws IOException {
         // set up output stream for objects
         output = new ObjectOutputStream(connection.getOutputStream());
@@ -98,7 +107,9 @@ public class Server extends JFrame {
         displayMessage("\nGot I/O streams\n");
     }
 
-    // process connection with client
+    /**
+     * This method process connection with client
+      */
     private void processConnection() throws IOException {
         String message = "Connection successful";
         sendData(message); // send connection successful message
@@ -125,7 +136,9 @@ public class Server extends JFrame {
         } while (!message.equals("CLIENT>>> TERMINATE"));
     }
 
-    // close streams and socket
+    /**
+     * This method close streams and socket
+      */
     private void closeConnection() {
         displayMessage("\nTerminating connection\n");
         setTextFieldEditable(false); // disable enterField
@@ -140,9 +153,10 @@ public class Server extends JFrame {
     }
 
     /**
-     *"C:\\Users\\alyam\\Git\\ttmohd_swd\\lab\\FileRetrieve2\\src\\"
+     *This method find the file. The file MUST BE IN THE SAME DIRECTORY AS THE SOURCE CODE.
+     * "C:\\Users\\alyam\\Git\\ttmohd_swd\\lab\\FileRetrieve2\\src\\"
      * @param fileName
-     * @return
+     * @return The contents of the file
      */
     private String findFile(String fileName) {
         //TODO change the pathOfFile
@@ -167,7 +181,10 @@ public class Server extends JFrame {
     }
 
 
-    // send message to client
+    /**
+     *  send message to client
+     * @param message message to be send to client
+     */
     private void sendData(String message) {
         try // send object to client
         {
@@ -179,7 +196,9 @@ public class Server extends JFrame {
         }
     }
 
-    // manipulates displayArea in the event-dispatch thread
+    /**
+     * This method manipulates displayArea in the event-dispatch thread
+      */
     private void displayMessage(final String messageToDisplay) {
         SwingUtilities.invokeLater(
                 new Runnable() {
@@ -191,7 +210,10 @@ public class Server extends JFrame {
         );
     }
 
-    // manipulates enterField in the event-dispatch thread
+    /**
+     * manipulates enterField in the event-dispatch thread
+     * @param editable
+     */
     private void setTextFieldEditable(final boolean editable) {
         SwingUtilities.invokeLater(
                 new Runnable() {
