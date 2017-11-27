@@ -17,6 +17,7 @@ public class PrintingTreesGUI extends JFrame{
             tree.insertNode(value);
         }
 
+        Graphics2D g2 = (Graphics2D) g;
         tree.drawTree();
     }
 }
