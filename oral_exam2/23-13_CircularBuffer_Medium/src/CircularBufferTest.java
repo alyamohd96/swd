@@ -1,5 +1,8 @@
-// Fig 23.19: CircularBufferTest.java
-// Producer and Consumer threads correctly manipulating a circular buffer.
+/**
+ * Fig 23.19: CircularBufferTest.java
+ * Producer and Consumer threads correctly manipulating a circular buffer.
+ * This is copied from the textbook and the class demos
+ */
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

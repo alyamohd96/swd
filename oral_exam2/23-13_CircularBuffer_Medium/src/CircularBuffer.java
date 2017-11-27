@@ -1,5 +1,9 @@
-// Fig. 23.13: CircularBuffer.java
-// SynchronizedBuffer synchronizes access to a single shared integer.
+/**
+ * Fig. 23.13: CircularBuffer.java
+ * SynchronizedBuffer synchronizes access to a single shared integer.
+ * This is copied from the textbook and the class demos
+ */
+
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.Condition;

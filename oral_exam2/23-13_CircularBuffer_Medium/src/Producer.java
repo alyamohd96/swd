@@ -1,5 +1,8 @@
-// Fig. 23.10: Producer.java
-// Producer with a run method that inserts the values 1 to 10 in buffer.
+/**
+ * Fig. 23.10: Producer.java
+ * Producer with a run method that inserts the values 1 to 10 in buffer.
+ * This is copied from the textbook and the class demos
+ */
 
 import java.security.SecureRandom;
 

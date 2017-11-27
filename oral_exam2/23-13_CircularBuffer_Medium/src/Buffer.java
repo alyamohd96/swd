@@ -1,6 +1,7 @@
 /**
  * Fig. 23.9: Buffer.java
- * Buffer interface specifies methods called by Producer and Consumer.
+ * Buffer interface specifies methods called by Producer and Consumer. This is copied from the textbook and the
+ * class demos
  */
 
 public interface Buffer {

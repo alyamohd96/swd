@@ -1,5 +1,8 @@
-// Fig. 23.11: Consumer.java
-// Consumer with a run method that loops, reading 10 values from buffer.
+/**
+ * Fig. 23.11: Consumer.java
+ * Consumer with a run method that loops, reading 10 values from buffer.
+ * This is copied from the textbook and the class demos
+ */
 
 import java.security.SecureRandom;
 
