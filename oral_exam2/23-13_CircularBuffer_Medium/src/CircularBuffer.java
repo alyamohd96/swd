@@ -23,7 +23,10 @@ public class CircularBuffer implements Buffer
     private int writeIndex = 0; // index to write next value
     private int readIndex = 0; // index to read next value
 
-    // place value into buffer
+    /**
+     *  this is a method that places value into buffer. The method ensures that the next value to be placed in the buffer
+     *  will be after the current value has already been read to prevent overwriting unread value
+     */
     public void blockingPut( int value )
     {
         accessLock.lock(); // lock this object
@@ -57,7 +60,10 @@ public class CircularBuffer implements Buffer
         } // end finally
     } // end method set
 
-    // return value from buffer
+    /**
+     * This is a method that returns value from buffer. This is for the consumer to read the value in the buffer and ensures that the
+     * value is to be read only once
+     */
     public int blockingGet()
     {
         int readValue = 0; // initialize value read from buffer
@@ -95,7 +101,10 @@ public class CircularBuffer implements Buffer
         return readValue;
     } // end method get
 
-    // display current operation and buffer state
+    /**
+     * This method displays current operation and buffer state
+     * @param operation
+     */
     public void displayState( String operation )
     {
         // output operation and number of occupied buffers

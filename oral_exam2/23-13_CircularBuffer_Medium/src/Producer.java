@@ -10,12 +10,16 @@ public class Producer implements Runnable {
     private static final SecureRandom generator = new SecureRandom();
     private final Buffer sharedLocation; // reference to shared object
 
-    // constructor
+    /**
+     * This is a one argument constructor that receives the location of the shared buffer
+     */
     public Producer(Buffer sharedLocation) {
         this.sharedLocation = sharedLocation;
     }
 
-    // store values from 1 to 10 in sharedLocation
+    /**
+     * This method stores values from 1 to 10 in sharedLocation buffer.
+     */
     public void run() {
         int sum = 0;
 

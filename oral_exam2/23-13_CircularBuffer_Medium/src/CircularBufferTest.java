@@ -1,7 +1,8 @@
 /**
  * Fig 23.19: CircularBufferTest.java
  * Producer and Consumer threads correctly manipulating a circular buffer.
- * This is copied from the textbook and the class demos
+ * This is copied from the textbook and the class demos. It will run both consumer and producer at the same time
+ * using the executor service
  */
 
 import java.util.concurrent.ExecutorService;
