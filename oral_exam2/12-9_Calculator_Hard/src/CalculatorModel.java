@@ -3,12 +3,6 @@ public class CalculatorModel {
 
     private double number1;
     private double number2;
-    //private String operator;
-
-    /*public CalculatorModel(double number1, double number2) {
-        this.number1 = number1;
-        this.number2 = number2;
-    }*/
 
     public double getNumber1() {
         return number1;
