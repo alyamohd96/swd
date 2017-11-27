@@ -1,3 +1,6 @@
+/**
+ * This is the driver class for the MazeTraversal. It creates a maze and stores it in a char array variable type.
+ */
 public class MazeTraversalDriver {
 
     public static void main(String args[])  {
@@ -18,6 +21,5 @@ public class MazeTraversalDriver {
         MazeTraversal.printMaze(maze);
         MazeTraversal.traverse(maze,2,0);
         MazeTraversal.printMaze(maze);
-
     }
 }
