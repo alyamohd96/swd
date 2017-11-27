@@ -1,5 +1,10 @@
-// Fig. 28.5: Client.java
-// Client portion of a stream-socket connection between client and server.
+/**
+ * Fig. 28.5: Client.java
+ * Client portion of a stream-socket connection between client and server.
+ * This class is the client class and the class that connects the user to the server. It is copied and edited from
+ * the textbook and class demos
+ */
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,6 +27,10 @@ public class Client extends JFrame {
     private Socket client; // socket to communicate with server
     private Font defaultFont;
 
+    /**
+     *
+     * @param host
+     */
     // initialize chatServer and set up GUI
     public Client(String host) {
         super("Client");
