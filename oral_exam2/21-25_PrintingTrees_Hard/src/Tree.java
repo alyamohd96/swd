@@ -1,8 +1,7 @@
-// Fig. 21.17: Tree.java
-// TreeNode and Tree class declarations for a binary search tree.
-
-import com.sun.corba.se.impl.orbutil.graph.Graph;
-
+/**
+ * Fig. 21.17: Tree.java
+ * TreeNode and Tree class declarations for a binary search tree.
+ */
 import java.awt.*;
 
 // class TreeNode definition
@@ -142,7 +141,7 @@ public class Tree<T extends Comparable<T>> {
             rightXCoordinate += space;
             rightYCoordinate += space;
             g.drawLine(xCoordinate,yCoordinate,rightXCoordinate,rightYCoordinate);
-            drawStructure(currentNode.rightNode,rightXCoordinate,rightYCoordinate,g,space/4);
+            drawStructure(currentNode.rightNode,rightXCoordinate,rightYCoordinate,g,space/3);
         }
     }
 

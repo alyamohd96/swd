@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.security.SecureRandom;
 
 public class PrintingTreesGUI extends JPanel{
 
