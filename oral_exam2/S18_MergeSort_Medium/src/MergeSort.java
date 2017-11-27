@@ -2,18 +2,17 @@
  *
  * http://www.geeksforgeeks.org/merge-sort/
  * https://www.toptal.com/developers/sorting-algorithms/merge-sort
+ * Correct way to define utility class is to make it final so that no other class can extend it and to have
+ * private no-args constructor so that no one can create an instance of the class.
+ * So you won't be able to create instance of class any how. However if you go by abstract approach, you cannot
+ * use final and there is no way you can prevent it from being extended. Hence former approach is better.
  */
 
-public class MergeSort {
+public final class MergeSort {
 
     // Merges two subarrays of arr[].
     // First subarray is arr[l..m]
     // Second subarray is arr[m+1..r]
-
-    public MergeSort(int arrToBeSorted[], int l, int r)  {
-        MergeSort.sort(arrToBeSorted, l, r);
-    }
-
     private static void merge(int arr[], int l, int m, int r)
     {
         // Find sizes of two subarrays to be merged
@@ -72,7 +71,7 @@ public class MergeSort {
 
     // Main function that sorts arr[l..r] using
     // merge()
-    private static void sort(int arr[], int l, int r)
+    public static void sort(int arr[], int l, int r)
     {
         if (l < r)
         {

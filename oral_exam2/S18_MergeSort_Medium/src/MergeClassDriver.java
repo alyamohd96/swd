@@ -13,7 +13,7 @@ public class MergeClassDriver {
         }
         System.out.println(Arrays.toString(numberArray));
 
-        MergeSort mergeArray = new MergeSort(numberArray, 0, numberArray.length-1);
+        MergeSort.sort(numberArray, 0, numberArray.length-1);
         System.out.println(Arrays.toString(numberArray));
     }
 }
