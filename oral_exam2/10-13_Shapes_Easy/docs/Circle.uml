@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Circle</OriginalElement>
+  <nodes>
+    <node x="572.0" y="237.0">Sphere</node>
+    <node x="1381.0" y="261.0">Circle</node>
+    <node x="286.0" y="237.0">Tetrahedron</node>
+    <node x="1140.0" y="143.0">TwoDimensionalShapes</node>
+    <node x="0.0" y="237.0">Cube</node>
+    <node x="321.50000000000006" y="131.0">ThreeDimensionalShape</node>
+    <node x="734.0" y="0.0">ShapesBaseClass</node>
+    <node x="1111.0" y="249.0">Triangle</node>
+    <node x="865.0" y="261.0">Square</node>
+    <node x="0.0" y="485.0">ShapesEasyDriver</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Triangle" target="TwoDimensionalShapes">
+      <point x="0.0" y="-89.5" />
+      <point x="0.0" y="16.0" />
+    </edge>
+    <edge source="Circle" target="TwoDimensionalShapes">
+      <point x="0.0" y="-77.5" />
+      <point x="1497.5" y="212.0" />
+      <point x="1300.0" y="212.0" />
+      <point x="64.0" y="16.0" />
+    </edge>
+    <edge source="Square" target="TwoDimensionalShapes">
+      <point x="0.0" y="-77.5" />
+      <point x="978.0" y="212.0" />
+      <point x="1172.0" y="212.0" />
+      <point x="-64.0" y="16.0" />
+    </edge>
+    <edge source="Sphere" target="ThreeDimensionalShape">
+      <point x="0.0" y="-101.5" />
+      <point x="708.5" y="212.0" />
+      <point x="484.00000000000006" y="212.0" />
+      <point x="65.0" y="28.0" />
+    </edge>
+    <edge source="ThreeDimensionalShape" target="ShapesBaseClass">
+      <point x="-5.6843418860808015E-14" y="-28.0" />
+      <point x="419.0" y="106.0" />
+      <point x="780.75" y="106.0" />
+      <point x="-46.75" y="40.5" />
+    </edge>
+    <edge source="TwoDimensionalShapes" target="ShapesBaseClass">
+      <point x="0.0" y="-16.0" />
+      <point x="1236.0" y="106.0" />
+      <point x="874.25" y="106.0" />
+      <point x="46.75" y="40.5" />
+    </edge>
+    <edge source="Tetrahedron" target="ThreeDimensionalShape">
+      <point x="0.0" y="-101.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="Cube" target="ThreeDimensionalShape">
+      <point x="0.0" y="-101.5" />
+      <point x="133.0" y="212.0" />
+      <point x="354.00000000000006" y="212.0" />
+      <point x="-65.0" y="28.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="335.0" y="136.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
