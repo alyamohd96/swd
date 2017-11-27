@@ -4,24 +4,15 @@ import java.security.SecureRandom;
 
 public class PrintingTreesGUI extends JPanel{
 
-    public PrintingTreesGUI()   {
-        Tree<Integer> tree = new Tree<Integer>();
-        SecureRandom randomNumber = new SecureRandom();
+    private Tree<Integer> tree;
 
-        System.out.println("Inserting the following values: ");
-
-        // insert 10 random integers from 0-99 in tree
-        for (int i = 1; i <= 10; i++) {
-            int value = randomNumber.nextInt(100);
-            System.out.printf("%d ", value);
-            tree.insertNode(value);
-        }
-
+    public PrintingTreesGUI(Tree<Integer> tree)   {
+        this.tree = tree;
     }
 
     @Override
     public void paintComponent(Graphics g)  {
-
+        tree.drawStructure(g);
     }
 
 }

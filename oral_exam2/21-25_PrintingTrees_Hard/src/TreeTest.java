@@ -1,10 +1,12 @@
 // Fig. 21.18: TreeTest.java
 // Binary tree test program.
 
+import javax.swing.*;
 import java.security.SecureRandom;
 
-public class TreeTest {
+public class TreeTest extends JFrame{
     public static void main(String[] args) {
+
         Tree<Integer> tree = new Tree<Integer>();
         SecureRandom randomNumber = new SecureRandom();
 
@@ -17,34 +19,15 @@ public class TreeTest {
             tree.insertNode(value);
         }
 
-        System.out.printf("%n%nPreorder traversal%n");
-        tree.preorderTraversal();
-
-        System.out.printf("%n%nInorder traversal%n");
-        tree.inorderTraversal();
-
-        System.out.printf("%n%nPostorder traversal%n");
-        tree.postorderTraversal();
-        System.out.println();
-
-        System.out.printf("%n%nPrint output tree%n");
         tree.outputTree();
-        System.out.println();
+
+        JFrame treesGUI = new JFrame();
+        treesGUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        treesGUI.setSize(1000,1000);
+        treesGUI.setVisible(true);
+
+        treesGUI.add(new PrintingTreesGUI(tree));
+
     }
 } // end class TreeTest
 
-
-/**************************************************************************
- * (C) Copyright 1992-2014 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/

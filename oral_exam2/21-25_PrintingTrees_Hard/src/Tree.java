@@ -119,26 +119,30 @@ public class Tree<T extends Comparable<T>> {
         }
     }
 
-    public void drawTree(Graphics g)    {
-        drawTree(root,290,40, g);
+    public void drawStructure(Graphics g)    {
+        drawStructure(root,500,200, g,300);
     }
 
-    private void drawTree(TreeNode<T> currentNode, int xCoordinate, int yCoordinate,Graphics g)   {
+    private void drawStructure(TreeNode<T> currentNode, int xCoordinate, int yCoordinate,Graphics g,int space) {
+        int leftXCoordinate = xCoordinate;
+        int leftYCoordinate = yCoordinate;
+        int rightXCoordinate = xCoordinate;
+        int rightYCoordinate = yCoordinate;
         if(currentNode == null) {
             return;
         }
         g.drawString(currentNode.data+"",xCoordinate,yCoordinate);
         if(currentNode.leftNode != null)    {
-            int leftXCoordinate = xCoordinate - 100;
-            int leftYCoordinate = yCoordinate + 100;
+            leftXCoordinate -= space;
+            leftYCoordinate += space;
             g.drawLine(xCoordinate,yCoordinate,leftXCoordinate,leftYCoordinate);
-            drawTree(currentNode.leftNode,leftXCoordinate,leftYCoordinate,g);
+            drawStructure(currentNode.leftNode,leftXCoordinate,leftYCoordinate,g,space/3);
         }
-        else if(currentNode.rightNode != null)  {
-            int rightXCoordinate = xCoordinate + 100;
-            int rightYCoordinate = yCoordinate + 100;
+        if(currentNode.rightNode != null)  {
+            rightXCoordinate += space;
+            rightYCoordinate += space;
             g.drawLine(xCoordinate,yCoordinate,rightXCoordinate,rightYCoordinate);
-            drawTree(currentNode.rightNode,rightXCoordinate,rightYCoordinate,g);
+            drawStructure(currentNode.rightNode,rightXCoordinate,rightYCoordinate,g,space/4);
         }
     }
 
