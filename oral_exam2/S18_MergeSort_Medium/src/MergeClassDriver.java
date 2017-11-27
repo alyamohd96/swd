@@ -11,9 +11,13 @@ public class MergeClassDriver {
         for(int num = 0; num<numberArray.length; num++)    {
             numberArray[num] = rand.nextInt(100);
         }
-        System.out.println(Arrays.toString(numberArray));
+
+        System.out.println("Before sorting:");
+        System.out.println(Arrays.toString(numberArray)+"\n");
 
         MergeSort.sort(numberArray, 0, numberArray.length-1);
-        System.out.println(Arrays.toString(numberArray));
+
+        System.out.println("After sorting:");
+        System.out.println(Arrays.toString(numberArray)+"\n");
     }
 }
